@@ -30,3 +30,7 @@ install:
 .PHONY: clean
 clean:
 	flutter clean && flutter pub cache clean
+
+.PHONY: coverage
+coverage:
+	flutter test --coverage

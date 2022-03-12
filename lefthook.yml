@@ -8,6 +8,9 @@ pre-push:
 pre-commit:
   parallel: true
   commands:
+    markdown-link-check:
+      glob: '*.md'
+      run: npx markdown-link-check {staged_files}
     linter:
       run: flutter analyze
     fix:

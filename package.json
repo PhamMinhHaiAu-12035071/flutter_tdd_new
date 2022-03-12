@@ -23,6 +23,7 @@
   "homepage": "https://github.com/PhamMinhHaiAu-12035071/flutter_tdd_new#readme",
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.7",
-    "cucumber-html-reporter": "^5.5.0"
+    "cucumber-html-reporter": "^5.5.0",
+    "markdown-link-check": "^3.9.3"
   }
 }

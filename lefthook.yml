@@ -1,0 +1,20 @@
+pre-push:
+  commands:
+    linter:
+      run: flutter analyze
+    test:
+      run: flutter test
+
+pre-commit:
+  parallel: true
+  commands:
+    linter:
+      run: flutter analyze
+    fix:
+      run: dart fix --apply
+    pretty:
+      files: git diff --name-only @{push}
+      glob: "*.dart"
+      run: flutter format {files}
+    test:
+      run: flutter test

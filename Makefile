@@ -25,7 +25,7 @@ test:
 
 .PHONY: install
 install:
-	flutter pub get
+	yarn add && flutter pub get
 
 .PHONY: clean
 clean:

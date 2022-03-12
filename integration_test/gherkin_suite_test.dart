@@ -5,7 +5,9 @@ import 'gherkin/configuration.dart';
 
 part 'gherkin_suite_test.g.dart';
 
-@GherkinTestSuite()
+@GherkinTestSuite(
+  featureDefaultLanguage: 'en',
+)
 void main() {
   executeTestSuite(
     gherkinTestConfiguration,

@@ -1,6 +1,6 @@
 # flutter_tdd_new
 
-A new Flutter project.
+This is Flutter TDD project.
 
 ## Getting Started
 

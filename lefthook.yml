@@ -1,7 +1,10 @@
 pre-push:
+  parallel: true
   commands:
     linter:
       run: flutter analyze
+    fix:
+      run: dart fix --apply
     test:
       run: flutter test
 

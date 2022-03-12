@@ -11,7 +11,6 @@ import 'world/custom_world.dart';
 
 FlutterTestConfiguration gherkinTestConfiguration =
     FlutterTestConfiguration.DEFAULT([...steps])
-// ..tagExpression = '@debug'
       ..customStepParameterDefinitions = [...parameters]
       ..hooks = [...hooks]
       ..reporters = [

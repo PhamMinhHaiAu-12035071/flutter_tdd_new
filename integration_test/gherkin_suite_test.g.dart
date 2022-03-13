@@ -55,7 +55,14 @@ class _CustomGherkinIntegrationTestRunner extends GherkinIntegrationTestRunner {
             );
 
             await runStep(
-              'When I pause for 30 seconds',
+              'Then I see "Email is not empty" on the login page',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'And I expect the "Login" button to be disabled',
               <String>[],
               null,
               dependencies,

@@ -8,7 +8,7 @@ class TimeParameter extends CustomParameter<Time> {
   TimeParameter()
       : super(
             TimeParameter.key,
-            RegExp(r'(microseconds|milliseconds|seconds|minues|hours)',
+            RegExp(r'(microseconds|milliseconds|seconds|minutes|hours)',
                 caseSensitive: false), (String input) {
           switch (input) {
             case 'microseconds':

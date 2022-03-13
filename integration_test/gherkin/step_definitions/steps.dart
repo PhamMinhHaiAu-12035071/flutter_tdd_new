@@ -1,6 +1,7 @@
-import 'and_i_press_keyboard_n_times.dart';
+import 'when_i_press_keyboard_n_times.dart';
 import 'given_on_the_page.dart';
 import 'then_expect_field_with_value.dart';
+import 'then_expect_state_button.dart';
 import 'when_pause_time.dart';
 
 ///
@@ -11,7 +12,8 @@ import 'when_pause_time.dart';
 
 final steps = [
   whenPauseTime,
-  andIPressKeyboardNTimes,
+  whenIPressKeyboardNTimes,
   thenExpectFieldWithValue,
   givenOnThePage,
+  thenExpectStateButton,
 ];

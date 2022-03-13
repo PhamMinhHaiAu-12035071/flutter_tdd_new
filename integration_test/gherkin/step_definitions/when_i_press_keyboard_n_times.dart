@@ -12,8 +12,8 @@ import '../parameters/keyboard_enum.dart';
 ///   When I press the backspace keyboard 6 times
 ///   When I press the backspace keyboard 1 time
 ///
-StepDefinitionGeneric andIPressKeyboardNTimes =
-    and2<Keyboard, int, FlutterWidgetTesterWorld>(
+StepDefinitionGeneric whenIPressKeyboardNTimes =
+    when2<Keyboard, int, FlutterWidgetTesterWorld>(
   'I press the {${KeyboardParameter.key}} keyboard {int} time(s)',
   (type, times, context) async {
     final tester = context.world.rawAppDriver;

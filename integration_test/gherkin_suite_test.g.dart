@@ -27,14 +27,35 @@ class _CustomGherkinIntegrationTestRunner extends GherkinIntegrationTestRunner {
           <String>[],
           (TestDependencies dependencies) async {
             await runStep(
-              'When I fill the "loginForm_emailInput_textField" field with "au dep trai"',
+              'Given I am on the login page',
               <String>[],
               null,
               dependencies,
             );
 
             await runStep(
-              'Then I pause for 10 seconds',
+              'When I fill the "loginForm_emailInput_textField" field with "eve.holt@reqres.in"',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'Then I see "eve.holt@reqres.in" on the login page',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'When I press the backspace keyboard 18 times',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'When I pause for 30 seconds',
               <String>[],
               null,
               dependencies,

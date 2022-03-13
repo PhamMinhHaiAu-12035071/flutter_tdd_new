@@ -41,7 +41,7 @@ class _EmailInputState extends State<EmailInput> {
       },
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) {
-        return TextFormField(
+        return TextField(
           key: EmailInput.emailKey,
           autofocus: true,
           controller: _controller,

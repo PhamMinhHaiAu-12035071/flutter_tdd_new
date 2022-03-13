@@ -12,7 +12,7 @@ final getIt = GetIt.instance;
 )
 Future<GetIt> configureInjection({required String environment}) async {
   final regExpEnv = RegExp(
-    r'^prod|stg|dev|test$',
+    r'^prod|stg|dev|test|endToEndTest$',
     caseSensitive: true,
     multiLine: false,
   );

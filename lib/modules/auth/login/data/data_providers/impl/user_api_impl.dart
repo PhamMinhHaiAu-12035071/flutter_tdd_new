@@ -10,9 +10,11 @@ import 'package:injectable/injectable.dart';
 @Environment(Env.prod)
 @Environment(Env.stg)
 @Environment(Env.dev)
+@Environment(Env.endToEndTest)
 @Singleton(as: UserAPI)
 class UserAPIImpl implements UserAPI {
-  const UserAPIImpl({required FlavorConfig flavorConfig, required ClientCommon clientCommon})
+  const UserAPIImpl(
+      {required FlavorConfig flavorConfig, required ClientCommon clientCommon})
       : _flavorConfig = flavorConfig,
         _client = clientCommon;
 
@@ -22,7 +24,8 @@ class UserAPIImpl implements UserAPI {
   final String _login = '/api/login';
 
   @override
-  Future<Response> login({required String email, required String password}) async {
+  Future<Response> login(
+      {required String email, required String password}) async {
     final url = Uri.parse('${_flavorConfig.baseUrl}$_login');
     final Map<String, dynamic> obj = {
       'email': email,

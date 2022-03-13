@@ -14,6 +14,7 @@ abstract class HttpModule {
   http.Client get httpClient => http.Client();
 
   @Environment(Env.test)
+  @Environment(Env.endToEndTest)
   @singleton
   http.Client get mockClient => MockClient();
 }

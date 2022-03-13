@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 @Environment(Env.prod)
 @Environment(Env.stg)
 @Environment(Env.dev)
+@Environment(Env.endToEndTest)
 @Singleton(as: FlavorConfig)
 class DevFlavorValue implements FlavorConfig {
   @override

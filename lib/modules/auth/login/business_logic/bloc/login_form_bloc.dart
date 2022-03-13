@@ -15,6 +15,7 @@ part 'login_form_state.dart';
 @Environment(Env.prod)
 @Environment(Env.stg)
 @Environment(Env.dev)
+@Environment(Env.endToEndTest)
 @singleton
 class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
   LoginFormBloc({required UserRepository userRepository})

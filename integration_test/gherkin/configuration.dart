@@ -30,5 +30,5 @@ FlutterTestConfiguration gherkinTestConfiguration =
       ..createWorld = (config) => Future.value(CustomWorld());
 
 Future<void> appInitializationFn(World world) async {
-  return app.main(environment: Env.dev);
+  return app.main(environment: Env.endToEndTest);
 }

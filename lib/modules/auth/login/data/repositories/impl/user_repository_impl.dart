@@ -13,13 +13,15 @@ import 'package:injectable/injectable.dart';
 @Environment(Env.prod)
 @Environment(Env.stg)
 @Environment(Env.dev)
+@Environment(Env.endToEndTest)
 @Singleton(as: UserRepository)
 class UserRepositoryImpl implements UserRepository {
   const UserRepositoryImpl({required UserAPI userAPI}) : _userAPI = userAPI;
 
   final UserAPI _userAPI;
   @override
-  Future<Either<Exception, Token>> login({required String email, required String password}) async {
+  Future<Either<Exception, Token>> login(
+      {required String email, required String password}) async {
     final response = await _userAPI.login(email: email, password: password);
     final data = jsonDecode(response.body);
     switch (response.statusCode) {

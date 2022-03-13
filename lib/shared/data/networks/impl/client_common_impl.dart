@@ -10,6 +10,7 @@ import 'package:injectable/injectable.dart';
 @Environment(Env.prod)
 @Environment(Env.stg)
 @Environment(Env.dev)
+@Environment(Env.endToEndTest)
 @Singleton(as: ClientCommon)
 class ClientCommonImpl implements ClientCommon {
   ClientCommonImpl({required Client client})
@@ -23,8 +24,10 @@ class ClientCommonImpl implements ClientCommon {
     HttpHeaders.acceptHeader: 'application/json',
   };
   @override
-  Future<Response> post(Uri url, {Map<String, String>? headers, Object? body, Encoding? encoding}) {
-    return _client.post(url, headers: _mergedHeaders(headers), body: body, encoding: encoding);
+  Future<Response> post(Uri url,
+      {Map<String, String>? headers, Object? body, Encoding? encoding}) {
+    return _client.post(url,
+        headers: _mergedHeaders(headers), body: body, encoding: encoding);
   }
 
   @override
@@ -47,8 +50,10 @@ class ClientCommonImpl implements ClientCommon {
   }
 
   @override
-  Future<Response> delete(Uri url, {Map<String, String>? headers, Object? body, Encoding? encoding}) {
-    return _client.delete(url, headers: headers, body: body, encoding: encoding);
+  Future<Response> delete(Uri url,
+      {Map<String, String>? headers, Object? body, Encoding? encoding}) {
+    return _client.delete(url,
+        headers: headers, body: body, encoding: encoding);
   }
 
   @override
@@ -62,12 +67,14 @@ class ClientCommonImpl implements ClientCommon {
   }
 
   @override
-  Future<Response> patch(Uri url, {Map<String, String>? headers, Object? body, Encoding? encoding}) {
+  Future<Response> patch(Uri url,
+      {Map<String, String>? headers, Object? body, Encoding? encoding}) {
     return _client.patch(url, headers: headers, body: body, encoding: encoding);
   }
 
   @override
-  Future<Response> put(Uri url, {Map<String, String>? headers, Object? body, Encoding? encoding}) {
+  Future<Response> put(Uri url,
+      {Map<String, String>? headers, Object? body, Encoding? encoding}) {
     return _client.put(url, headers: headers, body: body, encoding: encoding);
   }
 

@@ -38,6 +38,7 @@ const String _prod = 'prod';
 const String _stg = 'stg';
 const String _dev = 'dev';
 const String _test = 'test';
+const String _endToEndTest = 'endToEndTest';
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -47,20 +48,21 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   final httpModule = _$HttpModule();
   gh.singleton<_i3.Client>(httpModule.httpClient,
       registerFor: {_prod, _stg, _dev});
-  gh.singleton<_i3.Client>(httpModule.mockClient, registerFor: {_test});
+  gh.singleton<_i3.Client>(httpModule.mockClient,
+      registerFor: {_test, _endToEndTest});
   gh.singleton<_i4.ClientCommon>(
       _i5.ClientCommonImpl(client: get<_i3.Client>()),
-      registerFor: {_prod, _stg, _dev});
+      registerFor: {_prod, _stg, _dev, _endToEndTest});
   gh.singleton<_i4.ClientCommon>(_i6.MockClientCommon(), registerFor: {_test});
   gh.singleton<_i7.ClientNoCache>(
       _i8.ClientNoCacheImpl(client: get<_i3.Client>()),
-      registerFor: {_prod, _stg, _dev});
+      registerFor: {_prod, _stg, _dev, _endToEndTest});
   gh.singleton<_i7.ClientNoCache>(_i9.MockClientNoCache(),
       registerFor: {_test});
   gh.singleton<_i10.FlavorConfig>(_i11.MockFlavorConfig(),
       registerFor: {_test});
   gh.singleton<_i10.FlavorConfig>(_i12.DevFlavorValue(),
-      registerFor: {_prod, _stg, _dev});
+      registerFor: {_prod, _stg, _dev, _endToEndTest});
   gh.singleton<_i13.LoginFormBloc>(_i14.MockLoginFormBloc(),
       registerFor: {_test});
   gh.singleton<_i15.UserAPI>(_i16.MockUserAPI(), registerFor: {_test});
@@ -68,15 +70,15 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       _i17.UserAPIImpl(
           flavorConfig: get<_i10.FlavorConfig>(),
           clientCommon: get<_i4.ClientCommon>()),
-      registerFor: {_prod, _stg, _dev});
+      registerFor: {_prod, _stg, _dev, _endToEndTest});
   gh.singleton<_i18.UserRepository>(_i19.MockUserRepository(),
       registerFor: {_test});
   gh.singleton<_i18.UserRepository>(
       _i20.UserRepositoryImpl(userAPI: get<_i15.UserAPI>()),
-      registerFor: {_prod, _stg, _dev});
+      registerFor: {_prod, _stg, _dev, _endToEndTest});
   gh.singleton<_i13.LoginFormBloc>(
       _i13.LoginFormBloc(userRepository: get<_i18.UserRepository>()),
-      registerFor: {_prod, _stg, _dev});
+      registerFor: {_prod, _stg, _dev, _endToEndTest});
   return get;
 }
 

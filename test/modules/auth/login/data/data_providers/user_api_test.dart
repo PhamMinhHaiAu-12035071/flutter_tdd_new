@@ -59,7 +59,7 @@ void main() {
         .thenAnswer((_) async => Response('', HttpStatus.ok));
 
     final userApiImpl = UserAPIImpl(
-        flavorConfig: mockFlavorConfig, clientCommon: mockClientCommon);
+        flavorConfig: mockFlavorConfig, clientCommon: mockClientCommon,);
     final result = await userApiImpl.login(email: email, password: password);
     expect(result.statusCode, HttpStatus.ok);
   });

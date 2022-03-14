@@ -8,19 +8,19 @@ typedef TransitionAnimationBuilder = Widget Function(
 );
 
 ///Each Screen must extend this class and provide its functionality
-abstract class EPage extends Page {
-  final Map<String, dynamic> args;
-  final int transitionDuration, reverseTransitionDuration; //milliseconds
-
-  ///Give each individual screen the option to define a special entry animation
-  final TransitionAnimationBuilder? animationBuilder;
-
+abstract class EPage extends Page<dynamic> {
   const EPage({
     required this.args,
     this.transitionDuration = 400,
     this.reverseTransitionDuration = 400,
     this.animationBuilder,
   });
+
+  final Map<String, dynamic> args;
+  final int transitionDuration, reverseTransitionDuration; //milliseconds
+
+  ///Give each individual screen the option to define a special entry animation
+  final TransitionAnimationBuilder? animationBuilder;
 
   Widget build(BuildContext context);
 
@@ -58,16 +58,18 @@ abstract class EPage extends Page {
     );
   }
 
-  ///provide a default Transition for the app (you can delete it if you want, flutter already has one)
+  ///provide a default Transition for the app (you can delete it if you want,
+  ///flutter already has one)
   Widget _defaultAnimationBuilder(
-      BuildContext context,
-      Animation<double> animation,
-      Animation<double> secondaryAnimation,
-      Widget child) {
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
     return SlideTransition(
       textDirection: TextDirection.rtl,
       position: Tween<Offset>(
-        begin: const Offset(1.0, 0.0),
+        begin: const Offset(1, 0),
         end: Offset.zero,
       ).animate(animation),
       child: child,

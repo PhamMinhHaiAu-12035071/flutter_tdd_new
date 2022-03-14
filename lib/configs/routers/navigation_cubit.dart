@@ -3,15 +3,16 @@ import 'package:flutter_tdd_new/configs/routers/navigation_stack.dart';
 import 'package:flutter_tdd_new/configs/routers/page_config.dart';
 
 class NavigationCubit extends Cubit<NavigationStack> {
-  NavigationCubit(List<PageConfig> initialPages) : super(NavigationStack(initialPages));
+  NavigationCubit(List<PageConfig> initialPages)
+      : super(NavigationStack(initialPages));
 
   void push(String path, [Map<String, dynamic>? args]) {
-    PageConfig config = PageConfig(location: path, args: args);
+    final config = PageConfig(location: path, args: args);
     emit(state.push(config));
   }
 
   void clearAndPush(String path, [Map<String, dynamic>? args]) {
-    PageConfig config = PageConfig(location: path, args: args);
+    final config = PageConfig(location: path, args: args);
     emit(state.clearAndPush(config));
   }
 
@@ -24,7 +25,7 @@ class NavigationCubit extends Cubit<NavigationStack> {
   }
 
   void pushBeneathCurrent(String path, [Map<String, dynamic>? args]) {
-    final PageConfig config = PageConfig(location: path, args: args);
+    final config = PageConfig(location: path, args: args);
     emit(state.pushBeneathCurrent(config));
   }
 

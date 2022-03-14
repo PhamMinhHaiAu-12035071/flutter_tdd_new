@@ -26,11 +26,13 @@ Future<void> writeGherkinReports(
     await fs
         .directory(integration_test_driver.testOutputsDirectory)
         .create(recursive: true);
-    final File file = fs.file(path.join(
-      integration_test_driver.testOutputsDirectory,
-      'gen/report_$i.json',
-    ));
-    final String resultString = _encodeJson(reportData, true);
+    final File file = fs.file(
+      path.join(
+        integration_test_driver.testOutputsDirectory,
+        'gen/report_$i.json',
+      ),
+    );
+    final resultString = _encodeJson(reportData, true);
     await file.writeAsString(resultString);
   }
 }
@@ -41,7 +43,7 @@ Future<void> main() async {
   integration_test_driver.testOutputsDirectory =
       'integration_test/gherkin/reports';
 
-  return await integration_test_driver.integrationDriver(
+  return integration_test_driver.integrationDriver(
     timeout: const Duration(minutes: 90),
     responseDataCallback: writeGherkinReports,
   );

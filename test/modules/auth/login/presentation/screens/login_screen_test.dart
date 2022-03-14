@@ -32,10 +32,10 @@ void main() {
     testWidgets('renders a LoginView ', (tester) async {
       when(() => getIt<LoginFormBloc>().state)
           .thenReturn(const LoginFormState());
-      final ERouteInformationParser _routeInformationParser =
-          ERouteInformationParser();
-      final ERouterDelegate _routerDelegate = ERouterDelegate(
-          cubit: NavigationCubit([PageConfig(location: '/login')]));
+      final _routeInformationParser = ERouteInformationParser();
+      final _routerDelegate = ERouterDelegate(
+        cubit: NavigationCubit([PageConfig(location: '/login')]),
+      );
 
       await tester.pumpWidget(
         MaterialApp.router(
@@ -55,10 +55,10 @@ void main() {
       when(() => getIt<LoginFormBloc>().state)
           .thenReturn(const LoginFormState());
       const email = 'mock-email';
-      final ERouteInformationParser _routeInformationParser =
-          ERouteInformationParser();
-      final ERouterDelegate _routerDelegate = ERouterDelegate(
-          cubit: NavigationCubit([PageConfig(location: '/login')]));
+      final _routeInformationParser = ERouteInformationParser();
+      final _routerDelegate = ERouterDelegate(
+        cubit: NavigationCubit([PageConfig(location: '/login')]),
+      );
 
       await tester.pumpWidget(
         MaterialApp.router(
@@ -77,15 +77,15 @@ void main() {
     });
 
     testWidgets(
-        'adds LoginFormPasswordChanged to LoginFormBloc when password is updated ',
-        (tester) async {
+        'adds LoginFormPasswordChanged to LoginFormBloc when '
+        'password is updated', (tester) async {
       when(() => getIt<LoginFormBloc>().state)
           .thenReturn(const LoginFormState());
       const password = 'mock-password';
-      final ERouteInformationParser _routeInformationParser =
-          ERouteInformationParser();
-      final ERouterDelegate _routerDelegate = ERouterDelegate(
-          cubit: NavigationCubit([PageConfig(location: '/login')]));
+      final _routeInformationParser = ERouteInformationParser();
+      final _routerDelegate = ERouterDelegate(
+        cubit: NavigationCubit([PageConfig(location: '/login')]),
+      );
 
       await tester.pumpWidget(
         MaterialApp.router(
@@ -106,10 +106,10 @@ void main() {
     testWidgets('continue button is disabled by default', (tester) async {
       when(() => getIt<LoginFormBloc>().state)
           .thenReturn(const LoginFormState());
-      final ERouteInformationParser _routeInformationParser =
-          ERouteInformationParser();
-      final ERouterDelegate _routerDelegate = ERouterDelegate(
-          cubit: NavigationCubit([PageConfig(location: '/login')]));
+      final _routeInformationParser = ERouteInformationParser();
+      final _routerDelegate = ERouterDelegate(
+        cubit: NavigationCubit([PageConfig(location: '/login')]),
+      );
 
       await tester.pumpWidget(
         MaterialApp.router(
@@ -128,10 +128,10 @@ void main() {
     testWidgets(
         'loading indicator is shown when status is submission in progress',
         (tester) async {
-      final ERouteInformationParser _routeInformationParser =
-          ERouteInformationParser();
-      final ERouterDelegate _routerDelegate = ERouterDelegate(
-          cubit: NavigationCubit([PageConfig(location: '/login')]));
+      final _routeInformationParser = ERouteInformationParser();
+      final _routerDelegate = ERouterDelegate(
+        cubit: NavigationCubit([PageConfig(location: '/login')]),
+      );
 
       whenListen(
         getIt<LoginFormBloc>(),
@@ -156,10 +156,10 @@ void main() {
 
     testWidgets('continue button is enabled when status is validated',
         (tester) async {
-      final ERouteInformationParser _routeInformationParser =
-          ERouteInformationParser();
-      final ERouterDelegate _routerDelegate = ERouterDelegate(
-          cubit: NavigationCubit([PageConfig(location: '/login')]));
+      final _routeInformationParser = ERouteInformationParser();
+      final _routerDelegate = ERouterDelegate(
+        cubit: NavigationCubit([PageConfig(location: '/login')]),
+      );
 
       when(() => getIt<LoginFormBloc>().state)
           .thenReturn(const LoginFormState(status: FormzStatus.valid));
@@ -180,10 +180,10 @@ void main() {
     testWidgets(
         'LoginFormSubmitted is added to LoginBloc when continue is tapped',
         (tester) async {
-      final ERouteInformationParser _routeInformationParser =
-          ERouteInformationParser();
-      final ERouterDelegate _routerDelegate = ERouterDelegate(
-          cubit: NavigationCubit([PageConfig(location: '/login')]));
+      final _routeInformationParser = ERouteInformationParser();
+      final _routerDelegate = ERouterDelegate(
+        cubit: NavigationCubit([PageConfig(location: '/login')]),
+      );
 
       when(() => getIt<LoginFormBloc>().state)
           .thenReturn(const LoginFormState(status: FormzStatus.valid));
@@ -203,13 +203,17 @@ void main() {
 
     testWidgets('shows error text message when status is submission failure',
         (tester) async {
-      final ERouteInformationParser _routeInformationParser =
-          ERouteInformationParser();
-      final ERouterDelegate _routerDelegate = ERouterDelegate(
-          cubit: NavigationCubit([PageConfig(location: '/login')]));
+      final _routeInformationParser = ERouteInformationParser();
+      final _routerDelegate = ERouterDelegate(
+        cubit: NavigationCubit([PageConfig(location: '/login')]),
+      );
 
-      when(() => getIt<LoginFormBloc>().state).thenReturn(const LoginFormState(
-          status: FormzStatus.submissionFailure, error: 'Missing password'));
+      when(() => getIt<LoginFormBloc>().state).thenReturn(
+        const LoginFormState(
+          status: FormzStatus.submissionFailure,
+          error: 'Missing password',
+        ),
+      );
 
       await tester.pumpWidget(
         MaterialApp.router(

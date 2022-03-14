@@ -15,6 +15,7 @@ Map<String, EPage Function(Map<String, dynamic>)> _routes = {
 };
 
 EPage getEPage(PageConfig config) {
-  EPage p = _routes[config.route]?.call(config.args) ?? NotFoundScreen(args: config.args);
+  final p = _routes[config.route]?.call(config.args) ??
+      NotFoundScreen(args: config.args);
   return p;
 }

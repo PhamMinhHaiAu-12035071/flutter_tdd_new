@@ -4,9 +4,11 @@ import 'package:flutter_tdd_new/configs/routers/page_config.dart';
 class ERouteInformationParser extends RouteInformationParser<PageConfig> {
   ///get a location (path) from the system and build your route wrapping object
   @override
-  Future<PageConfig> parseRouteInformation(RouteInformation routeInformation) async {
-    final String path = routeInformation.location ?? '';
-    PageConfig config = PageConfig(location: path);
+  Future<PageConfig> parseRouteInformation(
+    RouteInformation routeInformation,
+  ) async {
+    final path = routeInformation.location ?? '';
+    final config = PageConfig(location: path);
     return config;
   }
 

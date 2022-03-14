@@ -19,27 +19,22 @@ final thenExpectStateButton =
   (value, state, context) async {
     final tester = context.world.rawAppDriver;
 
-    try {
-      await tester.pumpAndSettle(
-        const Duration(milliseconds: 100),
-        EnginePhase.sendSemanticsUpdate,
-      );
+    await tester.pumpAndSettle();
 
-      final list = find.byType(ElevatedButton).evaluate();
-      for (final child in list) {
-        Widget childWidget = child.widget;
-        if (childWidget is ElevatedButton) {
-          ElevatedButton btnWidget = childWidget;
-          final innerChild = btnWidget.child;
-          if (innerChild is Text) {
-            Text textWidget = innerChild;
-            debugPrint('show text: ${textWidget.data}');
+    final list = find.byType(ElevatedButton).evaluate();
+    for (final child in list) {
+      final childWidget = child.widget;
+      if (childWidget is ElevatedButton) {
+        final btnWidget = childWidget;
+        final innerChild = btnWidget.child;
+        if (innerChild is Text) {
+          final textWidget = innerChild;
+          final text = textWidget.data;
+          if (text == value) {
+            debugPrint('check state button: ${btnWidget.enabled}');
           }
         }
       }
-    } on FlutterError {
-      // pump for 2 seconds and stop
-      await tester.pump(const Duration(seconds: 2));
     }
   },
   configuration: StepDefinitionConfiguration()

@@ -1,5 +1,4 @@
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_gherkin/flutter_gherkin.dart';
 import 'package:gherkin/gherkin.dart';
 
@@ -19,20 +18,15 @@ StepDefinitionGeneric whenIPressKeyboardNTimes =
     final tester = context.world.rawAppDriver;
     const time = 550;
     const speed = 35;
-    try {
-      switch (type) {
-        case Keyboard.backspace:
-          for (var i = 0; i < times; i++) {
-            final timeDelayed = time - i * speed;
-            await Future.delayed(Duration(milliseconds: timeDelayed));
-            await tester.sendKeyDownEvent(LogicalKeyboardKey.backspace);
-            await tester.pump();
-          }
-          break;
-      }
-    } on FlutterError {
-      // pump for 2 seconds and stop
-      await tester.pump(const Duration(seconds: 2));
+    switch (type) {
+      case Keyboard.backspace:
+        for (var i = 0; i < times; i++) {
+          final timeDelayed = time - i * speed;
+          await Future<Duration>.delayed(Duration(milliseconds: timeDelayed));
+          await tester.sendKeyDownEvent(LogicalKeyboardKey.backspace);
+          await tester.pump();
+        }
+        break;
     }
   },
   configuration: StepDefinitionConfiguration()

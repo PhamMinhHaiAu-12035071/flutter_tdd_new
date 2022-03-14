@@ -20,10 +20,13 @@ class UserRepositoryImpl implements UserRepository {
 
   final UserAPI _userAPI;
   @override
-  Future<Either<Exception, Token>> login(
-      {required String email, required String password}) async {
+  Future<Either<Exception, Token>> login({
+    required String email,
+    required String password,
+  }) async {
     final response = await _userAPI.login(email: email, password: password);
-    final data = jsonDecode(response.body);
+    final rawBody = response.body;
+    final data = jsonDecode(rawBody) as Map<String, dynamic>;
     switch (response.statusCode) {
       case HttpStatus.ok:
         final token = Token.fromJson(data);
@@ -35,5 +38,13 @@ class UserRepositoryImpl implements UserRepository {
         final error = Error.fromJson(data);
         return Left(LoginFailedException(error: error));
     }
+  }
+
+  @override
+  Future<Either<Exception, Token>> register({
+    required String email,
+    required String password,
+  }) {
+    throw UnimplementedError();
   }
 }

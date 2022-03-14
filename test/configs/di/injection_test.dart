@@ -32,7 +32,10 @@ void main() {
 
     group('Test with parameter is not valid', () {
       test('String anything', () async {
-        expect(() async => {await configureInjection(environment: 'hello world')}, throwsAssertionError);
+        expect(
+          () async => {await configureInjection(environment: 'hello world')},
+          throwsAssertionError,
+        );
       });
     });
   });

@@ -34,7 +34,8 @@ class _CustomGherkinIntegrationTestRunner extends GherkinIntegrationTestRunner {
             );
 
             await runStep(
-              'When I fill the "loginForm_emailInput_textField" field with "eve.holt@reqres.in"',
+              'When I fill the "loginForm_emailInput_textField" field with '
+              '"eve.holt@reqres.in"',
               <String>[],
               null,
               dependencies,

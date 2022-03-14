@@ -20,7 +20,7 @@ void main() {
     group('validator', () {
       test('returns empty error when email is empty', () {
         expect(
-          const Email.dirty('').error,
+          const Email.dirty().error,
           EmailValidateError.empty,
         );
       });

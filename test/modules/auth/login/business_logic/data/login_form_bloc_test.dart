@@ -31,7 +31,7 @@ void main() {
         },
         expect: () => const <LoginFormState>[
           LoginFormState(
-              email: Email.dirty(email), status: FormzStatus.invalid),
+              email: Email.dirty(email), status: FormzStatus.invalid,),
         ],
       );
     });
@@ -93,7 +93,7 @@ void main() {
           'emits: [submissionInProgress, submissionFailure]',
           setUp: () {
             when(() =>
-                    mockUserRepository.login(email: email, password: password))
+                    mockUserRepository.login(email: email, password: password),)
                 .thenAnswer((_) async => const Left(exception));
           },
           build: () => LoginFormBloc(
@@ -139,7 +139,7 @@ void main() {
           'emits: [submissionInProgress, submissionSuccess]',
           setUp: () {
             when(() =>
-                    mockUserRepository.login(email: email, password: password))
+                    mockUserRepository.login(email: email, password: password),)
                 .thenAnswer((_) async => const Right(token));
           },
           build: () => LoginFormBloc(userRepository: mockUserRepository),

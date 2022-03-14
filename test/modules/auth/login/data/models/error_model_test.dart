@@ -11,82 +11,89 @@ void main() {
 
     test('Test fromJson factory with data valid', () {
       const message = 'Missing password';
-      final errorFromJson = Error.fromJson(const {
+      const params = {
         'error': message,
-      });
+      };
+      final errorFromJson = Error.fromJson(params);
       const error = Error(error: message);
       expect(errorFromJson, error);
     });
 
     test('Test fromJson factory with pass redundant parameter', () {
       const message = 'Missing password';
-      final errorFromJson = Error.fromJson(const {
+      const params = {
         'error': message,
         'abc': 'abc',
-      });
+      };
+      final errorFromJson = Error.fromJson(params);
       const error = Error(error: message);
       expect(errorFromJson, error);
     });
 
-    test('Test fromJson factory should throw TypeError when did not have param required', () {
+    test(
+        'Test fromJson factory should throw TypeError when did not have param '
+        'required', () {
+      const param1 = {
+        'abc': 'abc',
+      };
+
+      const param2 = {
+        'error': null,
+        'abc': 'abc',
+      };
       expect(
-          () => {
-                Error.fromJson(const {
-                  'abc': 'abc',
-                })
-              },
-          throwsA(isA<TypeError>()));
+        () => {Error.fromJson(param1)},
+        throwsA(isA<TypeError>()),
+      );
 
       expect(
-          () => {
-                Error.fromJson(const {
-                  'error': null,
-                  'abc': 'abc',
-                })
-              },
-          throwsA(isA<TypeError>()));
+        () => {Error.fromJson(param2)},
+        throwsA(isA<TypeError>()),
+      );
     });
 
-    test('Test fromJson factory should throw TypeError when type param is not valid', () {
+    test(
+        'Test fromJson factory should throw TypeError when type param is not '
+        'valid', () {
+      const param1 = {
+        'error': null,
+      };
+      const param2 = {
+        'error': 1,
+      };
+      const param3 = {
+        'error': 1.0,
+      };
+      const param4 = {
+        'error': true,
+      };
+      const param5 = {
+        'error': false,
+      };
       expect(
-          () => {
-                Error.fromJson(const {
-                  'error': null,
-                })
-              },
-          throwsA(isA<TypeError>()));
+        () => {Error.fromJson(param1)},
+        throwsA(isA<TypeError>()),
+      );
 
       expect(
-          () => {
-                Error.fromJson(const {
-                  'error': 1,
-                })
-              },
-          throwsA(isA<TypeError>()));
+        () => {Error.fromJson(param2)},
+        throwsA(isA<TypeError>()),
+      );
 
       expect(
-          () => {
-                Error.fromJson(const {
-                  'error': 1.0,
-                })
-              },
-          throwsA(isA<TypeError>()));
+        () => {Error.fromJson(param3)},
+        throwsA(isA<TypeError>()),
+      );
 
       expect(
-          () => {
-                Error.fromJson(const {
-                  'error': true,
-                })
-              },
-          throwsA(isA<TypeError>()));
+        () => {Error.fromJson(param4)},
+        throwsA(isA<TypeError>()),
+      );
 
       expect(
-          () => {
-                Error.fromJson(const {
-                  'error': false,
-                })
-              },
-          throwsA(isA<TypeError>()));
+        () => {Error.fromJson(param5)},
+        throwsA(isA<TypeError>()),
+      );
     });
   });
 }

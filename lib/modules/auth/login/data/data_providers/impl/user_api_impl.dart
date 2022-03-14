@@ -13,26 +13,34 @@ import 'package:injectable/injectable.dart';
 @Environment(Env.endToEndTest)
 @Singleton(as: UserAPI)
 class UserAPIImpl implements UserAPI {
-  const UserAPIImpl(
-      {required FlavorConfig flavorConfig, required ClientCommon clientCommon})
-      : _flavorConfig = flavorConfig,
+  const UserAPIImpl({
+    required FlavorConfig flavorConfig,
+    required ClientCommon clientCommon,
+  })  : _flavorConfig = flavorConfig,
         _client = clientCommon;
 
   final FlavorConfig _flavorConfig;
   final ClientCommon _client;
 
-  final String _login = '/api/login';
+  String get pathLogin => '/api/login';
 
   @override
-  Future<Response> login(
-      {required String email, required String password}) async {
-    final url = Uri.parse('${_flavorConfig.baseUrl}$_login');
-    final Map<String, dynamic> obj = {
+  Future<Response> login({
+    required String email,
+    required String password,
+  }) async {
+    final url = Uri.parse('${_flavorConfig.baseUrl}$pathLogin');
+    final obj = <String, dynamic>{
       'email': email,
       'password': password,
     };
     final params = jsonEncode(obj);
     final response = await _client.post(url, body: params);
     return response;
+  }
+
+  @override
+  Future<Response> register({required String email, required String password}) {
+    throw UnimplementedError();
   }
 }

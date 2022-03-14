@@ -13,9 +13,9 @@ class ERouterDelegate extends RouterDelegate<PageConfig>
         ChangeNotifier,
         PopNavigatorRouterDelegateMixin<PageConfig>,
         WidgetsBindingObserver {
-  final NavigationCubit _cubit;
-
   ERouterDelegate({required NavigationCubit cubit}) : _cubit = cubit;
+
+  final NavigationCubit _cubit;
 
   final heroC = HeroController();
 
@@ -25,9 +25,13 @@ class ERouterDelegate extends RouterDelegate<PageConfig>
       providers: [
         BlocProvider(create: (_) => _cubit),
         BlocProvider(
-            create: (_) => AuthenticationBloc()
-              ..add(const AuthenticationStatusChanged(
-                  AuthenticationStatus.unauthenticated))),
+          create: (_) => AuthenticationBloc()
+            ..add(
+              const AuthenticationStatusChanged(
+                AuthenticationStatus.unauthenticated,
+              ),
+            ),
+        ),
       ],
       child: MultiBlocListener(
         listeners: [
@@ -64,9 +68,11 @@ class ERouterDelegate extends RouterDelegate<PageConfig>
   }
 
   BlocListener _listenForNavigation() {
-    return BlocListener<NavigationCubit, NavigationStack>(listener: (_, state) {
-      notifyListeners();
-    });
+    return BlocListener<NavigationCubit, NavigationStack>(
+      listener: (_, state) {
+        notifyListeners();
+      },
+    );
   }
 
   BlocListener _listenForAuth() {
@@ -74,7 +80,6 @@ class ERouterDelegate extends RouterDelegate<PageConfig>
       listener: (_, state) {
         switch (state.status) {
           case AuthenticationStatus.unknown:
-            // TODO: Handle this case.
             break;
           case AuthenticationStatus.authenticated:
             _cubit.clearAndPush('/');

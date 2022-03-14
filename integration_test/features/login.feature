@@ -7,7 +7,7 @@ Feature: Login Page
     Then I see "eve.holt@reqres.in" on the login page
     When I press the backspace keyboard 18 times
     Then I see "Email is not empty" on the login page
-    And I expect the "Login" button to be disabled
+    And I expect the "Submit" button to be disabled
 
     Examples:
       | email                               |

@@ -10,22 +10,22 @@ class NoTransitionDelegate extends TransitionDelegate<void> {
     required Map<RouteTransitionRecord?, List<RouteTransitionRecord>>
         pageRouteToPagelessRoutes,
   }) {
-    final List<RouteTransitionRecord> results = <RouteTransitionRecord>[];
+    final results = <RouteTransitionRecord>[];
 
-    for (final RouteTransitionRecord pageRoute in newPageRouteHistory) {
+    for (final pageRoute in newPageRouteHistory) {
       if (pageRoute.isWaitingForEnteringDecision) {
         pageRoute.markForAdd();
       }
       results.add(pageRoute);
     }
-    for (final RouteTransitionRecord exitingPageRoute
+    for (final exitingPageRoute
         in locationToExitingPageRoute.values) {
       if (exitingPageRoute.isWaitingForExitingDecision) {
         exitingPageRoute.markForRemove();
-        final List<RouteTransitionRecord>? pagelessRoutes =
+        final pagelessRoutes =
             pageRouteToPagelessRoutes[exitingPageRoute];
         if (pagelessRoutes != null) {
-          for (final RouteTransitionRecord pagelessRoute in pagelessRoutes) {
+          for (final pagelessRoute in pagelessRoutes) {
             pagelessRoute.markForRemove();
           }
         }

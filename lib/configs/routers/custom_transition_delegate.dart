@@ -1,7 +1,7 @@
 // 🐦 Flutter imports:
 import 'package:flutter/widgets.dart';
 
-class CustomTransitionDelegate extends DefaultTransitionDelegate {
+class CustomTransitionDelegate extends DefaultTransitionDelegate<dynamic> {
   const CustomTransitionDelegate() : super();
 
   @override
@@ -12,20 +12,22 @@ class CustomTransitionDelegate extends DefaultTransitionDelegate {
     required Map<RouteTransitionRecord?, List<RouteTransitionRecord>>
         pageRouteToPagelessRoutes,
   }) {
-    final List<RouteTransitionRecord> results = <RouteTransitionRecord>[];
+    final results = <RouteTransitionRecord>[];
     // final bool showAnimation = locationToExitingPageRoute.isEmpty ||
     //     newPageRouteHistory.last.route.settings.name != '/list';
     // This method will handle the exiting route and its corresponding pageless
     // route at this location. It will also recursively check if there is any
     // other exiting routes above it and handle them accordingly.
-    void handleExitingRoute(RouteTransitionRecord? location, bool isLast) {
-      final RouteTransitionRecord? exitingPageRoute =
-          locationToExitingPageRoute[location];
+    void handleExitingRoute({
+      RouteTransitionRecord? location,
+      required bool isLast,
+    }) {
+      final exitingPageRoute = locationToExitingPageRoute[location];
       if (exitingPageRoute == null) return;
       if (exitingPageRoute.isWaitingForExitingDecision) {
-        final bool hasPagelessRoute =
+        final hasPagelessRoute =
             pageRouteToPagelessRoutes.containsKey(exitingPageRoute);
-        final bool isLastExitingPageRoute =
+        final isLastExitingPageRoute =
             isLast && !locationToExitingPageRoute.containsKey(exitingPageRoute);
         if (isLastExitingPageRoute && !hasPagelessRoute) {
           exitingPageRoute.markForPop(exitingPageRoute.route.currentResult);
@@ -34,9 +36,8 @@ class CustomTransitionDelegate extends DefaultTransitionDelegate {
               .markForComplete(exitingPageRoute.route.currentResult);
         }
         if (hasPagelessRoute) {
-          final List<RouteTransitionRecord> pagelessRoutes =
-              pageRouteToPagelessRoutes[exitingPageRoute]!;
-          for (final RouteTransitionRecord pagelessRoute in pagelessRoutes) {
+          final pagelessRoutes = pageRouteToPagelessRoutes[exitingPageRoute]!;
+          for (final pagelessRoute in pagelessRoutes) {
             // It is possible that a pageless route that belongs to an exiting
             // page-based route does not require exiting decision. This can
             // happen if the page list is updated right after a Navigator.pop.
@@ -54,15 +55,16 @@ class CustomTransitionDelegate extends DefaultTransitionDelegate {
       }
       results.add(exitingPageRoute);
 
-      // It is possible there is another exiting route above this exitingPageRoute.
-      handleExitingRoute(exitingPageRoute, isLast);
+      // It is possible there is another exiting route above this
+      // exitingPageRoute.
+      handleExitingRoute(location: exitingPageRoute, isLast: isLast);
     }
 
     // Handles exiting route in the beginning of list.
-    handleExitingRoute(null, newPageRouteHistory.isEmpty);
+    handleExitingRoute(isLast: newPageRouteHistory.isEmpty);
 
-    for (final RouteTransitionRecord pageRoute in newPageRouteHistory) {
-      final bool isLastIteration = newPageRouteHistory.last == pageRoute;
+    for (final pageRoute in newPageRouteHistory) {
+      final isLastIteration = newPageRouteHistory.last == pageRoute;
       if (pageRoute.isWaitingForEnteringDecision) {
         if (!locationToExitingPageRoute.containsKey(pageRoute) &&
             isLastIteration) {
@@ -72,7 +74,7 @@ class CustomTransitionDelegate extends DefaultTransitionDelegate {
         }
       }
       results.add(pageRoute);
-      handleExitingRoute(pageRoute, isLastIteration);
+      handleExitingRoute(location: pageRoute, isLast: isLastIteration);
     }
     return results;
   }

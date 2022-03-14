@@ -7,9 +7,9 @@ part 'error_model.g.dart';
 class Error extends Equatable {
   const Error({required this.error});
 
-  final String error;
-
   factory Error.fromJson(Map<String, dynamic> json) => _$ErrorFromJson(json);
+
+  final String error;
 
   Map<String, dynamic> toJson() => _$ErrorToJson(this);
 

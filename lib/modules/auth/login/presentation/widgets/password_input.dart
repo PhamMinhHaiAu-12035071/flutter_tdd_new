@@ -52,7 +52,7 @@ class _PasswordInputState extends State<PasswordInput> {
                       ? 'Password '
                           'is not empty'
                       : null)
-                  : null),
+                  : null,),
           obscureText: true,
         );
       },

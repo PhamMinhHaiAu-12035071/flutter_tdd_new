@@ -10,7 +10,8 @@ void main() {
     await getIt.reset();
   });
 
-  group('Test ClientNoCache class injection get_it with multiple environment', () {
+  group('Test ClientNoCache class injection get_it with multiple environment',
+      () {
     test('with environment prod', () async {
       await configureInjection(environment: Env.prod);
       expect(getIt<ClientNoCache>(), isA<ClientNoCacheImpl>());

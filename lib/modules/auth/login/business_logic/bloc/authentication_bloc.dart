@@ -25,8 +25,6 @@ class AuthenticationBloc
         return emit(const AuthenticationState.authenticated());
       case AuthenticationStatus.unauthenticated:
         return emit(const AuthenticationState.unauthenticated());
-      default:
-        return emit(const AuthenticationState.unknown());
     }
   }
 

@@ -19,6 +19,6 @@ class TextError extends StatelessWidget {
             );
           }
           return Container();
-        });
+        },);
   }
 }

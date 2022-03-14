@@ -10,10 +10,11 @@ class UserLogin extends Equatable {
     required this.password,
   });
 
+  factory UserLogin.fromJson(Map<String, dynamic> json) =>
+      _$UserLoginFromJson(json);
+
   final String email;
   final String password;
-
-  factory UserLogin.fromJson(Map<String, dynamic> json) => _$UserLoginFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserLoginToJson(this);
 

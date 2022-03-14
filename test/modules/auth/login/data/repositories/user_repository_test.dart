@@ -9,7 +9,8 @@ void main() {
   tearDown(() async {
     await getIt.reset();
   });
-  group('Test UserRepository class injection get_it with multiple environment', () {
+  group('Test UserRepository class injection get_it with multiple environment',
+      () {
     test('with environment prod', () async {
       await configureInjection(environment: Env.prod);
       expect(getIt<UserRepository>(), isA<UserRepositoryImpl>());

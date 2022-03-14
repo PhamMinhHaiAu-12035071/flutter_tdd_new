@@ -29,7 +29,9 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
   final UserRepository _userRepository;
 
   void _onEmailChanged(
-      LoginFormEmailChanged event, Emitter<LoginFormState> emit) {
+    LoginFormEmailChanged event,
+    Emitter<LoginFormState> emit,
+  ) {
     final email = Email.dirty(event.email);
     final status = Formz.validate([state.password, email]);
     emit(
@@ -41,7 +43,9 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
   }
 
   void _onPasswordChanged(
-      LoginFormPasswordChanged event, Emitter<LoginFormState> emit) {
+    LoginFormPasswordChanged event,
+    Emitter<LoginFormState> emit,
+  ) {
     final password = Password.dirty(event.password);
     final status = Formz.validate([password, state.email]);
     emit(
@@ -53,15 +57,22 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
   }
 
   Future<void> _onSubmitted(
-      LoginFormSubmitted event, Emitter<LoginFormState> emit) async {
+    LoginFormSubmitted event,
+    Emitter<LoginFormState> emit,
+  ) async {
     if (state.status.isValidated) {
       emit(state.copyWith(status: FormzStatus.submissionInProgress));
       final result = await _userRepository.login(
-          email: state.email.value, password: state.password.value);
+        email: state.email.value,
+        password: state.password.value,
+      );
       result.fold((Exception exception) {
-        emit(state.copyWith(
+        emit(
+          state.copyWith(
             status: FormzStatus.submissionFailure,
-            error: exception.toString()));
+            error: exception.toString(),
+          ),
+        );
       }, (Token token) {
         emit(state.copyWith(status: FormzStatus.submissionSuccess));
       });

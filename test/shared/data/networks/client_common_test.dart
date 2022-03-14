@@ -50,7 +50,7 @@ void main() {
         final url = Uri.parse('https://google.com.vn');
         when(() => mockClient.post(url,
             headers: ClientCommonImpl.defaultHeaders,
-            body: '')).thenAnswer((_) async => Response('', HttpStatus.ok));
+            body: '',),).thenAnswer((_) async => Response('', HttpStatus.ok));
 
         final result = await clientCommon.post(url, body: '');
 
@@ -63,7 +63,7 @@ void main() {
         final url = Uri.parse('https://google.com.vn');
         when(() => getIt<Client>().post(url,
             headers: ClientCommonImpl.defaultHeaders,
-            body: '')).thenAnswer((_) async => Response('', HttpStatus.ok));
+            body: '',),).thenAnswer((_) async => Response('', HttpStatus.ok));
 
         final clientCommon = ClientCommonImpl(client: getIt<Client>());
 

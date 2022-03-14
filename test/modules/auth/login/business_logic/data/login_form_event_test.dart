@@ -7,7 +7,7 @@ void main() {
       test('supports value comparisons', () {
         const email = 'mock-email';
         return expect(const LoginFormEmailChanged(email: email),
-            const LoginFormEmailChanged(email: email));
+            const LoginFormEmailChanged(email: email),);
       });
     });
 
@@ -15,7 +15,7 @@ void main() {
       test('supports value comparisons', () {
         const password = 'mock-password';
         expect(const LoginFormPasswordChanged(password: password),
-            const LoginFormPasswordChanged(password: password));
+            const LoginFormPasswordChanged(password: password),);
       });
     });
 

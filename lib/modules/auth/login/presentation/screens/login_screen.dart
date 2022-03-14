@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,7 +30,7 @@ class LoginView extends StatelessWidget {
   static const Key loadingKey = ValueKey('loginView_loading');
 
   void _showLoading(BuildContext context) {
-    showDialog(
+    showDialog<dynamic>(
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
@@ -44,6 +46,10 @@ class LoginView extends StatelessWidget {
         );
       },
     );
+  }
+
+  void _exitApp() {
+    exit(0);
   }
 
   @override
@@ -67,14 +73,19 @@ class LoginView extends StatelessWidget {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
-              EmailInput(),
-              Padding(padding: EdgeInsets.all(12.0)),
-              PasswordInput(),
-              Padding(padding: EdgeInsets.all(12.0)),
-              LoginButton(),
-              Padding(padding: EdgeInsets.all(12.0)),
-              TextError(),
+            children: <Widget>[
+              const EmailInput(),
+              const Padding(padding: EdgeInsets.all(12)),
+              const PasswordInput(),
+              const Padding(padding: EdgeInsets.all(12)),
+              const LoginButton(),
+              const Padding(padding: EdgeInsets.all(12)),
+              const TextError(),
+              const Padding(padding: EdgeInsets.all(12)),
+              ElevatedButton(
+                onPressed: _exitApp,
+                child: const Text('exit'),
+              )
             ],
           ),
         ),

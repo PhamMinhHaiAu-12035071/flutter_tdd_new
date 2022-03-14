@@ -20,7 +20,7 @@ void main() {
     group('validator', () {
       test('returns empty error when password is empty', () {
         expect(
-          const Password.dirty('').error,
+          const Password.dirty().error,
           PasswordValidateError.empty,
         );
       });

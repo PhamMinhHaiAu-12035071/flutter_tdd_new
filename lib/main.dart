@@ -8,7 +8,7 @@ import 'package:flutter_tdd_new/configs/routers/page_config.dart';
 import 'package:flutter_tdd_new/constants/env.dart';
 import 'package:url_strategy/url_strategy.dart';
 
-void main({String environment = Env.dev}) async {
+Future<void> main({String environment = Env.dev}) async {
   WidgetsFlutterBinding.ensureInitialized();
   setPathUrlStrategy();
   await configureInjection(environment: environment);

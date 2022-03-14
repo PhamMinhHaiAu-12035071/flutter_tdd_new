@@ -11,82 +11,88 @@ void main() {
 
     test('Test fromJson factory with data valid', () {
       const rawToken = '123456';
-      final tokenFromJson = Token.fromJson(const {
+      const param = {
         'token': rawToken,
-      });
+      };
+      final tokenFromJson = Token.fromJson(param);
       const token = Token(token: rawToken);
       expect(tokenFromJson, token);
     });
 
     test('Test fromJson factory with pass redundant parameter', () {
       const rawToken = '123456';
-      final tokenFromJson = Token.fromJson(const {
+      const param = {
         'token': rawToken,
         'abc': 'abc',
-      });
+      };
+      final tokenFromJson = Token.fromJson(param);
       const token = Token(token: rawToken);
       expect(tokenFromJson, token);
     });
 
-    test('Test fromJson factory should throw TypeError when did not have param required', () {
+    test(
+        'Test fromJson factory should throw TypeError when did not have param '
+        'required', () {
+      const param1 = {
+        'abc': 'abc',
+      };
+      const param2 = {
+        'token': null,
+        'abc': 'abc',
+      };
       expect(
-          () => {
-                Token.fromJson(const {
-                  'abc': 'abc',
-                })
-              },
-          throwsA(isA<TypeError>()));
+        () => {Token.fromJson(param1)},
+        throwsA(isA<TypeError>()),
+      );
 
       expect(
-          () => {
-                Token.fromJson(const {
-                  'token': null,
-                  'abc': 'abc',
-                })
-              },
-          throwsA(isA<TypeError>()));
+        () => {Token.fromJson(param2)},
+        throwsA(isA<TypeError>()),
+      );
     });
 
-    test('Test fromJson factory should throw TypeError when type param is not valid', () {
+    test(
+        'Test fromJson factory should throw TypeError when type param is not '
+        'valid', () {
+      const param1 = {
+        'token': null,
+      };
+      const param2 = {
+        'token': 1,
+      };
+      const param3 = {
+        'token': 1.0,
+      };
+      const param4 = {
+        'token': true,
+      };
+      const param5 = {
+        'token': false,
+      };
       expect(
-          () => {
-                Token.fromJson(const {
-                  'token': null,
-                })
-              },
-          throwsA(isA<TypeError>()));
+        () => {Token.fromJson(param1)},
+        throwsA(isA<TypeError>()),
+      );
 
       expect(
-          () => {
-                Token.fromJson(const {
-                  'token': 1,
-                })
-              },
-          throwsA(isA<TypeError>()));
+        () => {Token.fromJson(param2)},
+        throwsA(isA<TypeError>()),
+      );
 
       expect(
-          () => {
-                Token.fromJson(const {
-                  'token': 1.0,
-                })
-              },
-          throwsA(isA<TypeError>()));
+        () => {Token.fromJson(param3)},
+        throwsA(isA<TypeError>()),
+      );
 
       expect(
-          () => {
-                Token.fromJson(const {
-                  'token': true,
-                })
-              },
-          throwsA(isA<TypeError>()));
+        () => {Token.fromJson(param4)},
+        throwsA(isA<TypeError>()),
+      );
 
       expect(
-          () => {
-                Token.fromJson(const {
-                  'token': false,
-                })
-              },
-          throwsA(isA<TypeError>()));
+        () => {Token.fromJson(param5)},
+        throwsA(isA<TypeError>()),
+      );
     });
   });
 }

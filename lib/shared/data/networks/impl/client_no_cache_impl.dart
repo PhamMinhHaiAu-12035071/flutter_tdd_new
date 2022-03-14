@@ -58,8 +58,12 @@ class ClientNoCacheImpl implements ClientNoCache {
   }
 
   @override
-  Future<Response> delete(Uri url,
-      {Map<String, String>? headers, Object? body, Encoding? encoding,}) {
+  Future<Response> delete(
+    Uri url, {
+    Map<String, String>? headers,
+    Object? body,
+    Encoding? encoding,
+  }) {
     return _client.delete(
       url,
       headers: headers,

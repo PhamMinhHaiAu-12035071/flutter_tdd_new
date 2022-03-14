@@ -45,14 +45,15 @@ class _PasswordInputState extends State<PasswordInput> {
                 LoginFormPasswordChanged(password: password),
               ),
           decoration: InputDecoration(
-              icon: const Icon(Icons.lock),
-              labelText: 'Password',
-              errorText: state.password.invalid
-                  ? (state.password.error == PasswordValidateError.empty
-                      ? 'Password '
-                          'is not empty'
-                      : null)
-                  : null,),
+            icon: const Icon(Icons.lock),
+            labelText: 'Password',
+            errorText: state.password.invalid
+                ? (state.password.error == PasswordValidateError.empty
+                    ? 'Password '
+                        'is not empty'
+                    : null)
+                : null,
+          ),
           obscureText: true,
         );
       },

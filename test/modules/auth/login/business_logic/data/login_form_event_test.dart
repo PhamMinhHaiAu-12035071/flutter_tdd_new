@@ -6,16 +6,20 @@ void main() {
     group('LoginFormEmailChanged', () {
       test('supports value comparisons', () {
         const email = 'mock-email';
-        return expect(const LoginFormEmailChanged(email: email),
-            const LoginFormEmailChanged(email: email),);
+        return expect(
+          const LoginFormEmailChanged(email: email),
+          const LoginFormEmailChanged(email: email),
+        );
       });
     });
 
     group('LoginFormPasswordChanged', () {
       test('supports value comparisons', () {
         const password = 'mock-password';
-        expect(const LoginFormPasswordChanged(password: password),
-            const LoginFormPasswordChanged(password: password),);
+        expect(
+          const LoginFormPasswordChanged(password: password),
+          const LoginFormPasswordChanged(password: password),
+        );
       });
     });
 

@@ -18,12 +18,10 @@ class NoTransitionDelegate extends TransitionDelegate<void> {
       }
       results.add(pageRoute);
     }
-    for (final exitingPageRoute
-        in locationToExitingPageRoute.values) {
+    for (final exitingPageRoute in locationToExitingPageRoute.values) {
       if (exitingPageRoute.isWaitingForExitingDecision) {
         exitingPageRoute.markForRemove();
-        final pagelessRoutes =
-            pageRouteToPagelessRoutes[exitingPageRoute];
+        final pagelessRoutes = pageRouteToPagelessRoutes[exitingPageRoute];
         if (pagelessRoutes != null) {
           for (final pagelessRoute in pagelessRoutes) {
             pagelessRoute.markForRemove();

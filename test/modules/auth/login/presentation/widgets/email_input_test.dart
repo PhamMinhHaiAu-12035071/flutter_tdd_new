@@ -21,10 +21,10 @@ void main() {
     testWidgets('render EmailInput', (tester) async {
       when(() => getIt<LoginFormBloc>().state)
           .thenReturn(const LoginFormState());
-      final _routeInformationParser =
-          ERouteInformationParser();
+      final _routeInformationParser = ERouteInformationParser();
       final _routerDelegate = ERouterDelegate(
-          cubit: NavigationCubit([PageConfig(location: '/login')]),);
+        cubit: NavigationCubit([PageConfig(location: '/login')]),
+      );
 
       await tester.pumpWidget(
         MaterialApp.router(
@@ -44,10 +44,10 @@ void main() {
       when(() => getIt<LoginFormBloc>().state)
           .thenReturn(const LoginFormState());
       const email = 'mock-email';
-      final _routeInformationParser =
-          ERouteInformationParser();
+      final _routeInformationParser = ERouteInformationParser();
       final _routerDelegate = ERouterDelegate(
-          cubit: NavigationCubit([PageConfig(location: '/login')]),);
+        cubit: NavigationCubit([PageConfig(location: '/login')]),
+      );
 
       await tester.pumpWidget(
         MaterialApp.router(

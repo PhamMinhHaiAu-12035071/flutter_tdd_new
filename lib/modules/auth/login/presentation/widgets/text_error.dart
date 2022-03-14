@@ -9,16 +9,17 @@ class TextError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LoginFormBloc, LoginFormState>(
-        buildWhen: (previous, current) => previous.status != current.status,
-        builder: (context, state) {
-          if (state.status.isSubmissionFailure) {
-            return Text(
-              state.error,
-              key: TextError.textKey,
-              style: const TextStyle(color: Colors.red),
-            );
-          }
-          return Container();
-        },);
+      buildWhen: (previous, current) => previous.status != current.status,
+      builder: (context, state) {
+        if (state.status.isSubmissionFailure) {
+          return Text(
+            state.error,
+            key: TextError.textKey,
+            style: const TextStyle(color: Colors.red),
+          );
+        }
+        return Container();
+      },
+    );
   }
 }

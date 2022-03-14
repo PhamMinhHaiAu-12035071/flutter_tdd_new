@@ -27,12 +27,14 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  flutter:
+    sdk: flutter
+
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   equatable: ^2.0.3
-  flutter:
-    sdk: flutter
   flutter_bloc: ^8.0.1
   meta: ^1.7.0
   url_strategy: ^0.2.0
@@ -49,15 +51,15 @@ dependencies:
 
 
 dev_dependencies:
-  bloc_test: ^9.0.3
-  build_runner: ^2.1.7
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
-  injectable_generator:
   integration_test:
     sdk: flutter
+  injectable_generator:
+  build_runner: ^2.1.7
+  bloc_test: ^9.0.3
   very_good_analysis: ^2.4.0
+  flutter_lints: ^1.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -65,18 +65,25 @@ class LoginView extends StatelessWidget {
           }
         },
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
-              EmailInput(),
-              Padding(padding: EdgeInsets.all(12)),
-              PasswordInput(),
-              Padding(padding: EdgeInsets.all(12)),
-              LoginButton(),
-              Padding(padding: EdgeInsets.all(12)),
-              TextError(),
-              Padding(padding: EdgeInsets.all(12)),
-            ],
+          child: SingleChildScrollView(
+            physics: const ClampingScrollPhysics(),
+            child: Column(
+              children: <Widget>[
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const <Widget>[
+                    EmailInput(),
+                    Padding(padding: EdgeInsets.all(12)),
+                    PasswordInput(),
+                    Padding(padding: EdgeInsets.all(12)),
+                    LoginButton(),
+                    Padding(padding: EdgeInsets.all(12)),
+                    TextError(),
+                    Padding(padding: EdgeInsets.all(12)),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

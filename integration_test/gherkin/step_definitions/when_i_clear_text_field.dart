@@ -7,8 +7,8 @@ import 'package:gherkin/gherkin.dart';
 /// Handy when you want the clear text field
 ///
 /// Examples:
-///   I clear text on the "email" field
-///   I clear text on the "password" field
+///   When I clear text on the "email" field
+///   And I clear text on the "password" field
 ///
 final whenIClearTextField = when1<String, FlutterWidgetTesterWorld>(
   'I clear text on the {string} field',

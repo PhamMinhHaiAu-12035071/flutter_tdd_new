@@ -6,8 +6,8 @@ import 'package:gherkin/gherkin.dart';
 /// Handy when you want to check value should exist.
 ///
 /// Examples:
-///   I should see "eve.holt@reqres.in"
-///   I should see "hello world"
+///   Then I should see "eve.holt@reqres.in"
+///   And I should see "hello world"
 ///
 final thenIShouldSee = then1<String, FlutterWidgetTesterWorld>(
   'I should see {string}',

@@ -34,3 +34,7 @@ clean:
 .PHONY: coverage
 coverage:
 	flutter test --coverage
+
+.PHONY: run-web
+run-web:
+	flutter run -d web-server

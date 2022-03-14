@@ -15,8 +15,7 @@ import '../parameters/time_enum.dart';
 ///   When I pause for 40 minutes
 ///   When I pause for 1 hours
 
-StepDefinitionGeneric whenPauseTime =
-    when2<int, Time, FlutterWidgetTesterWorld>(
+final whenPauseTime = when2<int, Time, FlutterWidgetTesterWorld>(
   'I pause for {int} {${TimeParameter.key}}',
   (duration, type, context) async {
     switch (type) {

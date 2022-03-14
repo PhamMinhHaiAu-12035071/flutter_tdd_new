@@ -37,8 +37,21 @@ Feature: Login Page
     When I fill the <password> field with "123456"
     And I expect the "Submit" button to be enabled
     When I tap the "Submit" button
-    And I pause for 30 seconds
+    Then I should see "Missing password"
 
+    Examples:
+      | email                               | password                            |
+      | "loginForm_emailInput_textField"    | "loginForm_passwordInput_textField" |
+
+  Scenario Outline: Login successfully
+    Given I am on the login page
+    When I fill the <email> field with "eve.holt@reqres.in"
+    Then I should see "eve.holt@reqres.in"
+    And I expect the "Submit" button to be disabled
+    When I fill the <password> field with "cityslicka"
+    And I expect the "Submit" button to be enabled
+    When I tap the "Submit" button
+    Then I should see home page
     Examples:
       | email                               | password                            |
       | "loginForm_emailInput_textField"    | "loginForm_passwordInput_textField" |

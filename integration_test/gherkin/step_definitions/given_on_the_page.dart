@@ -6,7 +6,7 @@ import 'package:gherkin/gherkin.dart';
 ///   Given I am on the home page
 ///
 StepDefinitionGeneric givenOnThePage = given<FlutterWidgetTesterWorld>(
-  RegExp(r'I am on the \\w+ page'),
+  RegExp(r'I am on the \w+ page'),
   (context) async {
     final tester = context.world.rawAppDriver;
     await tester.pumpAndSettle();

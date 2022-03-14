@@ -6,11 +6,11 @@ import 'package:gherkin/gherkin.dart';
 /// Handy when you want to check value should exist.
 ///
 /// Examples:
-///   I see "eve.holt@reqres.in" on the login page
-///   I see "hello world" on the home page
+///   I should see "eve.holt@reqres.in"
+///   I should see "hello world"
 ///
-final thenExpectFieldWithValue = then1<String, FlutterWidgetTesterWorld>(
-  RegExp(r'I see {string} on the \\w+ page'),
+final thenIShouldSee = then1<String, FlutterWidgetTesterWorld>(
+  'I should see {string}',
   (value, context) async {
     final tester = context.world.rawAppDriver;
 

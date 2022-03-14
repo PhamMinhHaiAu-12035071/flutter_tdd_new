@@ -23,7 +23,7 @@ class _CustomGherkinIntegrationTestRunner extends GherkinIntegrationTestRunner {
       <String>[],
       () {
         runScenario(
-          'Email is not allow empty Examples: (1)',
+          'LoginForm will show error message when field is empty Examples: (1)',
           <String>[],
           (TestDependencies dependencies) async {
             await runStep(
@@ -34,36 +34,63 @@ class _CustomGherkinIntegrationTestRunner extends GherkinIntegrationTestRunner {
             );
 
             await runStep(
-              'When I fill the "loginForm_emailInput_textField" field with '
-              '"eve.holt@reqres.in"',
+              'When I fill the "loginForm_emailInput_textField" field with "eve.holt@reqres.in"',
               <String>[],
               null,
               dependencies,
             );
 
             await runStep(
-              'Then I see "eve.holt@reqres.in" on the login page',
+              'Then I should see "eve.holt@reqres.in"',
               <String>[],
               null,
               dependencies,
             );
 
             await runStep(
-              'When I press the backspace keyboard 18 times',
+              'And I clear text on the "loginForm_emailInput_textField" field',
               <String>[],
               null,
               dependencies,
             );
 
             await runStep(
-              'Then I see "Email is not empty" on the login page',
+              'Then I should see "Email is not empty"',
               <String>[],
               null,
               dependencies,
             );
 
             await runStep(
-              'And I expect the "Login" button to be disabled',
+              'And I expect the "Submit" button to be disabled',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'When I fill the "loginForm_passwordInput_textField" field with "123456"',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'And I clear text on the "loginForm_passwordInput_textField" field',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'Then I should see "Password is not empty"',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'And I expect the "Submit" button to be disabled',
               <String>[],
               null,
               dependencies,
@@ -73,6 +100,54 @@ class _CustomGherkinIntegrationTestRunner extends GherkinIntegrationTestRunner {
             'Login Page',
             <String>[],
           ),
+        );
+
+        runScenario(
+          'LoginForm with field valid Examples: (1)',
+          <String>[],
+          (TestDependencies dependencies) async {
+            await runStep(
+              'Given I am on the login page',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'When I fill the "loginForm_emailInput_textField" field with "eve.holt@reqres.in"',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'Then I should see "eve.holt@reqres.in"',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'And I expect the "Submit" button to be disabled',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'When I fill the "loginForm_passwordInput_textField" field with "123456"',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'And I expect the "Submit" button to be enabled',
+              <String>[],
+              null,
+              dependencies,
+            );
+          },
           onAfter: () async => onAfterRunFeature(
             'Login Page',
           ),

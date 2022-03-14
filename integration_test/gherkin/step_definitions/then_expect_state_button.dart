@@ -31,7 +31,14 @@ final thenExpectStateButton =
           final textWidget = innerChild;
           final text = textWidget.data;
           if (text == value) {
-            debugPrint('check state button: ${btnWidget.enabled}');
+            switch (state) {
+              case StatusElement.enabled:
+                expect(btnWidget.enabled, true);
+                break;
+              case StatusElement.disabled:
+                expect(btnWidget.enabled, false);
+                break;
+            }
           }
         }
       }

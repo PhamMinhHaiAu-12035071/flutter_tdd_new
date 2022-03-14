@@ -2,9 +2,11 @@
 import 'package:flutter_gherkin/flutter_gherkin.dart';
 import 'package:flutter_tdd_new/constants/env.dart';
 import 'package:flutter_tdd_new/main.dart' as app;
+import 'package:flutter_test/flutter_test.dart';
 import 'package:gherkin/gherkin.dart';
 
 import 'hooks/hooks.dart';
+import 'mock/mock_api_login.dart';
 import 'parameters/parameters.dart';
 import 'step_definitions/steps.dart';
 import 'world/custom_world.dart';
@@ -30,5 +32,7 @@ FlutterTestConfiguration gherkinTestConfiguration =
       ..createWorld = (config) => Future.value(CustomWorld());
 
 Future<void> appInitializationFn(World world) async {
-  return app.main(environment: Env.endToEndTest);
+  final result = app.main(environment: Env.endToEndTest);
+  MockApiLogin();
+  return result;
 }

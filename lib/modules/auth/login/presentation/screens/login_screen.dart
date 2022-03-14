@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -48,10 +46,6 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  void _exitApp() {
-    exit(0);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,19 +67,15 @@ class LoginView extends StatelessWidget {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const EmailInput(),
-              const Padding(padding: EdgeInsets.all(12)),
-              const PasswordInput(),
-              const Padding(padding: EdgeInsets.all(12)),
-              const LoginButton(),
-              const Padding(padding: EdgeInsets.all(12)),
-              const TextError(),
-              const Padding(padding: EdgeInsets.all(12)),
-              ElevatedButton(
-                onPressed: _exitApp,
-                child: const Text('exit'),
-              )
+            children: const <Widget>[
+              EmailInput(),
+              Padding(padding: EdgeInsets.all(12)),
+              PasswordInput(),
+              Padding(padding: EdgeInsets.all(12)),
+              LoginButton(),
+              Padding(padding: EdgeInsets.all(12)),
+              TextError(),
+              Padding(padding: EdgeInsets.all(12)),
             ],
           ),
         ),

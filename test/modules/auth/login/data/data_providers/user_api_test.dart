@@ -43,26 +43,43 @@ void main() {
     });
   });
 
-  test('Test method login', () async {
+  test('Test method login success and failed', () async {
     final mockFlavorConfig = MockFlavorConfig();
     when(() => mockFlavorConfig.baseUrl).thenReturn('https://reqres.in');
 
     final mockClientCommon = MockClientCommon();
     final url = Uri.parse('https://reqres.in/api/login');
-    const email = 'au@gmail.com';
-    const password = '123456';
-    const data = {
+    const email = 'eve.holt@reqres.in';
+    const passwordSuccess = 'cityslicka';
+    const passwordFailed = 'mock-password';
+    const dataSuccess = {
       'email': email,
-      'password': password,
+      'password': passwordSuccess,
     };
-    when(() => mockClientCommon.post(url, body: jsonEncode(data)))
-        .thenAnswer((_) async => Response('', HttpStatus.ok));
+    const dataFailed = {
+      'email': email,
+      'password': passwordFailed,
+    };
+    when(() => mockClientCommon.post(url, body: jsonEncode(dataFailed)))
+        .thenAnswer(
+      (_) async =>
+          Response('{"error": "Missing password"}', HttpStatus.badRequest),
+    );
+    when(() => mockClientCommon.post(url, body: jsonEncode(dataSuccess)))
+        .thenAnswer(
+      (_) async => Response('{"token": "QpwL5tke4Pnpja7X4"}', HttpStatus.ok),
+    );
 
     final userApiImpl = UserAPIImpl(
       flavorConfig: mockFlavorConfig,
       clientCommon: mockClientCommon,
     );
-    final result = await userApiImpl.login(email: email, password: password);
+    final result =
+        await userApiImpl.login(email: email, password: passwordSuccess);
+    final resultFailed =
+        await userApiImpl.login(email: email, password: passwordFailed);
+
     expect(result.statusCode, HttpStatus.ok);
+    expect(resultFailed.statusCode, HttpStatus.badRequest);
   });
 }

@@ -51,29 +51,10 @@ void main() {
         when(
           () => mockClient.post(
             url,
-            headers: ClientCommonImpl.defaultHeaders,
+            headers: clientCommon.defaultHeaders,
             body: '',
           ),
         ).thenAnswer((_) async => Response('', HttpStatus.ok));
-
-        final result = await clientCommon.post(url, body: '');
-
-        expect(result.statusCode, HttpStatus.ok);
-        expect(result.body, '');
-      });
-
-      test('with injected', () async {
-        await configureInjection(environment: Env.test);
-        final url = Uri.parse('https://google.com.vn');
-        when(
-          () => getIt<Client>().post(
-            url,
-            headers: ClientCommonImpl.defaultHeaders,
-            body: '',
-          ),
-        ).thenAnswer((_) async => Response('', HttpStatus.ok));
-
-        final clientCommon = ClientCommonImpl(client: getIt<Client>());
 
         final result = await clientCommon.post(url, body: '');
 

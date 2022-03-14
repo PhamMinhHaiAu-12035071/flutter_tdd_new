@@ -4,7 +4,7 @@ import 'package:flutter_gherkin/flutter_gherkin.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gherkin/gherkin.dart';
 
-/// Handy when you want clear text field
+/// Handy when you want the clear text field
 ///
 /// Examples:
 ///   I clear text on the "email" field
@@ -18,6 +18,7 @@ final whenIClearTextField = when1<String, FlutterWidgetTesterWorld>(
     await tester.pumpAndSettle();
 
     final finder = find.byKey(Key(key));
+
     await tester.showKeyboard(finder);
     await tester.tap(finder);
     await tester.sendKeyDownEvent(

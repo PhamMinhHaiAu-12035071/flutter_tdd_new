@@ -22,6 +22,7 @@ class UserAPIImpl implements UserAPI {
   final FlavorConfig _flavorConfig;
   final ClientCommon _client;
 
+  @override
   String get pathLogin => '/api/login';
 
   @override

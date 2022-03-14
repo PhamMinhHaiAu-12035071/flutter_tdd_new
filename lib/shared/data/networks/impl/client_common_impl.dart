@@ -19,10 +19,11 @@ class ClientCommonImpl implements ClientCommon {
 
   final Client _client;
 
-  static const defaultHeaders = {
-    HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',
-    HttpHeaders.acceptHeader: 'application/json',
-  };
+  @override
+  Map<String, String> get defaultHeaders => {
+        HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',
+        HttpHeaders.acceptHeader: 'application/json',
+      };
   @override
   Future<Response> post(
     Uri url, {

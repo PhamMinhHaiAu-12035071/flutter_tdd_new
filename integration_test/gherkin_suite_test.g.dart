@@ -100,6 +100,7 @@ class _CustomGherkinIntegrationTestRunner extends GherkinIntegrationTestRunner {
             'Login Page',
             <String>[],
           ),
+          onAfter: null,
         );
 
         runScenario(
@@ -148,6 +149,71 @@ class _CustomGherkinIntegrationTestRunner extends GherkinIntegrationTestRunner {
               dependencies,
             );
           },
+          onBefore: null,
+          onAfter: null,
+        );
+
+        runScenario(
+          'Login failed Examples: (1)',
+          <String>[],
+          (TestDependencies dependencies) async {
+            await runStep(
+              'Given I am on the login page',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'When I fill the "loginForm_emailInput_textField" field with "eve.holt@reqres.in"',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'Then I should see "eve.holt@reqres.in"',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'And I expect the "Submit" button to be disabled',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'When I fill the "loginForm_passwordInput_textField" field with "123456"',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'And I expect the "Submit" button to be enabled',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'When I tap the "Submit" button',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
+              'And I pause for 30 seconds',
+              <String>[],
+              null,
+              dependencies,
+            );
+          },
+          onBefore: null,
           onAfter: () async => onAfterRunFeature(
             'Login Page',
           ),

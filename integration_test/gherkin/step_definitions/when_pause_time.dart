@@ -10,8 +10,8 @@ import '../parameters/time_enum.dart';
 ///
 /// Examples:
 ///   When I pause for 10 microseconds
-///   When I pause for 20 milliseconds
-///   When I pause for 30 seconds
+///   Then I pause for 20 milliseconds
+///   And I pause for 30 seconds
 ///   When I pause for 40 minutes
 ///   When I pause for 1 hours
 

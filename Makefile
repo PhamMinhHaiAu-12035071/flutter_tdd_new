@@ -14,6 +14,10 @@ integration_test_device:
 integration_test_web:
 	flutter drive --driver=test_driver/integration_test.dart --target=integration_test/gherkin_suite_test.dart -d web-server --no-headless
 
+.PHONY: integration_test_web_debug
+integration_test_web_debug:
+	flutter drive --driver=test_driver/integration_test.dart --target=integration_test/gherkin_suite_test.dart -d chrome --web-renderer html
+
 .PHONY: chromedriver_start
 chromedriver_start:
 	./scripts/chromedriver --port=4444

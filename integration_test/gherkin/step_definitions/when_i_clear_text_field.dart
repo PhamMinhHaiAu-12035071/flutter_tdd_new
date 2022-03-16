@@ -1,5 +1,5 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_gherkin/flutter_gherkin.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gherkin/gherkin.dart';
@@ -21,15 +21,20 @@ final whenIClearTextField = when1<String, FlutterWidgetTesterWorld>(
 
     await tester.showKeyboard(finder);
     await tester.tap(finder);
-    await tester.sendKeyDownEvent(
-      LogicalKeyboardKey.control,
-    );
-    await tester.sendKeyDownEvent(
-      LogicalKeyboardKey.keyA,
-    );
-    await tester.sendKeyDownEvent(
-      LogicalKeyboardKey.backspace,
-    );
+
+    if (kIsWeb) {
+      await tester.enterText(finder, '');
+    } else {
+      await tester.sendKeyDownEvent(
+        LogicalKeyboardKey.control,
+      );
+      await tester.sendKeyDownEvent(
+        LogicalKeyboardKey.keyA,
+      );
+      await tester.sendKeyDownEvent(
+        LogicalKeyboardKey.backspace,
+      );
+    }
   },
   configuration: StepDefinitionConfiguration()
     ..timeout = const Duration(minutes: 5),

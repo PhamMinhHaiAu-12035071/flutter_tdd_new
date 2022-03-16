@@ -5,6 +5,7 @@ import 'package:flutter_tdd_new/main.dart' as app;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gherkin/gherkin.dart';
 
+import '../gherkin_suite_test.dart';
 import 'hooks/hooks.dart';
 import 'mock/mock_api_login.dart';
 import 'parameters/parameters.dart';
@@ -32,7 +33,11 @@ FlutterTestConfiguration gherkinTestConfiguration =
       ..createWorld = (config) => Future.value(CustomWorld());
 
 Future<void> appInitializationFn(World world) async {
-  final result = app.main(environment: Env.endToEndTest);
+  globalCountApp += 1;
+  final result = app.main(
+    environment: Env.endToEndTest,
+    isAddUrlStrategy: globalCountApp <= 1,
+  );
   MockApiLogin();
   return result;
 }

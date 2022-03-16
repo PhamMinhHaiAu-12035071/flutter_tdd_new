@@ -5,6 +5,7 @@ import 'gherkin/configuration.dart';
 
 part 'gherkin_suite_test.g.dart';
 
+int globalCountApp = 0;
 @GherkinTestSuite(
   featureDefaultLanguage: 'en',
 )

@@ -5,12 +5,15 @@ import 'package:flutter_tdd_new/configs/routers/e_route_information_parser.dart'
 import 'package:flutter_tdd_new/configs/routers/e_router_delegate.dart';
 import 'package:flutter_tdd_new/configs/routers/navigation_cubit.dart';
 import 'package:flutter_tdd_new/configs/routers/page_config.dart';
+import 'package:flutter_tdd_new/configs/url/url_strategy.dart';
 import 'package:flutter_tdd_new/constants/env.dart';
-import 'package:url_strategy/url_strategy.dart';
 
-Future<void> main({String environment = Env.dev}) async {
+Future<void> main(
+    {String environment = Env.dev, bool isAddUrlStrategy = true,}) async {
   WidgetsFlutterBinding.ensureInitialized();
-  setPathUrlStrategy();
+  if (isAddUrlStrategy) {
+    usePathUrlStrategy();
+  }
   await configureInjection(environment: environment);
   BlocOverrides.runZoned(
     () => runApp(MyApp()),

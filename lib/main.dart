@@ -8,8 +8,10 @@ import 'package:flutter_tdd_new/configs/routers/page_config.dart';
 import 'package:flutter_tdd_new/configs/url/url_strategy.dart';
 import 'package:flutter_tdd_new/constants/env.dart';
 
-Future<void> main(
-    {String environment = Env.dev, bool isAddUrlStrategy = true,}) async {
+Future<void> main({
+  String environment = Env.dev,
+  bool isAddUrlStrategy = true,
+}) async {
   WidgetsFlutterBinding.ensureInitialized();
   if (isAddUrlStrategy) {
     usePathUrlStrategy();

@@ -15,25 +15,41 @@ final whenIClearTextField = when1<String, FlutterWidgetTesterWorld>(
   (key, context) async {
     final tester = context.world.rawAppDriver;
 
-    await tester.pumpAndSettle();
-
+    await tester.idle();
     final finder = find.byKey(Key(key));
+    await tester.pumpAndSettle();
 
     await tester.showKeyboard(finder);
     await tester.tap(finder);
 
+    await tester.pumpAndSettle();
+
     if (kIsWeb) {
       await tester.enterText(finder, '');
+      await tester.pumpAndSettle();
     } else {
+      // Select All
       await tester.sendKeyDownEvent(
-        LogicalKeyboardKey.control,
+        LogicalKeyboardKey.meta,
       );
-      await tester.sendKeyDownEvent(
+      await tester.sendKeyEvent(
         LogicalKeyboardKey.keyA,
       );
-      await tester.sendKeyDownEvent(
-        LogicalKeyboardKey.backspace,
+      await tester.pumpAndSettle();
+      await tester.sendKeyUpEvent(
+        LogicalKeyboardKey.control,
       );
+      await tester.pumpAndSettle();
+      // Delete them
+      await tester.sendKeyDownEvent(
+        LogicalKeyboardKey.delete,
+      );
+      await tester.pumpAndSettle();
+      await tester.pump(const Duration(milliseconds: 200));
+      await tester.sendKeyUpEvent(
+        LogicalKeyboardKey.delete,
+      );
+      await tester.pumpAndSettle();
     }
   },
   configuration: StepDefinitionConfiguration()

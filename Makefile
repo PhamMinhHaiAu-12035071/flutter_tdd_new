@@ -18,9 +18,13 @@ integration_test_web:
 integration_test_web_debug:
 	flutter drive --driver=test_driver/integration_test.dart --target=integration_test/gherkin_suite_test.dart -d chrome --web-renderer html
 
+.PHONY: integration_test_web_demo
+integration_test_web_demo:
+	flutter drive --web-port 8080 --browser-name=safari --driver=test_driver/driver_test.dart --target=integration_test/demo_test.dart -d chrome --web-renderer html
+
 .PHONY: chromedriver_start
 chromedriver_start:
-	./scripts/chromedriver --port=4444
+	./scripts/chromedriver --port=4444 --disable-gpu
 
 .PHONY: test
 test:

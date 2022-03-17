@@ -30,14 +30,14 @@ final whenIClearTextField = when1<String, FlutterWidgetTesterWorld>(
     } else {
       // Select All
       await tester.sendKeyDownEvent(
-        LogicalKeyboardKey.meta,
+        LogicalKeyboardKey.controlLeft,
       );
       await tester.sendKeyEvent(
         LogicalKeyboardKey.keyA,
       );
       await tester.pumpAndSettle();
       await tester.sendKeyUpEvent(
-        LogicalKeyboardKey.control,
+        LogicalKeyboardKey.controlLeft,
       );
       await tester.pumpAndSettle();
       // Delete them

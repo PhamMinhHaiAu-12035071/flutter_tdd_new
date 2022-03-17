@@ -6,9 +6,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
 void main() {
-  final binding =
-      IntegrationTestWidgetsFlutterBinding.ensureInitialized()
-          as IntegrationTestWidgetsFlutterBinding;
+  final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized()
+      as IntegrationTestWidgetsFlutterBinding;
 
 // Necessary for being able to enterText when not in debug mode
   binding.testTextInput.register();

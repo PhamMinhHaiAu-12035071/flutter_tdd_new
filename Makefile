@@ -10,10 +10,11 @@ integration_test_report:
 integration_test_device:
 	flutter drive --driver=test_driver/integration_test.dart --target=integration_test/gherkin_suite_test.dart
 
+
+## run integration_test with chrome default
 .PHONY: integration_test_web
 integration_test_web:
 	flutter drive --driver=test_driver/integration_test.dart --target=integration_test/gherkin_suite_test.dart -d web-server --no-headless
-
 .PHONY: integration_test_web_debug
 integration_test_web_debug:
 	flutter drive --driver=test_driver/integration_test.dart --target=integration_test/gherkin_suite_test.dart -d chrome --web-renderer html
@@ -22,9 +23,49 @@ integration_test_web_debug:
 integration_test_web_demo:
 	flutter drive --web-port 8080 --browser-name=safari --driver=test_driver/driver_test.dart --target=integration_test/demo_test.dart -d chrome --web-renderer html
 
+## run integration_test with safari
+.PHONY: integration_test_web_safari
+integration_test_web_safari:
+	flutter drive --web-port 8080 --browser-name=safari --driver=test_driver/integration_test.dart --target=integration_test/gherkin_suite_test.dart -d web-server --no-headless
+
+## run integration_test with firefox
+.PHONY: integration_test_web_firefox
+integration_test_web_firefox:
+	flutter drive --web-port 8080 --browser-name=firefox --driver=test_driver/integration_test.dart --target=integration_test/gherkin_suite_test.dart -d web-server --no-headless
+
+## run integration_test with edge
+.PHONY: integration_test_web_edge
+integration_test_web_edge:
+	flutter drive --web-port 8080 --browser-name=edge --driver=test_driver/integration_test.dart --target=integration_test/gherkin_suite_test.dart -d web-server --no-headless
+
+
+
+## start chrome
 .PHONY: chromedriver_start
 chromedriver_start:
-	./scripts/chromedriver --port=4444 --disable-gpu
+	./scripts/chromedriver --port=4444
+
+## start safari
+.PHONY: safari_enable
+safari_enable:
+	sudo safaridriver --enable
+.PHONY: safaridriver_start
+safaridriver_start:
+	/usr/bin/safaridriver --port=4444
+
+## start firefox
+.PHONY: geckodriver_install
+geckodriver_install:
+	brew install geckodriver
+
+.PHONY: geckodriver_start
+geckodriver_start:
+	geckodriver --port=4444
+
+## start edge only support on windows
+.PHONY: edge_start
+edge_start:
+	./scripts/msedgedriver --port=4444
 
 .PHONY: test
 test:

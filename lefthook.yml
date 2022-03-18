@@ -1,12 +1,10 @@
 pre-push:
   parallel: true
   commands:
+    tests:
+      run: flutter test
     linter:
       run: flutter analyze
-    fix:
-      run: dart fix --apply
-    test:
-      run: flutter test
 
 pre-commit:
   parallel: true

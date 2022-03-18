@@ -26,7 +26,7 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdk 31
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -40,6 +40,10 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+
+        // support integration_test
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true // <-add this
     }
 
     buildTypes {
@@ -53,4 +57,15 @@ android {
 
 flutter {
     source '../..'
+}
+
+// support integration_test
+dependencies {
+    implementation 'androidx.test:core:1.4.0'
+    implementation 'androidx.test.ext:junit:1.1.3'
+    testImplementation 'junit:junit:4.13.2'
+
+    // https://developer.android.com/jetpack/androidx/releases/test/#1.2.0
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }

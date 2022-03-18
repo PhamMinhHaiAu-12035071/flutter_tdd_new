@@ -2,10 +2,12 @@
 rebuild:
 	flutter pub run build_runner clean && flutter pub run build_runner build --delete-conflicting-outputs
 
+## generate file html report and run on web
 .PHONY: integration_test_report
 integration_test_report:
 	node integration_test/gherkin/reports/index.js
 
+## grun integration_test with emulator (android or ios)
 .PHONY: integration_test_device
 integration_test_device:
 	flutter drive --driver=test_driver/integration_test.dart --target=integration_test/gherkin_suite_test.dart
@@ -15,6 +17,7 @@ integration_test_device:
 .PHONY: integration_test_web
 integration_test_web:
 	flutter drive --driver=test_driver/integration_test.dart --target=integration_test/gherkin_suite_test.dart -d web-server --no-headless
+
 .PHONY: integration_test_web_debug
 integration_test_web_debug:
 	flutter drive --driver=test_driver/integration_test.dart --target=integration_test/gherkin_suite_test.dart -d chrome --web-renderer html
@@ -41,30 +44,30 @@ integration_test_web_edge:
 
 
 ## start chrome
-.PHONY: chromedriver_start
-chromedriver_start:
+.PHONY: driver_start_chrome
+driver_start_chrome:
 	./scripts/chromedriver --port=4444
 
 ## start safari
-.PHONY: safari_enable
-safari_enable:
+.PHONY: driver_safari_enabled
+driver_safari_enabled:
 	sudo safaridriver --enable
-.PHONY: safaridriver_start
-safaridriver_start:
+.PHONY: driver_start_safari
+driver_start_safari:
 	/usr/bin/safaridriver --port=4444
 
 ## start firefox
-.PHONY: geckodriver_install
-geckodriver_install:
+.PHONY: driver_install_firefox
+driver_install_firefox:
 	brew install geckodriver
 
-.PHONY: geckodriver_start
-geckodriver_start:
+.PHONY: diriver_start_firefox
+diriver_start_firefox:
 	geckodriver --port=4444
 
 ## start edge only support on windows
-.PHONY: edge_start
-edge_start:
+.PHONY: driver_start_edge
+driver_start_edge:
 	./scripts/msedgedriver --port=4444
 
 ## run integration_test on real device android

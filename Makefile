@@ -72,6 +72,11 @@ edge_start:
 integration_test_real_device_android:
 	./gradlew app:connectedAndroidTest -Ptarget=`pwd`/../integration_test/gherkin_suite_test.dart --stacktrace --warning-mode=all
 
+## run integration_test on real device ios
+.PHONY: integration_test_real_device_ios
+integration_test_real_device_ios:
+	flutter build ios --config-only integration_test/gherkin_suite_test.dart
+
 
 ## run unit-test
 .PHONY: test

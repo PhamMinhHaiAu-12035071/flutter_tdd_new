@@ -1,0 +1,41 @@
+Câu lệnh,Mô tả
+
+help,Hiển thị danh sách trợ giúp
+
+install,Cài đặt
+
+rebuild,Xoá và tạo lại các file dart
+
+clean,Xoá tất cả cache
+
+web-server,Chạy code trên trình duyệt dưới dạng web-server
+,(phù hợp khi test trên máy yếu nhưng phải hot-reload thủ công)
+
+web,Chạy code trên trình duyệt
+,(link tham khảo chi tiết https://docs.flutter.dev/development/tools/web-renderers)
+
+test,Chạy tất cả file unit-test
+
+coverage,Kiểm tra số lượng test-case bao phủ
+
+integration_test_device,Chạy automation test trên thiết bị ảo
+,Điều kiện: Emulator phải được mở (android hoặc ios)
+
+integration_test_real_device_android,Chạy automation test trên thiết bị android thật
+,Điều kiện: Thiết bị android phải được kết nối với máy tính
+
+integration_test_real_device_ios,Chạy automation test trên thiết bị ios thật
+,Điều kiện: Thiết bị ios phải được kết nối với máy tính
+
+integration_test_report,Mở web hiển thị báo cáo automation-test
+
+integration_test_web_chrome,Chạy automation test trên trình duyệt Chrome
+,Điều kiện: phải cài đặt trình duyệt Chrome trên máy tính
+
+integration_test_web_chrome_debug,Chạy automation test debug trên trình duyệt Chrome
+
+integration_test_web_safari,Chạy automation test trên trình duyệt Safari
+,(chỉ hoạt động trên máy MacOS)
+
+integration_test_web_firefox,Chạy automation test trên trình duyệt Firefox
+,Điều kiện: phải cài đặt trình duyệt Firefox trên máy tính

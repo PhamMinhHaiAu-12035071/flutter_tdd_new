@@ -14,8 +14,8 @@ integration_test_device:
 
 
 ## run integration_test with chrome default
-.PHONY: integration_test_web
-integration_test_web:
+.PHONY: integration_test_web_chrome
+integration_test_web_chrome:
 	flutter drive --driver=test_driver/integration_test.dart --target=integration_test/gherkin_suite_test.dart -d web-server --no-headless
 
 .PHONY: integration_test_web_debug

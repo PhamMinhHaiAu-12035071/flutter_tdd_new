@@ -7,6 +7,7 @@ var options = {
         reportSuiteAsScenarios: true,
         scenarioTimestamp: true,
         launchReport: true,
+        ignoreBadJsonFile: true,
         metadata: {
             "App Version":"0.3.2",
             "Test Environment": "DEV",

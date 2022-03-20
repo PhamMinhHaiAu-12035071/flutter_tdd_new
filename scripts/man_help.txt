@@ -4,6 +4,8 @@ help,Hiển thị danh sách trợ giúp
 
 install,Cài đặt
 
+upgrade,Update tất cả package trong file pubspec.yaml
+
 rebuild,Xoá và tạo lại các file dart
 
 clean,Xoá tất cả cache
@@ -26,6 +28,7 @@ integration_test_real_device_android,Chạy automation test trên thiết bị a
 
 integration_test_real_device_ios,Chạy automation test trên thiết bị ios thật
 ,Điều kiện: Thiết bị ios phải được kết nối với máy tính
+,Sau khi xcode mở -> Chọn điện thoại -> Nhấn Product -> Test
 
 integration_test_report,Mở web hiển thị báo cáo automation-test
 

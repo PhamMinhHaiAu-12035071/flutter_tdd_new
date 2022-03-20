@@ -43,7 +43,6 @@ android {
 
         // support integration_test
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        multiDexEnabled true // <-add this
     }
 
     buildTypes {

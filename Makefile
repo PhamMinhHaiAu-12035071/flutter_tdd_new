@@ -5,6 +5,10 @@ help:
 install:
 	yarn && flutter pub get && chmod u+x ./scripts/chmod.sh
 
+.PHONY: upgrade
+upgrade:
+	flutter update-packages --force-upgrade
+
 .PHONY: rebuild
 rebuild:
 	flutter pub run build_runner clean && flutter pub run build_runner build --delete-conflicting-outputs
@@ -36,13 +40,13 @@ integration_test_device:
 
 .PHONY: integration_test_real_device_android
 integration_test_real_device_android:
-	./gradlew app:connectedAndroidTest \
-	-Ptarget=`pwd`/../integration_test/gherkin_suite_test.dart \
-	--stacktrace --warning-mode=all
+	./scripts/run_android.sh
 
 .PHONY: integration_test_real_device_ios
 integration_test_real_device_ios:
-	flutter build ios --config-only integration_test/gherkin_suite_test.dart
+	flutter build ios --config-only integration_test/gherkin_suite_test.dart \
+	&& sleep 1 \
+	&& open ios/Runner.xcworkspace
 
 .PHONY: integration_test_report
 integration_test_report:

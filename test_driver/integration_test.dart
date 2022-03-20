@@ -29,7 +29,7 @@ Future<void> writeGherkinReports(
     final File file = fs.file(
       path.join(
         integration_test_driver.testOutputsDirectory,
-        'gen/report_$i.json',
+        'report_$i.json',
       ),
     );
     final resultString = _encodeJson(reportData, true);
@@ -41,7 +41,7 @@ Future<void> main() async {
   // The Gherkin gen data send back to this runner by the app after
   // the tests have run will be saved to this directory
   integration_test_driver.testOutputsDirectory =
-      'integration_test/gherkin/reports';
+      'integration_test/gherkin/reports/gen';
 
   return integration_test_driver.integrationDriver(
     timeout: const Duration(minutes: 90),

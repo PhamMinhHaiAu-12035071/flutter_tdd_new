@@ -25,5 +25,8 @@
     "@arkweid/lefthook": "^0.7.7",
     "cucumber-html-reporter": "^5.5.0",
     "markdown-link-check": "^3.9.3"
+  },
+  "dependencies": {
+    "shelljs": "^0.8.5"
   }
 }

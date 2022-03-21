@@ -9,6 +9,7 @@ import 'package:flutter_tdd_new/modules/auth/login/presentation/widgets/email_in
 import 'package:flutter_tdd_new/modules/auth/login/presentation/widgets/login_button.dart';
 import 'package:flutter_tdd_new/modules/auth/login/presentation/widgets/password_input.dart';
 import 'package:flutter_tdd_new/modules/auth/login/presentation/widgets/text_error.dart';
+import 'package:flutter_tdd_new/shared/widgets/flavor_banner.dart';
 import 'package:formz/formz.dart';
 
 class LoginScreen extends EPage {
@@ -18,7 +19,18 @@ class LoginScreen extends EPage {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => getIt<LoginFormBloc>(),
-      child: const LoginView(),
+      child: const LoginWithFlavorBanner(),
+    );
+  }
+}
+
+class LoginWithFlavorBanner extends StatelessWidget {
+  const LoginWithFlavorBanner({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const FlavorBanner(
+      child: LoginView(),
     );
   }
 }

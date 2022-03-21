@@ -18,7 +18,7 @@ Future<void> main({
   }
   await configureInjection(environment: environment);
   BlocOverrides.runZoned(
-        () => runApp(MyApp()),
+    () => runApp(MyApp()),
   );
 }
 
@@ -26,9 +26,9 @@ class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
 
   final ERouteInformationParser _routeInformationParser =
-  ERouteInformationParser();
+      ERouteInformationParser();
   final ERouterDelegate _routerDelegate =
-  ERouterDelegate(cubit: NavigationCubit([PageConfig(location: '/')]));
+      ERouterDelegate(cubit: NavigationCubit([PageConfig(location: '/')]));
 
   @override
   Widget build(BuildContext context) {

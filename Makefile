@@ -17,13 +17,13 @@ rebuild:
 clean:
 	flutter clean && flutter pub cache clean
 
-.PHONY: web-server
-web-server:
-	flutter run -d web-server
+.PHONY: web-server-dev
+web-server-dev:
+	flutter run -d web-server -t lib/main_dev.dart
 
-.PHONY: web
-web:
-	flutter run -d chrome
+.PHONY: web-dev
+web-dev:
+	flutter run --observatory-port=9200 -d chrome -t lib/main_dev.dart
 
 .PHONY: test
 test:

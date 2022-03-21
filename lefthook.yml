@@ -22,8 +22,3 @@ pre-commit:
       run: flutter format {files}
     test:
       run: flutter test
-
-commit-msg:
-  scripts:
-    "commit_lint.js":
-      runner: node

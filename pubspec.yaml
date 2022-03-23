@@ -54,8 +54,6 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-  flutter_driver:
-    sdk: flutter
   injectable_generator:
   build_runner: ^2.1.7
   bloc_test: ^9.0.3

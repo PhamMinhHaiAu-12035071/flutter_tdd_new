@@ -3,11 +3,9 @@ help:
 
 .PHONY: install
 install:
-	yarn && flutter pub get && chmod u+x ./scripts/chmod.sh
-
-.PHONY: upgrade
-upgrade:
-	flutter update-packages --force-upgrade
+	yarn \
+	&& flutter pub get \
+	&& chmod u+x ./scripts/chmod.sh
 
 .PHONY: rebuild
 rebuild:
@@ -15,7 +13,10 @@ rebuild:
 
 .PHONY: clean
 clean:
-	flutter clean && flutter pub cache clean
+	flutter clean \
+	&& flutter pub cache clean \
+	&& rm -rf node_modules/
+
 
 .PHONY: web-server
 web-server:

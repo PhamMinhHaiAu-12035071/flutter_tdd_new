@@ -17,6 +17,13 @@
 * [Chạy automation test trên thiết bị thật](#chạy-automation-test-trên-thiết-bị-thật)
   - [Trên IOS thật với xcode](#trên-ios-thật-với-xcode)
   - [Trên Android thật với android studio](#trên-android-thật-với-android-studio)
+* [Chạy automation test trên chrome](#chạy-automation-test-trên-chrome)
+* [Chạy automation test trên firefox](#chạy-automation-test-trên-firefox)
+* [Chạy automation test trên safari](#chạy-automation-test-trên-safari)
+* [Chạy automation test trên edge](#chạy-automation-test-trên-edge)
+* [Cảm hứng](#cảm-hứng)
+* [Tác giả](#tác-giả)
+* [Đóng góp](#đóng-góp)
 
 ## Yêu cầu
 
@@ -270,4 +277,50 @@ make test
 
     <img width="1147" alt="image" src="https://user-images.githubusercontent.com/14148177/159936977-121ba0ce-b10b-4fac-aa6f-65f1980b8816.png">
 
+## Chạy automation test trên chrome
 
+- **Yêu cầu**: Phải cài đặt trình duyệt chrome
+
+```bash
+make integration_test_web_chrome
+```
+
+<img width="1143" alt="image" src="https://user-images.githubusercontent.com/14148177/159938411-5368bbc7-41dd-43e5-9ba2-c80104a7dbed.png">
+
+## Chạy automation test trên firefox
+
+- **Yêu cầu**: Phải cài đặt trình duyệt firefox
+
+```bash
+make integration_test_web_firefox
+```
+
+<img width="1147" alt="image" src="https://user-images.githubusercontent.com/14148177/159938659-1ad20ae0-d9f5-4355-a324-92cb6c1c9e71.png">
+
+## Chạy automation test trên safari
+
+- **Yêu cầu**: Phải cài đặt trình duyệt safari
+
+```bash
+make integration_test_web_safari
+```
+
+<img width="1141" alt="image" src="https://user-images.githubusercontent.com/14148177/159938805-f41b4a00-2cb4-4ae4-bb44-285415574910.png">
+
+## Chạy automation test trên edge
+
+- **Yêu cầu**: Phải cài đặt trình duyệt edge
+
+- Cần thiết bị window để kiểm tra -> **Chưa kiểm tra trường hợp này**
+
+## Cảm hứng
+
+[Bloc Library](https://bloclibrary.dev/#/)
+
+## Tác giả
+
+Phạm Minh Hải Âu
+
+## Đóng góp
+
+Pull request luôn được chào đón! Hãy thoải mái mở một new issues GitHub cho bất kỳ thay đổi nào có thể được thực hiện. 

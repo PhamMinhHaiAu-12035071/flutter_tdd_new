@@ -14,6 +14,9 @@
 * [Chạy automation test trên thiết bị ảo](#chạy-automation-test-trên-thiết-bị-ảo)
   - [Trên IOS với android studio](#trên-ios-với-android-studio)
   - [Trên Android với android studio](#trên-android-với-android-studio)
+* [Chạy automation test trên thiết bị thật](#chạy-automation-test-trên-thiết-bị-thật)
+  - [Trên IOS với xcode](#trên-ios-với-xcode)
+  - [Trên Android với android studio](#trên-android-với-android-studio)
 
 ## Yêu cầu
 
@@ -123,19 +126,19 @@ make test
 
 - **Bước 1**: Mở Android Studio -> chọn **Open iOS Simulator**
 
-<img width="894" alt="image" src="https://user-images.githubusercontent.com/14148177/159907228-a5674192-d928-452c-ab40-0e6d7ee70d39.png">
+    <img width="894" alt="image" src="https://user-images.githubusercontent.com/14148177/159907228-a5674192-d928-452c-ab40-0e6d7ee70d39.png">
 
 - **Bước 2**: Chờ IOS emulator được khởi động
 
-<img width="349" alt="image" src="https://user-images.githubusercontent.com/14148177/159907551-09d47548-3250-4768-9f0e-cbb0747ddbcc.png">
+    <img width="349" alt="image" src="https://user-images.githubusercontent.com/14148177/159907551-09d47548-3250-4768-9f0e-cbb0747ddbcc.png">
 
 - **Bước 3**: Chạy lệnh test
 
-```bash
-make integration_test_device
-```
+    ```bash
+    make integration_test_device
+    ```
 
-<img width="1156" alt="image" src="https://user-images.githubusercontent.com/14148177/159907860-58095911-91e6-4ae6-9fbf-758d8e10fef2.png">
+    <img width="1156" alt="image" src="https://user-images.githubusercontent.com/14148177/159907860-58095911-91e6-4ae6-9fbf-758d8e10fef2.png">
 
 ### Trên Android với android studio
 
@@ -145,29 +148,29 @@ make integration_test_device
 
     Mở Android Studio -> **View** -> **Appearance** -> **Toolbar**
 
-https://user-images.githubusercontent.com/14148177/159922224-9cddbcac-b693-4d63-bc12-9029db203121.mov
+    https://user-images.githubusercontent.com/14148177/159922224-9cddbcac-b693-4d63-bc12-9029db203121.mov
 
 - **Bước 2**: Cài đặt plugin Genymotion
 
     Mở Android Studio -> **Preferences** -> **Plugins** -> Gõ "Genymotion" -> **Install**
     
-https://user-images.githubusercontent.com/14148177/159922981-536e0563-1fd0-44e7-8a43-c417feccabba.mov
+    https://user-images.githubusercontent.com/14148177/159922981-536e0563-1fd0-44e7-8a43-c417feccabba.mov
 
 - **Bước 3**: Thiết lập đường dẫn đến ứng dụng Genymotion
 
     Mở Android Studio -> **Preferences** -> Gõ "Genymotion" -> **Genymotion Plugin** -> Nhập đường dẫn đến ứng dụng genymotion **/Applications/Genymotion.app**
     
-https://user-images.githubusercontent.com/14148177/159923778-14b7fa4d-2dc8-46d5-a03e-b889c5e7254d.mov
+    https://user-images.githubusercontent.com/14148177/159923778-14b7fa4d-2dc8-46d5-a03e-b889c5e7254d.mov
 
 - **Bước 4**: Khởi động thiết bị ảo Android
 
     Nhấn icon 'Genymotion' -> Chọn thiết bị -> **Start**
     
-https://user-images.githubusercontent.com/14148177/159924240-0835496b-106d-4cb8-b214-3bd5e7ee5e17.mov
+    https://user-images.githubusercontent.com/14148177/159924240-0835496b-106d-4cb8-b214-3bd5e7ee5e17.mov
 
 - **Bước 5**: Chờ thiết bị khởi động thành công
 
-<img width="550" alt="image" src="https://user-images.githubusercontent.com/14148177/159924425-c132fdee-93a5-4358-b4ae-bdf593d9ce4b.png">
+    <img width="550" alt="image" src="https://user-images.githubusercontent.com/14148177/159924425-c132fdee-93a5-4358-b4ae-bdf593d9ce4b.png">
 
 - **Bước 6**: Chạy lệnh để test
 
@@ -175,7 +178,60 @@ https://user-images.githubusercontent.com/14148177/159924240-0835496b-106d-4cb8-
     make integration_test_device
     ```
 
-<img width="1128" alt="image" src="https://user-images.githubusercontent.com/14148177/159924544-5d653da4-0f90-47ac-b7ff-82deaefc912f.png">
+    <img width="1128" alt="image" src="https://user-images.githubusercontent.com/14148177/159924544-5d653da4-0f90-47ac-b7ff-82deaefc912f.png">
 
+## Chạy automation test trên thiết bị thật
+
+### Trên IOS với xcode
+
+- **Bước 1**: Mở Xcode
+
+    Tại thư mục dự án gõ lệnh:
+
+    ```bash
+    cd ios/
+    ```
+    Mở xcode bằng command:
+
+    ```bash
+    xed .
+    ```
     
+    https://user-images.githubusercontent.com/14148177/159926408-af240e8f-2c18-4dba-ba3e-067167a41599.mov
+
+- **Bước 2**: Chờ xcode build thành công
+
+    <img width="1413" alt="image" src="https://user-images.githubusercontent.com/14148177/159927241-7cca144c-17a4-47b1-9926-dbbb7e18f35c.png">
+
+- **Bước 3**: Cắm USB kết nối đến thiết bị iphone
+
+    <img width="1381" alt="image" src="https://user-images.githubusercontent.com/14148177/159927592-56342305-3542-4268-8eef-fdc405288415.png">
+
+- **Bước 4**: Đăng kí file signingConfig
+
+    Bạn cần phải có một tài khoản apple -> đăng nhập -> Chọn **Signing & Capabilities**
+
+    <img width="1168" alt="image" src="https://user-images.githubusercontent.com/14148177/159930207-a7181745-5431-4b20-ba1d-ee42b503181f.png">
+
+- **Bước 5**: Chạy lệnh để build lại file testcase
+
+    ```bash
+    make integration_test_real_device_ios
+    ```
     
+    <img width="1131" alt="image" src="https://user-images.githubusercontent.com/14148177/159928269-b9e6ec8c-6957-4bc2-8954-6050137406e5.png">
+
+- **Bước 6**: Chạy testcase
+
+    Mở Xcode -> **Product** -> **Test**
+   
+    https://user-images.githubusercontent.com/14148177/159928831-374eee28-73e3-41f9-ac22-ef4cf1945cf5.mov
+
+- **Bước 7**: Thiết lập tin cập cho app trên điện thoại
+
+    Trên điện thoại vào mục **Cài đặt** -> **Cài đặt chung** -> **Quản lý thiết bị** -> Chọn app -> Chọn **Trust**
+
+    https://user-images.githubusercontent.com/14148177/159929580-fdde3787-fe02-402a-8b3d-160872529848.MP4
+
+
+

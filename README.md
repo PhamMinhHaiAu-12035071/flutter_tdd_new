@@ -140,3 +140,42 @@ make integration_test_device
 ### Trên Android với android studio
 
 - **Đề nghị**: nên cài đặt [Genymotion](https://www.genymotion.com/) và [Virtualbox](https://www.virtualbox.org/) để chạy máy ảo nhanh hơn
+
+- **Bước 1**: Thay đổi view toolbar
+
+    Mở Android Studio -> **View** -> **Appearance** -> **Toolbar**
+
+https://user-images.githubusercontent.com/14148177/159922224-9cddbcac-b693-4d63-bc12-9029db203121.mov
+
+- **Bước 2**: Cài đặt plugin Genymotion
+
+    Mở Android Studio -> **Preferences** -> **Plugins** -> Gõ "Genymotion" -> **Install**
+    
+https://user-images.githubusercontent.com/14148177/159922981-536e0563-1fd0-44e7-8a43-c417feccabba.mov
+
+- **Bước 3**: Thiết lập đường dẫn đến ứng dụng Genymotion
+
+    Mở Android Studio -> **Preferences** -> Gõ "Genymotion" -> **Genymotion Plugin** -> Nhập đường dẫn đến ứng dụng genymotion **/Applications/Genymotion.app**
+    
+https://user-images.githubusercontent.com/14148177/159923778-14b7fa4d-2dc8-46d5-a03e-b889c5e7254d.mov
+
+- **Bước 4**: Khởi động thiết bị ảo Android
+
+    Nhấn icon 'Genymotion' -> Chọn thiết bị -> **Start**
+    
+https://user-images.githubusercontent.com/14148177/159924240-0835496b-106d-4cb8-b214-3bd5e7ee5e17.mov
+
+- **Bước 5**: Chờ thiết bị khởi động thành công
+
+<img width="550" alt="image" src="https://user-images.githubusercontent.com/14148177/159924425-c132fdee-93a5-4358-b4ae-bdf593d9ce4b.png">
+
+- **Bước 6**: Chạy lệnh để test
+
+    ```bash
+    make integration_test_device
+    ```
+
+<img width="1128" alt="image" src="https://user-images.githubusercontent.com/14148177/159924544-5d653da4-0f90-47ac-b7ff-82deaefc912f.png">
+
+    
+    

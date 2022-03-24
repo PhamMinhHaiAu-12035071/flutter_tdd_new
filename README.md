@@ -9,6 +9,11 @@
 * [Gỡ cài đặt](#gỡ-cài-đặt)
 * [Chạy web server](#chạy-web-server)
 * [Chạy trên web](#chạy-trên-web)
+* [Chạy test](#chạy-test)
+* [Chạy coverage](#chạy-coverage)
+* [Chạy automation test trên thiết bị ảo](#chạy-automation-test-trên-thiết-bị-ảo)
+  - [Trên IOS với android studio](#trên-ios-với-android-studio)
+  - [Trên Android với android studio](#trên-android-với-android-studio)
 
 ## Yêu cầu
 
@@ -96,3 +101,42 @@ make web
 
 https://user-images.githubusercontent.com/14148177/159763330-20365063-1218-47c2-bff6-8c6c3611c4cb.mov
 
+## Chạy test
+
+- Chạy unit-test
+
+```bash
+make test
+```
+
+<img width="1158" alt="image" src="https://user-images.githubusercontent.com/14148177/159906201-f7297d8b-0c46-4bb4-8493-f9268e2df481.png">
+
+## Chạy coverage
+
+- Chạy coverage để kiểm tra độ bao phủ của testcase
+
+<img width="1161" alt="image" src="https://user-images.githubusercontent.com/14148177/159906548-fbbad180-d3de-4fd1-a5c9-bb4ca2538dda.png">
+
+## Chạy automation test trên thiết bị ảo
+
+### Trên IOS với android studio
+
+- **Bước 1**: Mở Android Studio -> chọn **Open iOS Simulator**
+
+<img width="894" alt="image" src="https://user-images.githubusercontent.com/14148177/159907228-a5674192-d928-452c-ab40-0e6d7ee70d39.png">
+
+- **Bước 2**: Chờ IOS emulator được khởi động
+
+<img width="349" alt="image" src="https://user-images.githubusercontent.com/14148177/159907551-09d47548-3250-4768-9f0e-cbb0747ddbcc.png">
+
+- **Bước 3**: Chạy lệnh test
+
+```bash
+make integration_test_device
+```
+
+<img width="1156" alt="image" src="https://user-images.githubusercontent.com/14148177/159907860-58095911-91e6-4ae6-9fbf-758d8e10fef2.png">
+
+### Trên Android với android studio
+
+- **Đề nghị**: nên cài đặt [Genymotion](https://www.genymotion.com/) và [Virtualbox](https://www.virtualbox.org/) để chạy máy ảo nhanh hơn

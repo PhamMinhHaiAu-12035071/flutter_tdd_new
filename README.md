@@ -30,7 +30,7 @@
 - Cài đặt [Nodejs](https://nodejs.org/en/)
 - Cài đặt [Yarn](https://yarnpkg.com/)
 - Cài đặt [Flutter](https://docs.flutter.dev/get-started/install)
-- Cài đặt Java 11
+- Cài đặt [Java 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)
 
 ## Trợ giúp
 

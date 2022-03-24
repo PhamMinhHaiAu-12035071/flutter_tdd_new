@@ -15,14 +15,15 @@
   - [Trên IOS với android studio](#trên-ios-với-android-studio)
   - [Trên Android với android studio](#trên-android-với-android-studio)
 * [Chạy automation test trên thiết bị thật](#chạy-automation-test-trên-thiết-bị-thật)
-  - [Trên IOS với xcode](#trên-ios-với-xcode)
-  - [Trên Android với android studio](#trên-android-với-android-studio)
+  - [Trên IOS thật với xcode](#trên-ios-thật-với-xcode)
+  - [Trên Android thật với android studio](#trên-android-thật-với-android-studio)
 
 ## Yêu cầu
 
 - Cài đặt [Nodejs](https://nodejs.org/en/)
 - Cài đặt [Yarn](https://yarnpkg.com/)
 - Cài đặt [Flutter](https://docs.flutter.dev/get-started/install)
+- Cài đặt Java 11
 
 ## Trợ giúp
 
@@ -182,7 +183,7 @@ make test
 
 ## Chạy automation test trên thiết bị thật
 
-### Trên IOS với xcode
+### Trên IOS thật với xcode
 
 - **Bước 1**: Mở Xcode
 
@@ -233,5 +234,40 @@ make test
 
     https://user-images.githubusercontent.com/14148177/159929580-fdde3787-fe02-402a-8b3d-160872529848.MP4
 
+### Trên Android thật với android studio
+
+- **Bước 1**: Cắm USB kết nối đến thiết bị Android
+
+    ![image](https://user-images.githubusercontent.com/14148177/159932365-240196aa-32e3-439e-acbc-b3bb78acd73a.png)
+
+- **Bước 2**: Kiểm tra phiên bản java phải là **11**
+
+    ```bash
+    java --version
+    ```
+    
+    <img width="1146" alt="image" src="https://user-images.githubusercontent.com/14148177/159934605-c46d4da3-4ce6-42af-92cf-e7d633d6b0bd.png">
+
+- **Bước 3**: Kiểm tra gradle mapping đúng phiên bản java 11
+
+    Mở Android Studio từ thư mục <project_dir>/android -> Chọn **File**  -> **Project Structure** -> **SDK Location** -> **Gradle settings** -> Java sdk
+    
+    https://user-images.githubusercontent.com/14148177/159935588-f8d7ce73-df58-42d6-826f-85276894bfda.mov
+
+- **Bước 4**: Build android
+
+    Mở Android Studio từ thư mục <project_dir>/android -> Chọn **Build** -> **Rebuild Project**
+    
+    https://user-images.githubusercontent.com/14148177/159936106-9d337ee9-9959-49f1-8df3-83f4a11ee6fe.mov
+    
+    > Đảm bảo rằng việc build là thành công
+
+- **Bước 5**: Chạy lệnh test
+
+    ```bash
+    make integration_test_real_device_android
+    ```
+
+    <img width="1147" alt="image" src="https://user-images.githubusercontent.com/14148177/159936977-121ba0ce-b10b-4fac-aa6f-65f1980b8816.png">
 
 

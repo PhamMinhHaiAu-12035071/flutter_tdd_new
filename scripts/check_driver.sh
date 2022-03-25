@@ -15,6 +15,9 @@ case $driver in
     then
       echo "install chromedriver";
       brew install --cask chromedriver
+
+      # Thiết lập phân quyền chromedriver cho MacOs để tránh bị lỗi
+      xattr -d com.apple.quarantine /usr/local/bin/chromedriver
     else
       echo "chromedriver is installed";
     fi

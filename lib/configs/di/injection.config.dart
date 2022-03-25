@@ -9,30 +9,32 @@ import 'package:http/http.dart' as _i3;
 import 'package:injectable/injectable.dart' as _i2;
 
 import '../../modules/auth/login/business_logic/bloc/login_form_bloc.dart'
-    as _i13;
+    as _i15;
 import '../../modules/auth/login/business_logic/bloc/mock_login_form_bloc.dart'
-    as _i14;
-import '../../modules/auth/login/data/data_providers/impl/mock_user_api.dart'
     as _i16;
-import '../../modules/auth/login/data/data_providers/impl/user_api_impl.dart'
-    as _i17;
-import '../../modules/auth/login/data/data_providers/user_api.dart' as _i15;
-import '../../modules/auth/login/data/repositories/impl/mock_user_repository.dart'
-    as _i19;
-import '../../modules/auth/login/data/repositories/impl/user_repository_impl.dart'
-    as _i20;
-import '../../modules/auth/login/data/repositories/user_repository.dart'
+import '../../modules/auth/login/data/data_providers/impl/mock_user_api.dart'
     as _i18;
+import '../../modules/auth/login/data/data_providers/impl/user_api_impl.dart'
+    as _i19;
+import '../../modules/auth/login/data/data_providers/user_api.dart' as _i17;
+import '../../modules/auth/login/data/repositories/impl/mock_user_repository.dart'
+    as _i21;
+import '../../modules/auth/login/data/repositories/impl/user_repository_impl.dart'
+    as _i22;
+import '../../modules/auth/login/data/repositories/user_repository.dart'
+    as _i20;
 import '../../shared/data/networks/client_common.dart' as _i4;
 import '../../shared/data/networks/client_no_cache.dart' as _i7;
 import '../../shared/data/networks/impl/client_common_impl.dart' as _i5;
 import '../../shared/data/networks/impl/client_no_cache_impl.dart' as _i8;
 import '../../shared/data/networks/impl/mock_client_common.dart' as _i6;
 import '../../shared/data/networks/impl/mock_client_no_cache.dart' as _i9;
-import '../../shared/services/http/http_module.dart' as _i21;
+import '../../shared/services/http/http_module.dart' as _i23;
 import '../flavors/flavor_config.dart' as _i10;
-import '../flavors/impl/dev_flavor_config.dart' as _i12;
-import '../flavors/impl/mock_flavor_config.dart' as _i11;
+import '../flavors/impl/dev_flavor_config.dart' as _i13;
+import '../flavors/impl/mock_flavor_config.dart' as _i12;
+import '../flavors/impl/prod_flavor_config.dart' as _i11;
+import '../flavors/impl/stg_flavor_config.dart' as _i14;
 
 const String _prod = 'prod';
 const String _stg = 'stg';
@@ -59,27 +61,29 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       registerFor: {_prod, _stg, _dev, _endToEndTest});
   gh.singleton<_i7.ClientNoCache>(_i9.MockClientNoCache(),
       registerFor: {_test});
-  gh.singleton<_i10.FlavorConfig>(_i11.MockFlavorConfig(),
+  gh.singleton<_i10.FlavorConfig>(_i11.ProdFlavorValue(), registerFor: {_prod});
+  gh.singleton<_i10.FlavorConfig>(_i12.MockFlavorConfig(),
       registerFor: {_test});
-  gh.singleton<_i10.FlavorConfig>(_i12.DevFlavorValue(),
-      registerFor: {_prod, _stg, _dev, _endToEndTest});
-  gh.singleton<_i13.LoginFormBloc>(_i14.MockLoginFormBloc(),
+  gh.singleton<_i10.FlavorConfig>(_i13.DevFlavorValue(),
+      registerFor: {_dev, _endToEndTest});
+  gh.singleton<_i10.FlavorConfig>(_i14.StgFlavorValue(), registerFor: {_stg});
+  gh.singleton<_i15.LoginFormBloc>(_i16.MockLoginFormBloc(),
       registerFor: {_test});
-  gh.singleton<_i15.UserAPI>(_i16.MockUserAPI(), registerFor: {_test});
-  gh.singleton<_i15.UserAPI>(
-      _i17.UserAPIImpl(
+  gh.singleton<_i17.UserAPI>(_i18.MockUserAPI(), registerFor: {_test});
+  gh.singleton<_i17.UserAPI>(
+      _i19.UserAPIImpl(
           flavorConfig: get<_i10.FlavorConfig>(),
           clientCommon: get<_i4.ClientCommon>()),
       registerFor: {_prod, _stg, _dev, _endToEndTest});
-  gh.singleton<_i18.UserRepository>(_i19.MockUserRepository(),
+  gh.singleton<_i20.UserRepository>(_i21.MockUserRepository(),
       registerFor: {_test});
-  gh.singleton<_i18.UserRepository>(
-      _i20.UserRepositoryImpl(userAPI: get<_i15.UserAPI>()),
+  gh.singleton<_i20.UserRepository>(
+      _i22.UserRepositoryImpl(userAPI: get<_i17.UserAPI>()),
       registerFor: {_prod, _stg, _dev, _endToEndTest});
-  gh.singleton<_i13.LoginFormBloc>(
-      _i13.LoginFormBloc(userRepository: get<_i18.UserRepository>()),
+  gh.singleton<_i15.LoginFormBloc>(
+      _i15.LoginFormBloc(userRepository: get<_i20.UserRepository>()),
       registerFor: {_prod, _stg, _dev, _endToEndTest});
   return get;
 }
 
-class _$HttpModule extends _i21.HttpModule {}
+class _$HttpModule extends _i23.HttpModule {}

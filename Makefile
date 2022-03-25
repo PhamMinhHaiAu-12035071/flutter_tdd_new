@@ -1,3 +1,4 @@
+.PHONY: help
 help:
 	./scripts/utilities.sh
 
@@ -18,13 +19,29 @@ clean:
 	&& rm -rf node_modules/
 
 
-.PHONY: web-server
-web-server:
-	flutter run -d web-server
+.PHONY: web-server-dev
+web-server-dev:
+	flutter run -d web-server -t lib/main_dev.dart
 
-.PHONY: web
-web:
-	flutter run -d chrome
+.PHONY: web-dev
+web-dev:
+	flutter run --observatory-port=9200 -d chrome -t lib/main_dev.dart
+
+.PHONY: web-server-stg
+web-server-stg:
+	flutter run -d web-server -t lib/main_staging.dart
+
+.PHONY: web-stg
+web-stg:
+	flutter run --observatory-port=9200 -d chrome -t lib/main_staging.dart
+
+.PHONY: web-server-prod
+web-server-prod:
+	flutter run -d web-server -t lib/main_production.dart
+
+.PHONY: web-prod
+web-prod:
+	flutter run --observatory-port=9200 -d chrome -t lib/main_production.dart
 
 .PHONY: test
 test:
@@ -92,4 +109,3 @@ integration_test_web_firefox:
 		--target=integration_test/gherkin_suite_test.dart -d web-server --no-headless \
 	&& sleep 2 \
     && ./scripts/close_tab.sh
-

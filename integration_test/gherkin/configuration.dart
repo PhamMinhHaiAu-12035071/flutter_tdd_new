@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 import 'package:flutter_gherkin/flutter_gherkin.dart';
 import 'package:flutter_tdd_new/constants/env.dart';
-import 'package:flutter_tdd_new/main.dart' as app;
+import 'package:flutter_tdd_new/main_dev.dart' as app;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gherkin/gherkin.dart';
 

@@ -9,6 +9,7 @@ import 'package:flutter_tdd_new/modules/auth/login/presentation/widgets/email_in
 import 'package:flutter_tdd_new/modules/auth/login/presentation/widgets/login_button.dart';
 import 'package:flutter_tdd_new/modules/auth/login/presentation/widgets/password_input.dart';
 import 'package:flutter_tdd_new/modules/auth/login/presentation/widgets/text_error.dart';
+import 'package:flutter_tdd_new/shared/widgets/flavor_banner.dart';
 import 'package:formz/formz.dart';
 
 class LoginScreen extends EPage {
@@ -48,41 +49,43 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login Screen'),
-      ),
-      body: BlocListener<LoginFormBloc, LoginFormState>(
-        listenWhen: (previous, current) => previous.status != current.status,
-        listener: (context, state) {
-          if (state.status.isSubmissionSuccess) {
-            Navigator.of(context).pop();
-            context.read<NavigationCubit>().push('/');
-          } else if (state.status.isSubmissionInProgress) {
-            _showLoading(context);
-          } else if (state.status.isSubmissionFailure) {
-            Navigator.of(context).pop();
-          }
-        },
-        child: Center(
-          child: SingleChildScrollView(
-            physics: const ClampingScrollPhysics(),
-            child: Column(
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const <Widget>[
-                    EmailInput(),
-                    Padding(padding: EdgeInsets.all(12)),
-                    PasswordInput(),
-                    Padding(padding: EdgeInsets.all(12)),
-                    LoginButton(),
-                    Padding(padding: EdgeInsets.all(12)),
-                    TextError(),
-                    Padding(padding: EdgeInsets.all(12)),
-                  ],
-                ),
-              ],
+    return FlavorBanner(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Login Screen'),
+        ),
+        body: BlocListener<LoginFormBloc, LoginFormState>(
+          listenWhen: (previous, current) => previous.status != current.status,
+          listener: (context, state) {
+            if (state.status.isSubmissionSuccess) {
+              Navigator.of(context).pop();
+              context.read<NavigationCubit>().push('/');
+            } else if (state.status.isSubmissionInProgress) {
+              _showLoading(context);
+            } else if (state.status.isSubmissionFailure) {
+              Navigator.of(context).pop();
+            }
+          },
+          child: Center(
+            child: SingleChildScrollView(
+              physics: const ClampingScrollPhysics(),
+              child: Column(
+                children: <Widget>[
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const <Widget>[
+                      EmailInput(),
+                      Padding(padding: EdgeInsets.all(12)),
+                      PasswordInput(),
+                      Padding(padding: EdgeInsets.all(12)),
+                      LoginButton(),
+                      Padding(padding: EdgeInsets.all(12)),
+                      TextError(),
+                      Padding(padding: EdgeInsets.all(12)),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

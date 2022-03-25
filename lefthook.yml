@@ -11,6 +11,8 @@ pre-commit:
   scripts:
     "ignore_file.js":
       runner: node
+    "check_skip_commit.js":
+      runner: node
   commands:
     markdown-link-check:
       glob: '*.md'

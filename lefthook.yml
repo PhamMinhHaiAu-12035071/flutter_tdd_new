@@ -8,6 +8,9 @@ pre-push:
 
 pre-commit:
   parallel: true
+  scripts:
+    "ignore_file.js":
+      runner: node
   commands:
     markdown-link-check:
       glob: '*.md'

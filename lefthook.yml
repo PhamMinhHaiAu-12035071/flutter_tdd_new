@@ -30,3 +30,8 @@ commit-msg:
   scripts:
     "commit_lint.js":
       runner: node
+
+prepare-commit-msg:
+  scripts:
+    "ignore_file.js":
+      runner: node

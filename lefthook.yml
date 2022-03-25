@@ -34,5 +34,5 @@ commit-msg:
 
 prepare-commit-msg:
   scripts:
-    "ignore_file.js":
+    "prevent_skip_commit.js":
       runner: node

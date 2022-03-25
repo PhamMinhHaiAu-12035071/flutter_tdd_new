@@ -109,4 +109,3 @@ integration_test_web_firefox:
 		--target=integration_test/gherkin_suite_test.dart -d web-server --no-headless \
 	&& sleep 2 \
     && ./scripts/close_tab.sh
-

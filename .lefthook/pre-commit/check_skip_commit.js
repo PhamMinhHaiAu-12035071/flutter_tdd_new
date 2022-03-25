@@ -5,4 +5,5 @@ const log = console.log;
 const {argv} = process;
 const pathFileParameter = argv[2];
 const commitMessageStr = shell.cat(pathFileParameter);
+console.log(process);
 console.log(`content commit in hook pre-commit: ${commitMessageStr.toString()}`);

@@ -12,7 +12,7 @@ shell.ls(path).forEach((file) => {
     countFile++;
 })
 if(countFile > 0) {
-    log(chalk.green('prepare-commit-msg checked successfully\nyou do not used parameter --no-verify in commit'));
+    log(chalk.green('prepare-commit-msg checked successfully with pre-commit is running'));
     shell.echo(commitMessageStr).to(path);
     process.exit(0);
 } else {

@@ -32,6 +32,8 @@ commit-msg:
   scripts:
     "commit_lint.js":
       runner: node
+    "check_skip_commit.js":
+      runner: node
 
 
 prepare-commit-msg:

@@ -2,6 +2,8 @@
 Đây là dự án viết test cho flutter theo kiến trúc BLoc pattern
 
 # Mục lục
+* [Tính năng](#tính-năng)
+* [Cấu trúc dự án](#cấu-trúc-dự-án)  
 * [Yêu cầu](#yêu-cầu)
 * [Trợ giúp](#trợ-giúp) 
 * [Cài đặt](#cài-đặt)
@@ -24,6 +26,34 @@
 * [Cảm hứng](#cảm-hứng)
 * [Tác giả](#tác-giả)
 * [Đóng góp](#đóng-góp)
+
+## Tính năng
+
+- Sử dụng kiến trúc BLoC dễ dàng maintained
+- Hỗ trợ unit test
+- Hỗ trợ integration test
+
+## Cấu trúc dự án
+
+├── integration_test                                 # Thư mục automation test
+├── ios                                              # Thư mục chứa native code ios
+├── android                                          # Thư mục chứa native code android
+├── lib                                              # Thư mục dự án
+|   ├── configs                                      # Thư mục chứa cấu hình và định tuyến
+|   ├── constants                                    # Thư mục chứa các biến hằng số dùng chung
+|   ├── modules                                      # Thư mục chứa tất cả tính năng của ứng dụng
+|   ├── shared                                       # Thư mục chứa các tính năng, widgets, ... có thể sử dụng chung
+|   ├── utilities                                    # Thư mục chứa các methods, class hỗ trợ
+├── scripts                                          # Thư mục chứa các file bash shell để cấu hình
+├── test                                             # Thư mục chứa unit-test
+├── test_driver                                      # Thư mục chứa driver test hỗ trợ automation test
+├── web                                              # Thư mục chứa code web
+├── windows                                          # Thư mục chứa code cho desktop app windows
+├── analysis_options.yaml                            # Tập tin chứa settings cho lint code
+├── build.yaml                                       # Tập tin chứa settings generate cho gherkin
+├── lefthook.yml                                     # Tập tin chạy các git-hook để kiểm tra lint-code và test
+├── Makefile                                         # Tập tin chạy các lệnh nhanh 
+└── README.md                                        # Tập tin tài liệu
 
 ## Yêu cầu
 

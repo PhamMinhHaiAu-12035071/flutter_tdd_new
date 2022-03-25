@@ -1,4 +1,6 @@
-const {argv} = process;
+import chalk from 'chalk';
 
-console.log('show process');
-console.log(process);
+const log = console.log;
+const {argv} = process;
+// git diff-index --cached HEAD
+log(chalk.green('Hello', 'world' + '!'));

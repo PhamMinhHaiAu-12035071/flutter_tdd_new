@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A new Flutter project.",
   "main": "index.js",
+  "type": "module",
   "directories": {
     "lib": "lib",
     "test": "test"
@@ -27,6 +28,7 @@
     "markdown-link-check": "^3.9.3"
   },
   "dependencies": {
+    "chalk": "^5.0.1",
     "shelljs": "^0.8.5"
   }
 }

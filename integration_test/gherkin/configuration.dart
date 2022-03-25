@@ -2,6 +2,7 @@
 import 'package:flutter_gherkin/flutter_gherkin.dart';
 import 'package:flutter_tdd_new/constants/env.dart';
 import 'package:flutter_tdd_new/main_dev.dart' as app;
+import 'package:flutter_tdd_new/utilities/logs/emoji_log.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gherkin/gherkin.dart';
 
@@ -33,11 +34,15 @@ FlutterTestConfiguration gherkinTestConfiguration =
       ..createWorld = (config) => Future.value(CustomWorld());
 
 Future<void> appInitializationFn(World world) async {
+  EmojiLog.printSuccess(
+    message: '[appInitializationFn]',
+  );
   globalCountApp += 1;
   final result = await app.main(
     environment: Env.endToEndTest,
     isAddUrlStrategy: globalCountApp <= 1,
   );
   MockApiLogin();
+
   return result;
 }

@@ -2,8 +2,8 @@ import shell from 'shelljs';
 import chalk from 'chalk';
 
 const log = console.log;
-const {argv} = process;
-const pathFileParameter = argv[2];
-const commitMessageStr = shell.cat(pathFileParameter);
-console.log(process);
-console.log(`content commit in hook pre-commit: ${commitMessageStr.toString()}`);
+
+shell.touch('./check_skip_commit/fake.js');
+
+log(chalk.green('checked pre-commit running successfully/'));
+process.exit(0);

@@ -51,3 +51,4 @@ integration_test/gherkin/reports/*
 !integration_test/gherkin/reports/index.js
 coverage/
 general-VirtualBox.xml
+check_skip_commit/

@@ -13,20 +13,20 @@ pre-commit:
       runner: node
     "check_skip_commit.js":
       runner: node
-  commands:
-    markdown-link-check:
-      glob: '*.md'
-      run: npx markdown-link-check {staged_files}
-    linter:
-      run: flutter analyze
-    fix:
-      run: dart fix --apply
-    pretty:
-      files: git diff --name-only @{push}
-      glob: "*.dart"
-      run: flutter format {files}
-    test:
-      run: flutter test
+#  commands:
+#    markdown-link-check:
+#      glob: '*.md'
+#      run: npx markdown-link-check {staged_files}
+#    linter:
+#      run: flutter analyze
+#    fix:
+#      run: dart fix --apply
+#    pretty:
+#      files: git diff --name-only @{push}
+#      glob: "*.dart"
+#      run: flutter format {files}
+#    test:
+#      run: flutter test
 
 commit-msg:
   scripts:

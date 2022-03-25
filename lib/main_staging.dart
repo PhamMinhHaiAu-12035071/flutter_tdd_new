@@ -9,7 +9,7 @@ import 'package:flutter_tdd_new/configs/url/url_strategy.dart';
 import 'package:flutter_tdd_new/constants/env.dart';
 
 Future<void> main({
-  String environment = Env.prod,
+  String environment = Env.stg,
   bool isAddUrlStrategy = true,
 }) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,7 +34,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
       routeInformationParser: _routeInformationParser,
       routerDelegate: _routerDelegate,
     );

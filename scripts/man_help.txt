@@ -16,6 +16,23 @@ web-dev,Chạy code trên trình duyệt
 ,[môi trường: development]
 ,(link tham khảo chi tiết https://docs.flutter.dev/development/tools/web-renderers)
 
+web-server-stg,Chạy code trên trình duyệt dưới dạng web-server
+,[môi trường: staging]
+,(phù hợp khi test trên máy yếu nhưng phải hot-reload thủ công)
+
+web-stg,Chạy code trên trình duyệt
+,[môi trường: staging]
+,(link tham khảo chi tiết https://docs.flutter.dev/development/tools/web-renderers)
+
+web-server-prod,Chạy code trên trình duyệt dưới dạng web-server
+,[môi trường: production]
+,(phù hợp khi test trên máy yếu nhưng phải hot-reload thủ công)
+
+web-prod,Chạy code trên trình duyệt
+,[môi trường: production]
+,(link tham khảo chi tiết https://docs.flutter.dev/development/tools/web-renderers)
+
+
 test,Chạy tất cả file unit-test
 
 coverage,Kiểm tra số lượng test-case bao phủ

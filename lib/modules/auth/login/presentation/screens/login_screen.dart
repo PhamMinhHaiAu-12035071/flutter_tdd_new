@@ -19,18 +19,7 @@ class LoginScreen extends EPage {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => getIt<LoginFormBloc>(),
-      child: const LoginWithFlavorBanner(),
-    );
-  }
-}
-
-class LoginWithFlavorBanner extends StatelessWidget {
-  const LoginWithFlavorBanner({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const FlavorBanner(
-      child: LoginView(),
+      child: const LoginView(),
     );
   }
 }
@@ -60,41 +49,43 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login Screen'),
-      ),
-      body: BlocListener<LoginFormBloc, LoginFormState>(
-        listenWhen: (previous, current) => previous.status != current.status,
-        listener: (context, state) {
-          if (state.status.isSubmissionSuccess) {
-            Navigator.of(context).pop();
-            context.read<NavigationCubit>().push('/');
-          } else if (state.status.isSubmissionInProgress) {
-            _showLoading(context);
-          } else if (state.status.isSubmissionFailure) {
-            Navigator.of(context).pop();
-          }
-        },
-        child: Center(
-          child: SingleChildScrollView(
-            physics: const ClampingScrollPhysics(),
-            child: Column(
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const <Widget>[
-                    EmailInput(),
-                    Padding(padding: EdgeInsets.all(12)),
-                    PasswordInput(),
-                    Padding(padding: EdgeInsets.all(12)),
-                    LoginButton(),
-                    Padding(padding: EdgeInsets.all(12)),
-                    TextError(),
-                    Padding(padding: EdgeInsets.all(12)),
-                  ],
-                ),
-              ],
+    return FlavorBanner(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Login Screen'),
+        ),
+        body: BlocListener<LoginFormBloc, LoginFormState>(
+          listenWhen: (previous, current) => previous.status != current.status,
+          listener: (context, state) {
+            if (state.status.isSubmissionSuccess) {
+              Navigator.of(context).pop();
+              context.read<NavigationCubit>().push('/');
+            } else if (state.status.isSubmissionInProgress) {
+              _showLoading(context);
+            } else if (state.status.isSubmissionFailure) {
+              Navigator.of(context).pop();
+            }
+          },
+          child: Center(
+            child: SingleChildScrollView(
+              physics: const ClampingScrollPhysics(),
+              child: Column(
+                children: <Widget>[
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const <Widget>[
+                      EmailInput(),
+                      Padding(padding: EdgeInsets.all(12)),
+                      PasswordInput(),
+                      Padding(padding: EdgeInsets.all(12)),
+                      LoginButton(),
+                      Padding(padding: EdgeInsets.all(12)),
+                      TextError(),
+                      Padding(padding: EdgeInsets.all(12)),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

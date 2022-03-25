@@ -12,7 +12,7 @@ class TextBanner extends StatelessWidget {
         height = height ?? 50.0,
         textStyle = textStyle ??
             const TextStyle(
-              fontSize: 14,
+              fontSize: 12,
               fontWeight: FontWeight.w600,
               color: Colors.white,
             ),

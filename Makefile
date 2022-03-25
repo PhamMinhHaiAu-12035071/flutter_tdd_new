@@ -1,3 +1,4 @@
+.PHONY: help
 help:
 	./scripts/utilities.sh
 
@@ -25,6 +26,22 @@ web-server-dev:
 .PHONY: web-dev
 web-dev:
 	flutter run --observatory-port=9200 -d chrome -t lib/main_dev.dart
+
+.PHONY: web-server-stg
+web-server-stg:
+	flutter run -d web-server -t lib/main_staging.dart
+
+.PHONY: web-stg
+web-stg:
+	flutter run --observatory-port=9200 -d chrome -t lib/main_staging.dart
+
+.PHONY: web-server-prod
+web-server-prod:
+	flutter run -d web-server -t lib/main_production.dart
+
+.PHONY: web-prod
+web-prod:
+	flutter run --observatory-port=9200 -d chrome -t lib/main_production.dart
 
 .PHONY: test
 test:

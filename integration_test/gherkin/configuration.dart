@@ -34,7 +34,7 @@ FlutterTestConfiguration gherkinTestConfiguration =
 
 Future<void> appInitializationFn(World world) async {
   globalCountApp += 1;
-  final result = app.main(
+  final result = await app.main(
     environment: Env.endToEndTest,
     isAddUrlStrategy: globalCountApp <= 1,
   );

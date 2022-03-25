@@ -2,6 +2,10 @@
 help:
 	./scripts/utilities.sh
 
+.PHONY: playground
+playground:
+	dart --packages=.packages --enable-asserts ./lib/playground/example.dart
+
 .PHONY: install
 install:
 	yarn \

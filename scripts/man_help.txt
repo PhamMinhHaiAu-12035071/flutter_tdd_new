@@ -51,8 +51,9 @@ test,Chạy tất cả file unit-test
 
 coverage,Kiểm tra số lượng test-case bao phủ
 
-integration_test_device_dev,Chạy automation test trên thiết bị ảo
+integration_test_device_dev_debug,Chạy automation test trên thiết bị ảo
 ,[môi trường: development]
+,[mode: debug]
 ,Điều kiện: Emulator phải được mở (android hoặc ios)
 
 integration_test_real_device_android,Chạy automation test trên thiết bị android thật

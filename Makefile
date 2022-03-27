@@ -66,9 +66,11 @@ test:
 coverage:
 	flutter test --coverage
 
-.PHONY: integration_test_device
-integration_test_device:
-	flutter drive --driver=test_driver/integration_test.dart \
+.PHONY: integration_test_device_dev
+integration_test_device_dev:
+	flutter drive \
+	--flavor=dev  \
+	--driver=test_driver/integration_test.dart \
 	--target=integration_test/gherkin_suite_test.dart
 
 .PHONY: integration_test_real_device_android

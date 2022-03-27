@@ -9,6 +9,14 @@
 * [Cài đặt](#cài-đặt)
 * [Tái cấu trúc file](#tái-cấu-trúc-file)
 * [Gỡ cài đặt](#gỡ-cài-đặt)
+* [Chạy trên thiết bị ảo](#chạy-trên-thiết-bị-ảo)
+  - [Trên Android](#trên-android)
+    * [Với môi trường development](#với-môi-trường-development)
+      - [Với chế độ debug](#với-chế-độ-debug)
+      - [Với chế độ profile](#với-chế-độ-profile)
+      - [Với chế độ release](#với-chế-độ-release)
+    * [Với môi trường staging](#với-môi-trường-staging)
+    * [Với môi trường production](#với-môi-trường-production)
 * [Chạy web server](#chạy-web-server)
 * [Chạy trên web](#chạy-trên-web)
 * [Chạy test](#chạy-test)
@@ -118,6 +126,38 @@ make clean
 https://user-images.githubusercontent.com/14148177/159760474-fc1d8d36-a9db-441c-bd27-cab93b80502a.mov
 
 > Lưu ý: Nên chạy lại **make install** để cài đặt lại
+
+## Chạy trên thiết bị ảo
+
+### Trên Android
+
+#### Với môi trường development
+
+##### Với chế độ debug
+
+- Chạy code trên thiết bị ảo với môi trường **development** và chế độ **debug**
+
+```bash
+make emulator-dev-debug
+```
+
+##### Với chế độ profile
+
+- **Yêu cầu**:
+  - Thiết bị ảo trên android phải hỗ trợ instruction: **arm64-v8a**
+
+- Chạy code trên thiết bị ảo với môi trường **development** và chế độ **profile**
+
+```bash
+make emulator-dev-profile
+```
+
+##### Với chế độ release
+
+#### Với môi trường staging
+
+#### Với môi trường production
+
 
 ## Chạy web server
 

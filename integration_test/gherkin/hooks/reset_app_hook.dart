@@ -1,12 +1,35 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_tdd_new/configs/di/injection.dart';
 import 'package:flutter_tdd_new/utilities/logs/emoji_log.dart';
 import 'package:gherkin/gherkin.dart';
+import 'package:integration_test/integration_test.dart';
 
 import '../world/custom_world.dart';
 
 class ResetAppHook extends Hook {
   @override
   int get priority => 100;
+
+  @override
+  Future<void> onBeforeScenario(
+    TestConfiguration config,
+    String scenario,
+    Iterable<Tag> tags,
+  ) async {
+    EmojiLog.printSuccess(
+      message: '[ResetAppHook] [onBeforeScenario] release: $kReleaseMode, '
+          'profile: $kProfileMode',
+    );
+    if (kProfileMode || kReleaseMode) {
+      // need register for text input
+      final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized()
+          as IntegrationTestWidgetsFlutterBinding;
+
+      binding.testTextInput.register();
+    }
+
+    return Future.value(null);
+  }
 
   /// Run after a scenario has executed
   @override

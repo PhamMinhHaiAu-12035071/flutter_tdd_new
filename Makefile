@@ -26,6 +26,10 @@ clean:
 emulator-dev-debug:
 	flutter run -t lib/main_dev.dart --flavor=dev --debug
 
+.PHONY: emulator-dev-profile
+emulator-dev-profile:
+	flutter run -t lib/main_dev.dart --flavor=dev --profile
+
 .PHONY: emulator-stg-debug
 emulator-stg-debug:
 	flutter run -t lib/main_staging.dart --flavor=stg --debug
@@ -71,6 +75,22 @@ integration_test_device_dev_debug:
 	flutter drive \
 	--flavor=dev  \
 	--debug \
+	--driver=test_driver/integration_test.dart \
+	--target=integration_test/gherkin_suite_test.dart
+
+.PHONY: integration_test_device_dev_profile
+integration_test_device_dev_profile:
+	flutter drive \
+	--flavor=dev  \
+	--profile \
+	--driver=test_driver/integration_test.dart \
+	--target=integration_test/gherkin_suite_test.dart
+
+.PHONY: integration_test_device_dev_release
+integration_test_device_dev_release:
+	flutter drive \
+	--flavor=dev  \
+	--release \
 	--driver=test_driver/integration_test.dart \
 	--target=integration_test/gherkin_suite_test.dart
 

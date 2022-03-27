@@ -1,4 +1,5 @@
 import 'given_on_the_page.dart';
+import 'i_fill_with_value.dart';
 import 'then_expect_state_button.dart';
 import 'then_i_should_see.dart';
 import 'then_i_should_see_page.dart';
@@ -22,4 +23,5 @@ final steps = [
   whenIClearTextField,
   whenITapButton,
   thenIShouldSeePage,
+  whenFillWithValue,
 ];

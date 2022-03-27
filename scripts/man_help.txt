@@ -10,15 +10,19 @@ rebuild,Xoá và tạo lại các file dart
 
 clean,Xoá tất cả cache
 
-emulator-dev,Chạy code trên thiết bị ảo
+emulator-dev-debug,Chạy code trên thiết bị ảo
 ,[môi trường: development]
 ,[mode: debug]
 
-emulator-stg,Chạy code trên thiết bị ảo
+emulator-dev-profile,Chạy code trên thiết bị ảo
+,[môi trường: development]
+,[mode: profile]
+
+emulator-stg-debug,Chạy code trên thiết bị ảo
 ,[môi trường: staging]
 ,[mode: debug]
 
-emulator-prod,Chạy code trên thiết bị ảo
+emulator-prod-debug,Chạy code trên thiết bị ảo
 ,[môi trường: production]
 ,[mode: debug]
 
@@ -54,6 +58,16 @@ coverage,Kiểm tra số lượng test-case bao phủ
 integration_test_device_dev_debug,Chạy automation test trên thiết bị ảo
 ,[môi trường: development]
 ,[mode: debug]
+,Điều kiện: Emulator phải được mở (android hoặc ios)
+
+integration_test_device_dev_profile,Chạy automation test trên thiết bị ảo
+,[môi trường: development]
+,[mode: profile]
+,Điều kiện: Emulator phải được mở (android hoặc ios)
+
+integration_test_device_dev_release,Chạy automation test trên thiết bị ảo
+,[môi trường: development]
+,[mode: release]
 ,Điều kiện: Emulator phải được mở (android hoặc ios)
 
 integration_test_real_device_android,Chạy automation test trên thiết bị android thật

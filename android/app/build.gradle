@@ -21,11 +21,16 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+def flutterAppName = localProperties.getProperty('flutter.appName')
+if(flutterAppName == null) {
+    flutterAppName = 'TDD Default'
+}
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
+
     compileSdkVersion flutter.compileSdkVersion
 
     compileOptions {
@@ -60,14 +65,17 @@ android {
             dimension "flavors"
             applicationIdSuffix ".dev"
             versionNameSuffix "-dev"
+            resValue "string", "app_name", flutterAppName
         }
-        qa {
+        stg {
             dimension "flavors"
             applicationIdSuffix ".stg"
             versionNameSuffix "-stg"
+            resValue "string", "app_name", flutterAppName
         }
         prod {
             dimension "flavors"
+            resValue "string", "app_name", flutterAppName
         }
     }
 }

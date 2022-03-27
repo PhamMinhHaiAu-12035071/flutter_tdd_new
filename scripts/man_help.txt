@@ -2,11 +2,25 @@ Câu lệnh,Mô tả
 
 help,Hiển thị danh sách trợ giúp
 
+playground,Chạy file ./lib/playground/example.dart để test code
+
 install,Cài đặt
 
 rebuild,Xoá và tạo lại các file dart
 
 clean,Xoá tất cả cache
+
+emulator-dev,Chạy code trên thiết bị ảo
+,[môi trường: development]
+,[mode: debug]
+
+emulator-stg,Chạy code trên thiết bị ảo
+,[môi trường: staging]
+,[mode: debug]
+
+emulator-prod,Chạy code trên thiết bị ảo
+,[môi trường: production]
+,[mode: debug]
 
 web-server-dev,Chạy code trên trình duyệt dưới dạng web-server
 ,[môi trường: development]

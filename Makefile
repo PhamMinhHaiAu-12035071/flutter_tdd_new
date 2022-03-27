@@ -22,6 +22,17 @@ clean:
 	&& flutter pub cache clean \
 	&& rm -rf node_modules/
 
+.PHONY: emulator-dev-debug
+emulator-dev-debug:
+	flutter run -t lib/main_dev.dart --flavor=dev --debug
+
+.PHONY: emulator-stg-debug
+emulator-stg-debug:
+	flutter run -t lib/main_staging.dart --flavor=stg --debug
+
+.PHONY: emulator-prod-debug
+emulator-prod-debug:
+	flutter run -t lib/main_production.dart --flavor=prod --debug
 
 .PHONY: web-server-dev
 web-server-dev:

@@ -18,6 +18,10 @@ emulator-dev-profile,Chạy code trên thiết bị ảo
 ,[môi trường: development]
 ,[mode: profile]
 
+emulator-dev-release,Chạy code trên thiết bị ảo
+,[môi trường: development]
+,[mode: release]
+
 emulator-stg-debug,Chạy code trên thiết bị ảo
 ,[môi trường: staging]
 ,[mode: debug]
@@ -28,28 +32,21 @@ emulator-prod-debug,Chạy code trên thiết bị ảo
 
 web-server-dev,Chạy code trên trình duyệt dưới dạng web-server
 ,[môi trường: development]
-,(phù hợp khi test trên máy yếu nhưng phải hot-reload thủ công)
-
-web-dev,Chạy code trên trình duyệt
-,[môi trường: development]
-,(link tham khảo chi tiết https://docs.flutter.dev/development/tools/web-renderers)
 
 web-server-stg,Chạy code trên trình duyệt dưới dạng web-server
 ,[môi trường: staging]
-,(phù hợp khi test trên máy yếu nhưng phải hot-reload thủ công)
-
-web-stg,Chạy code trên trình duyệt
-,[môi trường: staging]
-,(link tham khảo chi tiết https://docs.flutter.dev/development/tools/web-renderers)
 
 web-server-prod,Chạy code trên trình duyệt dưới dạng web-server
 ,[môi trường: production]
-,(phù hợp khi test trên máy yếu nhưng phải hot-reload thủ công)
+
+web-dev,Chạy code trên trình duyệt
+,[môi trường: development]
+
+web-stg,Chạy code trên trình duyệt
+,[môi trường: staging]
 
 web-prod,Chạy code trên trình duyệt
 ,[môi trường: production]
-,(link tham khảo chi tiết https://docs.flutter.dev/development/tools/web-renderers)
-
 
 test,Chạy tất cả file unit-test
 
@@ -65,11 +62,6 @@ integration_test_device_dev_profile,Chạy automation test trên thiết bị �
 ,[mode: profile]
 ,Điều kiện: Emulator phải được mở (android hoặc ios)
 
-integration_test_device_dev_release,Chạy automation test trên thiết bị ảo
-,[môi trường: development]
-,[mode: release]
-,Điều kiện: Emulator phải được mở (android hoặc ios)
-
 integration_test_real_device_android,Chạy automation test trên thiết bị android thật
 ,Điều kiện 1: Thiết bị android phải được kết nối với máy tính
 ,Điều kiện 2: Java version recommended is 11 or higher
@@ -80,13 +72,38 @@ integration_test_real_device_ios,Chạy automation test trên thiết bị ios t
 
 integration_test_report,Mở web hiển thị báo cáo automation-test
 
-integration_test_web_chrome,Chạy automation test trên trình duyệt Chrome
-,Điều kiện: phải cài đặt trình duyệt Chrome trên máy tính
+integration_test_web_chrome_dev_debug,Chạy automation test trên trình duyệt Chrome
+,[môi trường: development]
+,[mode: debug]
 
-integration_test_web_chrome_debug,Chạy automation test debug trên trình duyệt Chrome
+integration_test_web_chrome_dev_profile,Chạy automation test trên trình duyệt Chrome
+,[môi trường: development]
+,[mode: profile]
 
-integration_test_web_safari,Chạy automation test trên trình duyệt Safari
-,(chỉ hoạt động trên máy MacOS)
+integration_test_web_chrome_dev_release,Chạy automation test trên trình duyệt Chrome
+,[môi trường: development]
+,[mode: release]
 
-integration_test_web_firefox,Chạy automation test trên trình duyệt Firefox
-,Điều kiện: phải cài đặt trình duyệt Firefox trên máy tính
+integration_test_web_safari_dev_debug,Chạy automation test trên trình duyệt Safari
+,[môi trường: development]
+,[mode: debug]
+
+integration_test_web_safari_dev_profile,Chạy automation test trên trình duyệt Safari
+,[môi trường: development]
+,[mode: profile]
+
+integration_test_web_safari_dev_release,Chạy automation test trên trình duyệt Safari
+,[môi trường: development]
+,[mode: release]
+
+integration_test_web_firefox_dev_debug,Chạy automation test trên trình duyệt Firefox
+,[môi trường: development]
+,[mode: debug]
+
+integration_test_web_firefox_dev_profile,Chạy automation test trên trình duyệt Firefox
+,[môi trường: development]
+,[mode: profile]
+
+integration_test_web_firefox_dev_release,Chạy automation test trên trình duyệt Firefox
+,[môi trường: development]
+,[mode: release]

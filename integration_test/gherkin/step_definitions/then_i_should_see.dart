@@ -13,12 +13,13 @@ final thenIShouldSee = then1<String, FlutterWidgetTesterWorld>(
   'I should see {string}',
   (value, context) async {
     final tester = context.world.rawAppDriver;
-
     await tester.pumpAndSettle();
 
     final field = find.text(value);
     expect(field, findsOneWidget);
   },
   configuration: StepDefinitionConfiguration()
-    ..timeout = const Duration(minutes: 5),
+    ..timeout = const Duration(
+      minutes: 5,
+    ),
 );

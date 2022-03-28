@@ -3,15 +3,16 @@ import 'package:gherkin/gherkin.dart';
 
 import 'gherkin/configuration.dart';
 
-part 'gherkin_suite_test.g.dart';
+part 'gherkin_suite_test_staging.g.dart';
 
-int globalCountApp = 0;
+int globalCountAppStaging = 0;
+
 @GherkinTestSuite(
   featureDefaultLanguage: 'en',
 )
 void main() {
   executeTestSuite(
     gherkinTestConfiguration,
-    appInitializationFn,
+    appInitializationFnStaging,
   );
 }

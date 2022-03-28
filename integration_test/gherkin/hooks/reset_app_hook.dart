@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_tdd_new/configs/di/injection.dart';
 import 'package:flutter_tdd_new/utilities/logs/emoji_log.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:gherkin/gherkin.dart';
 import 'package:integration_test/integration_test.dart';
 

@@ -266,9 +266,11 @@ packages:
   flutter_gherkin:
     dependency: "direct main"
     description:
-      name: flutter_gherkin
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: integration_test__package_support
+      resolved-ref: "1913832893576e391cf48b0953b62079177190da"
+      url: "https://github.com/jonsamwell/flutter_gherkin.git"
+    source: git
     version: "3.0.0-rc.9"
   flutter_lints:
     dependency: "direct dev"

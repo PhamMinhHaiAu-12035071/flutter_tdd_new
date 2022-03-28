@@ -10,7 +10,7 @@ import '../parameters/status_element_enum.dart';
 ///
 /// Examples:
 ///   Then I expect the "Login" button to be enabled
-///   Then I expect the "Login" button to be disabled
+///   And I expect the "Login" button to be disabled
 ///
 
 final thenExpectStateButton =

@@ -30,6 +30,10 @@ emulator-dev-debug:
 emulator-dev-profile:
 	flutter run -t lib/main_dev.dart --flavor=dev --profile
 
+.PHONY: emulator-dev-release
+emulator-dev-release:
+	flutter run -t lib/main_dev.dart --flavor=dev --release
+
 .PHONY: emulator-stg-debug
 emulator-stg-debug:
 	flutter run -t lib/main_staging.dart --flavor=stg --debug
@@ -40,27 +44,27 @@ emulator-prod-debug:
 
 .PHONY: web-server-dev
 web-server-dev:
-	flutter run -d web-server -t lib/main_dev.dart
-
-.PHONY: web-dev
-web-dev:
-	flutter run --observatory-port=9200 -d chrome -t lib/main_dev.dart
+	flutter run -d web-server -t lib/main_dev.dart --flavor=dev
 
 .PHONY: web-server-stg
 web-server-stg:
-	flutter run -d web-server -t lib/main_staging.dart
-
-.PHONY: web-stg
-web-stg:
-	flutter run --observatory-port=9200 -d chrome -t lib/main_staging.dart
+	flutter run -d web-server -t lib/main_staging.dart --flavor=stg
 
 .PHONY: web-server-prod
 web-server-prod:
-	flutter run -d web-server -t lib/main_production.dart
+	flutter run -d web-server -t lib/main_production.dart --flavor=prod
+
+.PHONY: web-dev
+web-dev:
+	flutter run --observatory-port=9200 -d chrome -t lib/main_dev.dart --flavor=dev
+
+.PHONY: web-stg
+web-stg:
+	flutter run --observatory-port=9200 -d chrome -t lib/main_staging.dart --flavor=stg
 
 .PHONY: web-prod
 web-prod:
-	flutter run --observatory-port=9200 -d chrome -t lib/main_production.dart
+	flutter run --observatory-port=9200 -d chrome -t lib/main_production.dart --flavor=prod
 
 .PHONY: test
 test:
@@ -76,7 +80,7 @@ integration_test_device_dev_debug:
 	--flavor=dev  \
 	--debug \
 	--driver=test_driver/integration_test.dart \
-	--target=integration_test/gherkin_suite_test.dart
+	--target=integration_test/gherkin_suite_test_develop.dart
 
 .PHONY: integration_test_device_dev_profile
 integration_test_device_dev_profile:
@@ -84,15 +88,7 @@ integration_test_device_dev_profile:
 	--flavor=dev  \
 	--profile \
 	--driver=test_driver/integration_test.dart \
-	--target=integration_test/gherkin_suite_test.dart
-
-.PHONY: integration_test_device_dev_release
-integration_test_device_dev_release:
-	flutter drive \
-	--flavor=dev  \
-	--release \
-	--driver=test_driver/integration_test.dart \
-	--target=integration_test/gherkin_suite_test.dart
+	--target=integration_test/gherkin_suite_test_develop.dart
 
 .PHONY: integration_test_real_device_android
 integration_test_real_device_android:
@@ -108,42 +104,131 @@ integration_test_real_device_ios:
 integration_test_report:
 	node integration_test/gherkin/reports/index.js
 
-.PHONY: integration_test_web_chrome
-integration_test_web_chrome:
+.PHONY: integration_test_web_chrome_dev_debug
+integration_test_web_chrome_dev_debug:
 	./scripts/check_driver.sh -d 'chromedriver' \
 	&& ./scripts/new_tab.sh -e 'chromedriver --port=4444' \
 	&& flutter drive --web-port 8080 --browser-name=chrome \
+		--flavor=dev \
+        	--debug \
 		--driver=test_driver/integration_test.dart \
-		--target=integration_test/gherkin_suite_test.dart -d web-server --no-headless \
+		--target=integration_test/gherkin_suite_test_develop.dart -d web-server --no-headless \
 	&& sleep 2 \
 	&& ./scripts/close_tab.sh
 
-.PHONY: integration_test_web_chrome_debug
-integration_test_web_chrome_debug:
+.PHONY: integration_test_web_chrome_dev_profile
+integration_test_web_chrome_dev_profile:
 	./scripts/check_driver.sh -d 'chromedriver' \
 	&& ./scripts/new_tab.sh -e 'chromedriver --port=4444' \
 	&& flutter drive --web-port 8080 --browser-name=chrome \
+		--flavor=dev \
+        	--profile \
 		--driver=test_driver/integration_test.dart \
-		--target=integration_test/gherkin_suite_test.dart -d chrome --web-renderer html \
+		--target=integration_test/gherkin_suite_test_develop.dart -d web-server --no-headless \
 	&& sleep 2 \
 	&& ./scripts/close_tab.sh
 
-.PHONY: integration_test_web_safari
-integration_test_web_safari:
+.PHONY: integration_test_web_chrome_dev_release
+integration_test_web_chrome_dev_release:
+	./scripts/check_driver.sh -d 'chromedriver' \
+	&& ./scripts/new_tab.sh -e 'chromedriver --port=4444' \
+	&& flutter drive --web-port 8080 --browser-name=chrome \
+		--flavor=dev \
+        	--release \
+		--driver=test_driver/integration_test.dart \
+		--target=integration_test/gherkin_suite_test_develop.dart -d web-server --no-headless \
+	&& sleep 2 \
+	&& ./scripts/close_tab.sh
+
+#.PHONY: integration_test_web_demo_chrome_dev_profile
+#integration_test_web_demo_chrome_dev_profile:
+#	./scripts/check_driver.sh -d 'chromedriver' \
+#	&& ./scripts/new_tab.sh -e 'chromedriver --port=4444' \
+#	&& flutter drive --web-port 8080 --browser-name=chrome \
+#        	--profile \
+#		--driver=test_driver/driver_test.dart \
+#		--target=integration_test/demo_test.dart --keep-app-running -d chrome --web-renderer html \
+#	&& sleep 2 \
+#	&& ./scripts/close_tab.sh
+
+#.PHONY: integration_test_web_chrome_debug
+#integration_test_web_chrome_debug:
+#	./scripts/check_driver.sh -d 'chromedriver' \
+#	&& ./scripts/new_tab.sh -e 'chromedriver --port=4444' \
+#	&& flutter drive --web-port 8080 --browser-name=chrome \
+#		--driver=test_driver/integration_test.dart \
+#		--target=integration_test/gherkin_suite_test_develop.dart --keep-app-running -d chrome --web-renderer html \
+#	&& sleep 2 \
+#	&& ./scripts/close_tab.sh
+
+.PHONY: integration_test_web_safari_dev_debug
+integration_test_web_safari_dev_debug:
 	sudo safaridriver --enable \
 	&& ./scripts/new_tab.sh -e '/usr/bin/safaridriver --port=4444' \
 	&& flutter drive --web-port 8080 \
+		--flavor=dev \
+        	--debug \
 		--browser-name=safari --driver=test_driver/integration_test.dart \
-		--target=integration_test/gherkin_suite_test.dart -d web-server --no-headless \
+		--target=integration_test/gherkin_suite_test_develop.dart -d web-server --no-headless \
 	&& sleep 2 \
 	&& ./scripts/close_tab.sh
 
-.PHONY: integration_test_web_firefox
-integration_test_web_firefox:
+.PHONY: integration_test_web_safari_dev_profile
+integration_test_web_safari_dev_profile:
+	sudo safaridriver --enable \
+	&& ./scripts/new_tab.sh -e '/usr/bin/safaridriver --port=4444' \
+	&& flutter drive --web-port 8080 \
+		--flavor=dev \
+        	--profile \
+		--browser-name=safari --driver=test_driver/integration_test.dart \
+		--target=integration_test/gherkin_suite_test_develop.dart -d web-server --no-headless \
+	&& sleep 2 \
+	&& ./scripts/close_tab.sh
+
+.PHONY: integration_test_web_safari_dev_release
+integration_test_web_safari_dev_release:
+	sudo safaridriver --enable \
+	&& ./scripts/new_tab.sh -e '/usr/bin/safaridriver --port=4444' \
+	&& flutter drive --web-port 8080 \
+		--flavor=dev \
+        	--release \
+		--browser-name=safari --driver=test_driver/integration_test.dart \
+		--target=integration_test/gherkin_suite_test_develop.dart -d web-server --no-headless \
+	&& sleep 2 \
+	&& ./scripts/close_tab.sh
+
+.PHONY: integration_test_web_firefox_dev_debug
+integration_test_web_firefox_dev_debug:
 	./scripts/check_driver.sh -d 'geckodriver' \
 	&& ./scripts/new_tab.sh -e 'geckodriver --port=4444' \
 	&& flutter drive --web-port 8080 \
+		--flavor=dev \
+        	--debug \
 		--browser-name=firefox --driver=test_driver/integration_test.dart \
-		--target=integration_test/gherkin_suite_test.dart -d web-server --no-headless \
+		--target=integration_test/gherkin_suite_test_develop.dart -d web-server --no-headless \
+	&& sleep 2 \
+    && ./scripts/close_tab.sh
+
+.PHONY: integration_test_web_firefox_dev_profile
+integration_test_web_firefox_dev_profile:
+	./scripts/check_driver.sh -d 'geckodriver' \
+	&& ./scripts/new_tab.sh -e 'geckodriver --port=4444' \
+	&& flutter drive --web-port 8080 \
+		--flavor=dev \
+        	--profile \
+		--browser-name=firefox --driver=test_driver/integration_test.dart \
+		--target=integration_test/gherkin_suite_test_develop.dart -d web-server --no-headless \
+	&& sleep 2 \
+    && ./scripts/close_tab.sh
+
+.PHONY: integration_test_web_firefox_dev_release
+integration_test_web_firefox_dev_release:
+	./scripts/check_driver.sh -d 'geckodriver' \
+	&& ./scripts/new_tab.sh -e 'geckodriver --port=4444' \
+	&& flutter drive --web-port 8080 \
+		--flavor=dev \
+        	--release \
+		--browser-name=firefox --driver=test_driver/integration_test.dart \
+		--target=integration_test/gherkin_suite_test_develop.dart -d web-server --no-headless \
 	&& sleep 2 \
     && ./scripts/close_tab.sh

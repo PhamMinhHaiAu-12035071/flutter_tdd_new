@@ -18,22 +18,43 @@
     * [Với môi trường staging](#với-môi-trường-staging)
     * [Với môi trường production](#với-môi-trường-production)
 * [Chạy web server](#chạy-web-server)
+  - [Web server với môi trường development](#web-server-với-môi-trường-development)
+  - [Web server với môi trường staging](#web-server-với-môi-trường-staging)
+  - [Web server với môi trường production](#web-server-với-môi-trường-production)
 * [Chạy trên web](#chạy-trên-web)
+  - [Web với môi trường development](#web-với-môi-trường-development)
+  - [Web với môi trường staging](#web-với-môi-trường-staging)
+  - [Web với môi trường production](#web-với-môi-trường-production)
 * [Chạy test](#chạy-test)
 * [Chạy coverage](#chạy-coverage)
 * [Chạy automation test trên thiết bị ảo](#chạy-automation-test-trên-thiết-bị-ảo)
   - [Trên IOS với android studio](#trên-ios-với-android-studio)
-  - [Trên Android với android studio](#trên-android-với-android-studio)
+  - [Trên android](#trên-android)
+    - [Cài đặt với android studio](#cài-đặt-với-android-studio)
+    * [Automation test android với môi trường development](#automation-test-android-với-môi-trường-development)
+      - [Automation test android với chế độ debug](#automation-test-android-với-chế-độ-debug)
+      - [Automation test android với chế độ profile](#automation-test-android-với-chế-độ-profile)
+      - [Automation test android với chế độ release](#automation-test-android-với-chế-độ-release)
 * [Chạy automation test trên thiết bị thật](#chạy-automation-test-trên-thiết-bị-thật)
   - [Trên IOS thật với xcode](#trên-ios-thật-với-xcode)
   - [Trên Android thật với android studio](#trên-android-thật-với-android-studio)
 * [Chạy automation test trên chrome](#chạy-automation-test-trên-chrome)
+  - [Automation test chrome với môi trường development](#automation-test-chrome-với-môi-trường-development)
+    * [Automation test chrome với chế độ debug](#automation-test-chrome-với-chế-độ-debug)
+    * [Automation test chrome với chế độ profile](#automation-test-chrome-với-chế-độ-profile)
+    * [Automation test chrome với chế độ release](#automation-test-chrome-với-chế-độ-release)
 * [Chạy automation test trên firefox](#chạy-automation-test-trên-firefox)
 * [Chạy automation test trên safari](#chạy-automation-test-trên-safari)
+  - [Automation test safari với môi trường development](#automation-test-safari-với-môi-trường-development)
+    * [Automation test safari với chế độ debug](#automation-test-safari-với-chế-độ-debug)
+    * [Automation test safari với chế độ profile](#automation-test-safari-với-chế-độ-profile)
+    * [Automation test safari với chế độ release](#automation-test-safari-với-chế-độ-release)
 * [Chạy automation test trên edge](#chạy-automation-test-trên-edge)
 * [Cảm hứng](#cảm-hứng)
 * [Tác giả](#tác-giả)
 * [Đóng góp](#đóng-góp)
+* [Tài liệu](#tài-liệu)
+* [Cám ơn](#cám-ơn)
 
 ## Tính năng
 
@@ -86,6 +107,7 @@ https://user-images.githubusercontent.com/14148177/159755038-85099a72-87ce-4efd-
 
 ## Cài đặt
 
+- Tương thích trên node phiên bản 14.
 - Cài đặt package.json
 - Cài đặt pubspec.yaml
 - Thiết lập phân quyền cho file script
@@ -143,16 +165,27 @@ make emulator-dev-debug
 
 ##### Với chế độ profile
 
+- Chạy code trên thiết bị ảo với môi trường **development** và chế độ **profile**
+
 - **Yêu cầu**:
   - Thiết bị ảo trên android phải hỗ trợ instruction: **arm64-v8a**
-
-- Chạy code trên thiết bị ảo với môi trường **development** và chế độ **profile**
+  - Bạn có thể kiểm tra xem thử điện thoại có hỗ trợ **arm64-v8a** hay không bằng cách sử dụng phần mềm thứ 3 **Device Info**
 
 ```bash
 make emulator-dev-profile
 ```
 
 ##### Với chế độ release
+
+- Chạy code trên thiết bị ảo với môi trường **development** và chế độ **release**
+
+- **Yêu cầu**:
+  - Thiết bị ảo trên android phải hỗ trợ instruction: **arm64-v8a**
+  - Bạn có thể kiểm tra xem thử điện thoại có hỗ trợ **arm64-v8a** hay không bằng cách sử dụng phần mềm thứ 3 **Device Info**
+  
+```bash
+make emulator-dev-release
+```
 
 #### Với môi trường staging
 
@@ -163,25 +196,51 @@ make emulator-dev-profile
 
 - Khởi chạy nhanh flutter trên localhost server sẽ phải tự hot-reload thủ công
 
+### Web server với môi trường development
+
 ```bash
-make web-server
+make web-server-dev
 ```
 
-- Demo
+### Web server với môi trường staging
 
-https://user-images.githubusercontent.com/14148177/159762209-5a73a706-81ec-403c-bbb7-e33f396bf8ed.mov
+```bash
+make web-server-stg
+```
+
+### Web server với môi trường production
+
+```bash
+make web-server-prod
+```
 
 ## Chạy trên web
 
 - Khởi tạo flutter trên trình duyệt web (mặc định sử dụng trình duyệt chrome)
 
+### Web với môi trường development
+
+- [web-renderers](https://docs.flutter.dev/development/tools/web-renderers)
+
 ```bash
-make web
+make web-dev
 ```
 
-- Demo
+### Web với môi trường staging
 
-https://user-images.githubusercontent.com/14148177/159763330-20365063-1218-47c2-bff6-8c6c3611c4cb.mov
+- [web-renderers](https://docs.flutter.dev/development/tools/web-renderers)
+
+```bash
+make web-stg
+```
+
+### Web với môi trường production
+
+- [web-renderers](https://docs.flutter.dev/development/tools/web-renderers)
+
+```bash
+make web-prod
+```
 
 ## Chạy test
 
@@ -219,7 +278,9 @@ make test
 
     <img width="1156" alt="image" src="https://user-images.githubusercontent.com/14148177/159907860-58095911-91e6-4ae6-9fbf-758d8e10fef2.png">
 
-### Trên Android với android studio
+### Trên android
+
+#### Cài đặt với android studio
 
 - **Đề nghị**: nên cài đặt [Genymotion](https://www.genymotion.com/) và [Virtualbox](https://www.virtualbox.org/) để chạy máy ảo nhanh hơn
 
@@ -251,13 +312,33 @@ make test
 
     <img width="550" alt="image" src="https://user-images.githubusercontent.com/14148177/159924425-c132fdee-93a5-4358-b4ae-bdf593d9ce4b.png">
 
-- **Bước 6**: Chạy lệnh để test
+- **Bước 6**: Chạy lệnh để test theo hướng dẫn cho từng thiết bị và môi trường tương ứng.
 
-    ```bash
-    make integration_test_device
-    ```
+#### Automation test android với môi trường development
 
-    <img width="1128" alt="image" src="https://user-images.githubusercontent.com/14148177/159924544-5d653da4-0f90-47ac-b7ff-82deaefc912f.png">
+##### Automation test android với chế độ debug
+
+- Chạy automation test trên android với môi trường **development** và chế độ **debug**
+
+```bash
+make integration_test_device_dev_debug
+```
+
+##### Automation test android với chế độ profile
+
+- Chạy automation test trên android với môi trường **development** và chế độ **profile**
+
+- **Yêu cầu**:
+  - Thiết bị ảo trên android phải hỗ trợ instruction: **arm64-v8a**
+  - Bạn có thể kiểm tra xem thử điện thoại có hỗ trợ **arm64-v8a** hay không bằng cách sử dụng phần mềm thứ 3 **Device Info**
+  
+```bash
+make integration_test_device_dev_profile
+```
+
+##### Automation test android với chế độ release
+
+- Không hỗ trợ chạy automation test ở chế độ **release**
 
 ## Chạy automation test trên thiết bị thật
 
@@ -350,13 +431,27 @@ make test
 
 ## Chạy automation test trên chrome
 
-- **Yêu cầu**: Phải cài đặt trình duyệt chrome
+- **Yêu cầu**: Phải cài đặt trình duyệt [Chrome](https://www.google.com/chrome/)
+
+### Automation test chrome với môi trường development
+
+#### Automation test chrome với chế độ debug
 
 ```bash
-make integration_test_web_chrome
+make integration_test_web_chrome_dev_debug
 ```
 
-<img width="1143" alt="image" src="https://user-images.githubusercontent.com/14148177/159938411-5368bbc7-41dd-43e5-9ba2-c80104a7dbed.png">
+#### Automation test chrome với chế độ profile
+
+```bash
+make integration_test_web_chrome_dev_profile
+```
+
+#### Automation test chrome với chế độ release
+
+```bash
+make integration_test_web_chrome_dev_release
+```
 
 ## Chạy automation test trên firefox
 
@@ -370,13 +465,30 @@ make integration_test_web_firefox
 
 ## Chạy automation test trên safari
 
-- **Yêu cầu**: Phải cài đặt trình duyệt safari
+- **Yêu cầu**: 
+  
+  - Phải cài đặt trình duyệt [safari](https://support.apple.com/downloads/safari)
+  - Phải có máy MacOS
+  
+### Automation test safari với môi trường development
+
+#### Automation test safari với chế độ debug
 
 ```bash
-make integration_test_web_safari
+make integration_test_web_safari_dev_debug
 ```
 
-<img width="1141" alt="image" src="https://user-images.githubusercontent.com/14148177/159938805-f41b4a00-2cb4-4ae4-bb44-285415574910.png">
+#### Automation test safari với chế độ profile
+
+```bash
+make integration_test_web_safari_dev_profile
+```
+
+#### Automation test safari với chế độ release
+
+```bash
+make integration_test_web_safari_dev_release
+```
 
 ## Chạy automation test trên edge
 
@@ -387,6 +499,7 @@ make integration_test_web_safari
 ## Cảm hứng
 
 [Bloc Library](https://bloclibrary.dev/#/)
+[Flutter Gherkin](https://github.com/jonsamwell/flutter_gherkin/tree/integration_test__package_support)
 
 ## Tác giả
 
@@ -395,3 +508,12 @@ Phạm Minh Hải Âu
 ## Đóng góp
 
 Pull request luôn được chào đón! Hãy thoải mái mở một new issues GitHub cho bất kỳ thay đổi nào có thể được thực hiện. 
+
+## Tài liệu
+
+[Flutter Flavors](https://docs.flutter.dev/deployment/flavors)
+
+## Cám ơn
+
+[Flutter Gherkin used integration test](https://github.com/jonsamwell/flutter_gherkin/tree/integration_test__package_support)
+[Generate icon app](https://appicon.co/)

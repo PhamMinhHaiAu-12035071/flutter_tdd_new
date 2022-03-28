@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'gherkin_suite_test.dart';
+part of 'gherkin_suite_test_develop.dart';
 
 // **************************************************************************
 // GherkinSuiteTestGenerator
@@ -100,7 +100,6 @@ class _CustomGherkinIntegrationTestRunner extends GherkinIntegrationTestRunner {
             'Login Page',
             <String>[],
           ),
-          onAfter: null,
         );
 
         runScenario(
@@ -149,8 +148,6 @@ class _CustomGherkinIntegrationTestRunner extends GherkinIntegrationTestRunner {
               dependencies,
             );
           },
-          onBefore: null,
-          onAfter: null,
         );
 
         runScenario(
@@ -165,14 +162,14 @@ class _CustomGherkinIntegrationTestRunner extends GherkinIntegrationTestRunner {
             );
 
             await runStep(
-              'When I fill the "loginForm_emailInput_textField" field with "eve.holt@reqres.in"',
+              'When I fill the "loginForm_emailInput_textField" field with "peter@klaven"',
               <String>[],
               null,
               dependencies,
             );
 
             await runStep(
-              'Then I should see "eve.holt@reqres.in"',
+              'Then I should see "peter@klaven"',
               <String>[],
               null,
               dependencies,
@@ -207,14 +204,12 @@ class _CustomGherkinIntegrationTestRunner extends GherkinIntegrationTestRunner {
             );
 
             await runStep(
-              'Then I should see "Missing password"',
+              'Then I should see "user not found"',
               <String>[],
               null,
               dependencies,
             );
           },
-          onBefore: null,
-          onAfter: null,
         );
 
         runScenario(
@@ -277,7 +272,6 @@ class _CustomGherkinIntegrationTestRunner extends GherkinIntegrationTestRunner {
               dependencies,
             );
           },
-          onBefore: null,
           onAfter: () async => onAfterRunFeature(
             'Login Page',
           ),

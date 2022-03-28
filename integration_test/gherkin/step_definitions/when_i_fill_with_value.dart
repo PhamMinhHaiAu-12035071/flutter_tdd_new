@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_gherkin/flutter_gherkin.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gherkin/gherkin.dart';
@@ -15,11 +15,21 @@ final whenFillWithValue = when2<String, String, FlutterWidgetTesterWorld>(
   (key, value, context) async {
     final tester = context.world.rawAppDriver;
 
+    if (kProfileMode || kReleaseMode) {
+      tester.testTextInput.register();
+    }
+
     await tester.pumpAndSettle();
 
     final field = find.byKey(Key(key));
-    await tester.showKeyboard(field);
+
+    expect(field, findsOneWidget);
+
+    await tester.tap(field);
+
     await tester.enterText(field, value);
+
+    await tester.pump();
   },
   configuration: StepDefinitionConfiguration()
     ..timeout = const Duration(minutes: 5),

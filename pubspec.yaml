@@ -46,8 +46,11 @@ dependencies:
   dartz: ^0.10.1
   enum_to_string: ^2.0.1
   mocktail: ^0.3.0
-  flutter_gherkin: ^3.0.0-rc.9
-
+  # flutter_gherkin: ^3.0.0-rc.9
+  flutter_gherkin:
+    git:
+      url: https://github.com/jonsamwell/flutter_gherkin.git
+      ref: integration_test__package_support
 
 dev_dependencies:
   flutter_test:

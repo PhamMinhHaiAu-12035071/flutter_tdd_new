@@ -436,9 +436,13 @@ make integration_test_device_dev_profile
 
 - Như hình ví dụ minh họa sau:
 
+![image](https://user-images.githubusercontent.com/14148177/160526247-d54b77f2-f790-40b1-b9ec-81bbb55c8bb8.png)
+
 - Bạn cũng có thể tắt chức năng mở popup xác nhận này bằng cách như sau:
 
 - Tại **LaunchPad** -> Search "Terminal" -> Chọn -> Tại **Terminal** -> Chọn **Preferences** -> Chọn Tab **Shell** -> Tại Label **Ask before closing** -> Chọn **Never**
+
+<img width="1020" alt="image" src="https://user-images.githubusercontent.com/14148177/160526422-42528e08-fba3-4725-b002-cb0f62c8e6e3.png">
 
 ## Chạy automation test trên chrome
 
@@ -529,3 +533,4 @@ Pull request luôn được chào đón! Hãy thoải mái mở một new issues
 [Flutter Gherkin used integration test](https://github.com/jonsamwell/flutter_gherkin/tree/integration_test__package_support)
 [Generate icon app](https://appicon.co/)
 [Run test android buildTypes](https://stackoverflow.com/questions/31180173/espresso-junit-4-imports-are-not-getting-added-to-android-studio-project-migra)
+

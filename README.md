@@ -517,3 +517,4 @@ Pull request luôn được chào đón! Hãy thoải mái mở một new issues
 
 [Flutter Gherkin used integration test](https://github.com/jonsamwell/flutter_gherkin/tree/integration_test__package_support)
 [Generate icon app](https://appicon.co/)
+[Run test android buildTypes](https://stackoverflow.com/questions/31180173/espresso-junit-4-imports-are-not-getting-added-to-android-studio-project-migra)

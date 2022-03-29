@@ -38,6 +38,7 @@
 * [Chạy automation test trên thiết bị thật](#chạy-automation-test-trên-thiết-bị-thật)
   - [Trên IOS thật với xcode](#trên-ios-thật-với-xcode)
   - [Trên Android thật với android studio](#trên-android-thật-với-android-studio)
+* [Vấn đề cần lưu ý khi chạy automation test trên trình duyệt](#Vấn-đề-cần-lưu-ý-khi-chạy-automation-test-trên-trình-duyệt)  
 * [Chạy automation test trên chrome](#chạy-automation-test-trên-chrome)
   - [Automation test chrome với môi trường development](#automation-test-chrome-với-môi-trường-development)
     * [Automation test chrome với chế độ debug](#automation-test-chrome-với-chế-độ-debug)
@@ -428,6 +429,16 @@ make integration_test_device_dev_profile
     ```
 
     <img width="1147" alt="image" src="https://user-images.githubusercontent.com/14148177/159936977-121ba0ce-b10b-4fac-aa6f-65f1980b8816.png">
+
+## Vấn đề cần lưu ý khi chạy automation test trên trình duyệt
+
+- Khi thực hiện automation test trên trình duyệt sẽ tự động chạy script để mở terminal start driver và terminal sẽ tự động tắt khi automation test chạy xong. Nhưng sẽ có một vấn đề là terminal sẽ hiển thị popup bắt bạn phải xác nhận để tắt.
+
+- Như hình ví dụ minh họa sau:
+
+- Bạn cũng có thể tắt chức năng mở popup xác nhận này bằng cách như sau:
+
+- Tại **LaunchPad** -> Search "Terminal" -> Chọn -> Tại **Terminal** -> Chọn **Preferences** -> Chọn Tab **Shell** -> Tại Label **Ask before closing** -> Chọn **Never**
 
 ## Chạy automation test trên chrome
 

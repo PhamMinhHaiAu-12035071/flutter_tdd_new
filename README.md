@@ -220,7 +220,7 @@ make web-server-prod
 
 ### Web với môi trường development
 
-- [web-renderers](https://docs.flutter.dev/development/tools/web-renderers)
+- Link tham khảo [web-renderers](https://docs.flutter.dev/development/tools/web-renderers)
 
 ```bash
 make web-dev
@@ -228,7 +228,7 @@ make web-dev
 
 ### Web với môi trường staging
 
-- [web-renderers](https://docs.flutter.dev/development/tools/web-renderers)
+- Link tham khảo [web-renderers](https://docs.flutter.dev/development/tools/web-renderers)
 
 ```bash
 make web-stg
@@ -236,7 +236,7 @@ make web-stg
 
 ### Web với môi trường production
 
-- [web-renderers](https://docs.flutter.dev/development/tools/web-renderers)
+- Link tham khảo [web-renderers](https://docs.flutter.dev/development/tools/web-renderers)
 
 ```bash
 make web-prod

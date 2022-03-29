@@ -22,16 +22,16 @@ clean:
 	&& flutter pub cache clean \
 	&& rm -rf node_modules/
 
-.PHONY: emulator-dev-debug
-emulator-dev-debug:
+.PHONY: emulator_dev_debug
+emulator_dev_debug:
 	flutter run -t lib/main_dev.dart --flavor=dev --debug
 
-.PHONY: emulator-dev-profile
-emulator-dev-profile:
+.PHONY: emulator_dev_profile
+emulator_dev_profile:
 	flutter run -t lib/main_dev.dart --flavor=dev --profile
 
-.PHONY: emulator-dev-release
-emulator-dev-release:
+.PHONY: emulator_dev_release
+emulator_dev_release:
 	flutter run -t lib/main_dev.dart --flavor=dev --release
 
 .PHONY: emulator-stg-debug
@@ -42,9 +42,17 @@ emulator-stg-debug:
 emulator-prod-debug:
 	flutter run -t lib/main_production.dart --flavor=prod --debug
 
-.PHONY: web-server-dev
-web-server-dev:
-	flutter run -d web-server -t lib/main_dev.dart --flavor=dev
+.PHONY: web_server_dev_debug
+web_server_dev_debug:
+	flutter run -d web-server -t lib/main_dev.dart --flavor=dev --debug
+
+.PHONY: web_server_dev_profile
+web_server_dev_profile:
+	flutter run -d web-server -t lib/main_dev.dart --flavor=dev --profile
+
+.PHONY: web_server_dev_release
+web_server_dev_release:
+	flutter run -d web-server -t lib/main_dev.dart --flavor=dev --release
 
 .PHONY: web-server-stg
 web-server-stg:
@@ -54,9 +62,17 @@ web-server-stg:
 web-server-prod:
 	flutter run -d web-server -t lib/main_production.dart --flavor=prod
 
-.PHONY: web-dev
-web-dev:
-	flutter run --observatory-port=9200 -d chrome -t lib/main_dev.dart --flavor=dev
+.PHONY: web_dev_debug
+web_dev_debug:
+	flutter run --observatory-port=9200 -d chrome -t lib/main_dev.dart --flavor=dev --debug
+
+.PHONY: web_dev_profile
+web_dev_profile:
+	flutter run --observatory-port=9200 -d chrome -t lib/main_dev.dart --flavor=dev --profile
+
+.PHONY: web_dev_release
+web_dev_release:
+	flutter run --observatory-port=9200 -d chrome -t lib/main_dev.dart --flavor=dev --release
 
 .PHONY: web-stg
 web-stg:

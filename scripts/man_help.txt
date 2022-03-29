@@ -1,25 +1,25 @@
-Câu lệnh,Mô tả
+Command,Description
 
-help,Hiển thị danh sách trợ giúp
+help,Show menu help
 
-playground,Chạy file ./lib/playground/example.dart để test code
+playground,Run file ./lib/playground/example.dart check code
 
-install,Cài đặt
+install, Install dependencies
 
-rebuild,Xoá và tạo lại các file dart
+rebuild,Remove and generate file
 
-clean,Xoá tất cả cache
+clean, Remove cache and uninstall
 
-emulator-dev-debug,Chạy code trên thiết bị ảo
-,[môi trường: development]
+emulator_dev_debug,Run code on emulator
+,[environment: development]
 ,[mode: debug]
 
-emulator-dev-profile,Chạy code trên thiết bị ảo
-,[môi trường: development]
+emulator_dev_profile,Run code on emulator
+,[environment: development]
 ,[mode: profile]
 
-emulator-dev-release,Chạy code trên thiết bị ảo
-,[môi trường: development]
+emulator_dev_release,Run code on emulator
+,[environment: development]
 ,[mode: release]
 
 emulator-stg-debug,Chạy code trên thiết bị ảo
@@ -30,8 +30,17 @@ emulator-prod-debug,Chạy code trên thiết bị ảo
 ,[môi trường: production]
 ,[mode: debug]
 
-web-server-dev,Chạy code trên trình duyệt dưới dạng web-server
-,[môi trường: development]
+web_server_dev_debug,Run code on chrome
+,[environment: development]
+,[mode: debug]
+
+web_server_dev_profile,Run code on chrome
+,[environment: development]
+,[mode: profile]
+
+web_server_dev_release,Run code on chrome
+,[environment: development]
+,[mode: release]
 
 web-server-stg,Chạy code trên trình duyệt dưới dạng web-server
 ,[môi trường: staging]
@@ -39,8 +48,17 @@ web-server-stg,Chạy code trên trình duyệt dưới dạng web-server
 web-server-prod,Chạy code trên trình duyệt dưới dạng web-server
 ,[môi trường: production]
 
-web-dev,Chạy code trên trình duyệt
-,[môi trường: development]
+web_dev_debug,Run code on chrome
+,[environment: development]
+,[mode: debug]
+
+web_dev_profile,Run code on chrome
+,[environment: development]
+,[mode: profile]
+
+web_dev_release,Run code on chrome
+,[environment: development]
+,[mode: release]
 
 web-stg,Chạy code trên trình duyệt
 ,[môi trường: staging]
@@ -48,62 +66,58 @@ web-stg,Chạy code trên trình duyệt
 web-prod,Chạy code trên trình duyệt
 ,[môi trường: production]
 
-test,Chạy tất cả file unit-test
+test,Run all file unit-test
 
-coverage,Kiểm tra số lượng test-case bao phủ
+coverage,Run all file unit-test and coverage
 
-integration_test_device_dev_debug,Chạy automation test trên thiết bị ảo
-,[môi trường: development]
+integration_test_device_dev_debug,Run automation test on emulator
+,[environment: development]
 ,[mode: debug]
-,Điều kiện: Emulator phải được mở (android hoặc ios)
 
-integration_test_device_dev_profile,Chạy automation test trên thiết bị ảo
-,[môi trường: development]
+integration_test_device_dev_profile,Run automation test on emulator
+,[environment: development]
 ,[mode: profile]
-,Điều kiện: Emulator phải được mở (android hoặc ios)
 
-integration_test_real_device_android,Chạy automation test trên thiết bị android thật
-,Điều kiện 1: Thiết bị android phải được kết nối với máy tính
-,Điều kiện 2: Java version recommended is 11 or higher
+integration_test_real_device_android,Run automation test on real device
 
 integration_test_real_device_ios,Chạy automation test trên thiết bị ios thật
 ,Điều kiện: Thiết bị ios phải được kết nối với máy tính
 ,Sau khi xcode mở -> Chọn điện thoại -> Nhấn Product -> Test
 
-integration_test_report,Mở web hiển thị báo cáo automation-test
+integration_test_report,Report automation test
 
-integration_test_web_chrome_dev_debug,Chạy automation test trên trình duyệt Chrome
-,[môi trường: development]
+integration_test_web_chrome_dev_debug,Run automation test on chrome
+,[environment: development]
 ,[mode: debug]
 
-integration_test_web_chrome_dev_profile,Chạy automation test trên trình duyệt Chrome
-,[môi trường: development]
+integration_test_web_chrome_dev_profile,Run automation test on chrome
+,[environment: development]
 ,[mode: profile]
 
-integration_test_web_chrome_dev_release,Chạy automation test trên trình duyệt Chrome
-,[môi trường: development]
+integration_test_web_chrome_dev_release,Run automation test on chrome
+,[environment: development]
 ,[mode: release]
 
-integration_test_web_safari_dev_debug,Chạy automation test trên trình duyệt Safari
-,[môi trường: development]
+integration_test_web_safari_dev_debug,Run automation test on safari
+,[environment: development]
 ,[mode: debug]
 
-integration_test_web_safari_dev_profile,Chạy automation test trên trình duyệt Safari
-,[môi trường: development]
+integration_test_web_safari_dev_profile,Run automation test on safari
+,[environment: development]
 ,[mode: profile]
 
-integration_test_web_safari_dev_release,Chạy automation test trên trình duyệt Safari
-,[môi trường: development]
+integration_test_web_safari_dev_release,Run automation test on safari
+,[environment: development]
 ,[mode: release]
 
-integration_test_web_firefox_dev_debug,Chạy automation test trên trình duyệt Firefox
-,[môi trường: development]
+integration_test_web_firefox_dev_debug,Run automation test on firefox
+,[environment: development]
 ,[mode: debug]
 
-integration_test_web_firefox_dev_profile,Chạy automation test trên trình duyệt Firefox
-,[môi trường: development]
+integration_test_web_firefox_dev_profile,Run automation test on firefox
+,[environment: development]
 ,[mode: profile]
 
-integration_test_web_firefox_dev_release,Chạy automation test trên trình duyệt Firefox
-,[môi trường: development]
+integration_test_web_firefox_dev_release,Run automation test on firefox
+,[environment: development]
 ,[mode: release]

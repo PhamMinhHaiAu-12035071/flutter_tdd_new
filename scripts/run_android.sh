@@ -26,7 +26,7 @@ cd android/
 
 ./gradlew app:"${appConnect}" \
     -PtestBuildType="${flavor}" \
-		-Ptarget="${PWD}"/../integration_test/gherkin_suite_test_develop.dart -i --stacktrace
+		-Ptarget="${PWD}"/../integration_test/gherkin_suite_test_develop.dart
 
 sleep 1
 cd ../

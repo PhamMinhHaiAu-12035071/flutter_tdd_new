@@ -29,6 +29,22 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
+/*
++~~~~~~+~~~~~~+~~~~~~~~~~~+
+|  fg  |  bg  |  color    |
++~~~~~~+~~~~~~+~~~~~~~~~~~+
+|  30  |  40  |  black    |
+|  31  |  41  |  red      |
+|  32  |  42  |  green    |
+|  33  |  43  |  yellow   |
+|  34  |  44  |  blue     |
+|  35  |  45  |  magenta  |
+|  36  |  46  |  cyan     |
+|  37  |  47  |  white    |
+|  39  |  49  |  default  |
++~~~~~~+~~~~~~+~~~~~~~~~~~+
+ */
+
 // define function get testBuildType based on build mode
 def obtainTestBuildType() {
     def result = "debug";
@@ -36,7 +52,22 @@ def obtainTestBuildType() {
     if (project.hasProperty("testBuildType")) {
         result = project.getProperties().get("testBuildType")
     }
-    println "🥳 [obtainTestBuildType] $result";
+    def style = "${(char)27}[32;"+"m"
+    println(style+"🥳 [obtainTestBuildType] $result")
+    result
+}
+
+def configReleaseWithTestBuildType() {
+    def result = true;
+
+    if (project.hasProperty("testBuildType")) {
+        def valueTestBuildType = project.getProperties().get("testBuildType");
+        if(valueTestBuildType == "release") {
+            result = false;
+        }
+    }
+    def style = "${(char)27}[32;"+"m"
+    println(style+"🥳 [configReleaseWithTestBuildType] $result")
     result
 }
 
@@ -76,8 +107,8 @@ android {
             debuggable true
         }
         release {
-            minifyEnabled true
-            debuggable false
+            minifyEnabled configReleaseWithTestBuildType()
+            shrinkResources configReleaseWithTestBuildType()
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug

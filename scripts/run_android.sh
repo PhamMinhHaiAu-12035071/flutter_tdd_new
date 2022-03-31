@@ -1,9 +1,9 @@
 #!/bin/bash -e
 # ./gradlew connected[Flavor]DebugAndroidTest
-usage() { echo "Usage: $0 [-e <dev|stg|prod>] [-f <debug|profile|release>]" 1>&2; exit 0; }
+usage() { echo "Usage: $0 [-e <dev|stg|prod>] [-f <debug|profile|release>] [-p <path file>]" 1>&2; exit 0; }
 
 [ $# -eq 0 ] && usage
-while getopts ":e:f:h" arg; do
+while getopts ":e:f:p:h" arg; do
   case $arg in
     e)
       env=${OPTARG}
@@ -12,6 +12,9 @@ while getopts ":e:f:h" arg; do
     f)
       flavor=${OPTARG}
       flavorUpperFirstLetter="$(tr '[:lower:]' '[:upper:]' <<< "${flavor:0:1}")${flavor:1}"
+      ;;
+    p)
+      pathFile=${OPTARG}
       ;;
     h | *)
       usage
@@ -26,7 +29,7 @@ cd android/
 
 ./gradlew app:"${appConnect}" \
     -PtestBuildType="${flavor}" \
-		-Ptarget="${PWD}"/../integration_test/gherkin_suite_test_develop.dart
+		-Ptarget="${PWD}"/../integration_test/"${pathFile}"
 
 sleep 1
 cd ../

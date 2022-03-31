@@ -1,5 +1,5 @@
 # flutter_tdd_new
-Đây là dự án viết test cho flutter theo kiến trúc BLoc pattern
+This is template project used TDD and BLoC patterns with multiple environments and flavor
 
 # Mục lục
 * [1. Feature](#1.-Feature)
@@ -15,21 +15,30 @@
       - [8.1.1.1 debug mode](#8.1.1.1-debug-mode)
       - [8.1.1.2 profile mode](#8.1.1.2-profile-mode)
       - [8.1.1.3 release mode](#8.1.1.3-release-mode)
-    * [Với môi trường staging](#với-môi-trường-staging)
+    * [8.1.2 staging environment](#8.1.2-staging-environment)
+      - [8.1.2.1 debug mode](#8.1.2.1-debug-mode)
+      - [8.1.2.2 profile mode](#8.1.2.2-profile-mode)
+      - [8.1.2.3 release mode](#8.1.2.3-release-mode)
     * [Với môi trường production](#với-môi-trường-production)
 * [9. Run web server](#9.-Run-web-server)
   - [9.1 development environment](#9.1-development-environment)
     * [9.1.1 debug mode](#9.1.1-debug-mode)
     * [9.1.2 profile mode](#9.1.2-profile-mode)
     * [9.1.3 release mode](#9.1.3 release mode)
-  - [Web server với môi trường staging](#web-server-với-môi-trường-staging)
+  - [9.2 staging environment](#9.2-staging-environment)
+    * [9.2.1 debug mode](#9.2.1-debug-mode)
+    * [9.2.2 profile mode](#9.2.2-profile-mode)
+    * [9.2.3 release mode](#9.2.3 release mode)
   - [Web server với môi trường production](#web-server-với-môi-trường-production)
 * [10. Run web](#10.-Run-web)
   - [10.1 development environment](#10.1-development-environment)  
     * [10.1.1 debug mode](#10.1.1-debug-mode)
     * [10.1.2 profile mode](#10.1.2-profile-mode)
     * [10.1.3 release mode](#10.1.3 release mode)
-  - [Web với môi trường staging](#web-với-môi-trường-staging)
+  - [10.2 staging environment](#10.2-staging-environment)
+    * [10.2.1 debug mode](#10.2.1-debug-mode)
+    * [10.2.2 profile mode](#10.2.2-profile-mode)
+    * [10.2.3 release mode](#10.2.3 release mode)
   - [Web với môi trường production](#web-với-môi-trường-production)
 * [11. Run unit test](#11.-Run-unit-test)
 * [12. Run unit test and coverage](#12.-Run-unit-test-and-coverage)
@@ -41,6 +50,10 @@
       - [13.1.2.1 debug mode](#13.1.2.1-debug-mode)
       - [13.1.2.2 profile mode](#13.1.2.2-profile-mode)
       - [13.1.2.3 release mode](#13.1.2.3-release-mode)
+    * [13.1.3 staging environment](#13.1.3-staging-environment)
+      - [13.1.3.1 debug mode](#13.1.3.1-debug-mode)
+      - [13.1.3.2 profile mode](#13.1.3.2-profile-mode)
+      - [13.1.3.3 release mode](#13.1.3.3-release-mode)
 * [14. Run automation test on real device](#14.-Run-automation-test-on-real-device)
   - [Trên IOS thật với xcode](#trên-ios-thật-với-xcode)
   - [14.1 Android](#14.1-Android)
@@ -48,22 +61,38 @@
       - [14.1.1.1 debug mode](#14.1.1.1-debug-mode)
       - [14.1.1.2 profile mode](#14.1.1.2-profile-mode)
       - [14.1.1.3 release mode](#14.1.1.3-release-mode)
+    * [14.1.2 staging environment](#14.1.2-staging-environment)
+      - [14.1.2.1 debug mode](#14.1.2.1-debug-mode)
+      - [14.1.2.2 profile mode](#14.1.2.2-profile-mode)
+      - [14.1.2.3 release mode](#14.1.2.3-release-mode)
 * [15. Issues to keep in mind when running automation tests in the browser](#15.-Issues-to-keep-in-mind-when-running-automation-tests-in-the-browser)  
 * [16. Run automation test on chrome](#16.-Run-automation-test-on-chrome)
   - [16.1 development environment](#16.1-development-environment)
     * [16.1.1 debug mode](#16.1.1-debug-mode)
     * [16.1.2 profile mode](#16.1.2-profile-mode)
     * [16.1.3 release mode](#16.1.3-release-mode)
+  - [16.2 staging environment](#16.2-staging-environment)
+    * [16.2.1 debug mode](#16.2.1-debug-mode)
+    * [16.2.2 profile mode](#16.2.2-profile-mode)
+    * [16.2.3 release mode](#16.2.3-release-mode)
 * [17. Run automation test on firefox](#17.-Run-automation-test-on-firefox)
   - [17.1 development environment](#17.1-development-environment)
     * [17.1.1 debug mode](#17.1.1-debug-mode)
     * [17.1.2 profile mode](#17.1.2-profile-mode)
     * [17.1.3 release mode](#17.1.3-release-mode)
+  - [17.2 staging environment](#17.2-staging-environment)
+    * [17.2.1 debug mode](#17.2.1-debug-mode)
+    * [17.2.2 profile mode](#17.2.2-profile-mode)
+    * [17.2.3 release mode](#17.2.3-release-mode)
 * [18. Run automation test on safari](#18.-Run-automation-test-on-safari)
   - [18.1 development environment](#18.1-development-environment)
     * [18.1.1 debug mode](#18.1.1-debug-mode)
     * [18.1.2 profile mode](#18.1.2-profile-mode)
     * [18.1.3 release mode](#18.1.3-release-mode)
+  - [18.2 staging environment](#18.2-staging-environment)
+    * [18.2.1 debug mode](#18.2.1-debug-mode)
+    * [18.2.2 profile mode](#18.2.2-profile-mode)
+    * [18.2.3 release mode](#18.2.3-release-mode)
 * [19. Run automation test on edge](#19.-Run-automation-test-on-edge)
 * [20. Inspiration](#20.-Inspiration)
 * [21. Author](#21.-Author)
@@ -182,7 +211,25 @@ make emulator_dev_profile
 make emulator_dev_release
 ```
 
-#### Với môi trường staging
+#### 8.1.2 staging environment
+
+##### 8.1.2.1 debug mode
+
+```bash
+make emulator_stg_debug
+```
+
+##### 8.1.2.2 profile mode
+
+```bash
+make emulator_stg_profile
+```
+
+##### 8.1.2.3 release mode
+
+```bash
+make emulator_stg_release
+```
 
 #### Với môi trường production
 
@@ -211,10 +258,24 @@ make web_server_dev_profile
 make web_server_dev_release
 ```
 
-### Web server với môi trường staging
+### 9.2 staging environment
+
+#### 9.2.1 debug mode
 
 ```bash
-make web-server-stg
+make web_server_stg_debug
+```
+
+#### 9.2.2 profile mode
+
+```bash
+make web_server_stg_profile
+```
+
+#### 9.2.3 release mode
+
+```bash
+make web_server_stg_release
 ```
 
 ### Web server với môi trường production
@@ -249,12 +310,24 @@ make web_dev_profile
 make web_dev_release
 ```
 
-### Web với môi trường staging
+### 10.2 staging environment
 
-- Link [web-renderers](https://docs.flutter.dev/development/tools/web-renderers)
+#### 10.2.1 debug mode
 
 ```bash
-make web-stg
+make web_stg_debug
+```
+
+#### 10.2.2 profile mode
+
+```bash
+make web_stg_profile
+```
+
+#### 10.2.3 release mode
+
+```bash
+make web_stg_release
 ```
 
 ### Web với môi trường production
@@ -335,13 +408,35 @@ make integration_test_device_dev_debug
 
 - **Requirements**:
   - Android emulator must support instruction: **arm64-v8a**
-  - If you want to check android emulator to have support for**arm64-v8a** or not ? Please install third-party software **Device Info**
+  - If you want to check android emulator to have support for**arm64-v8a** or not ? Please install third-party software [Device Info](https://play.google.com/store/apps/details?id=com.alphabetlabs.deviceinfo&hl=en&gl=US)
   
 ```bash
 make integration_test_device_dev_profile
 ```
 
 ##### 13.1.2.3 release mode
+
+- Not support
+
+#### 13.1.3 staging environment
+
+##### 13.1.3.1 debug mode
+
+```bash
+make integration_test_device_staging_debug
+```
+
+##### 13.1.3.2 profile mode
+
+- **Requirements**:
+  - Android emulator must support instruction: **arm64-v8a**
+  - If you want to check android emulator to have support for**arm64-v8a** or not ? Please install third-party software [Device Info](https://play.google.com/store/apps/details?id=com.alphabetlabs.deviceinfo&hl=en&gl=US)
+  
+```bash
+make integration_test_device_staging_profile
+```
+
+##### 13.1.3.3 release mode
 
 - Not support
 
@@ -442,6 +537,26 @@ make integration_test_real_device_android_dev_profile
 make integration_test_real_device_android_dev_release
 ```
 
+#### 14.1.2 staging environment
+
+##### 14.1.2.1 debug mode
+
+```bash
+make integration_test_real_device_android_staging_debug
+```
+
+##### 14.1.2.2 profile mode
+
+```bash
+make integration_test_real_device_android_staging_profile
+```
+
+##### 14.1.2.3 release mode
+
+```bash
+make integration_test_real_device_android_staging_release
+```
+
 ## 15. Issues to keep in mind when running automation tests in the browser
 
 - When performing automation testing on the browser, it will automatically run the script to open the terminal start driver and the terminal will automatically shut down when the automation test is finished running. But there will be a problem that the terminal will display a popup asking you to confirm to turn it off.
@@ -480,6 +595,26 @@ make integration_test_web_chrome_dev_profile
 make integration_test_web_chrome_dev_release
 ```
 
+### 16.2 staging environment
+
+#### 16.2.1 debug mode
+
+```bash
+make integration_test_web_chrome_staging_debug
+```
+
+#### 16.2.2 profile mode
+
+```bash
+make integration_test_web_chrome_staging_profile
+```
+
+#### 16.2.3 release mode
+
+```bash
+make integration_test_web_chrome_staging_release
+```
+
 ## 17. Run automation test on firefox
 
 - **Requirements**: Install [firefox](https://www.mozilla.org/en-US/firefox/new/)
@@ -502,6 +637,25 @@ make integration_test_web_firefox_dev_profile
 
 ```bash
 make integration_test_web_firefox_dev_release
+```
+### 17.2 staging environment
+
+#### 17.2.1 debug mode
+
+```bash
+make integration_test_web_firefox_staging_debug
+```
+
+#### 17.2.2 profile mode
+
+```bash
+make integration_test_web_firefox_staging_profile
+```
+
+#### 17.2.3 release mode
+
+```bash
+make integration_test_web_firefox_staging_release
 ```
 
 ## 18. Run automation test on safari
@@ -529,6 +683,25 @@ make integration_test_web_safari_dev_profile
 
 ```bash
 make integration_test_web_safari_dev_release
+```
+### 18.2 staging environment
+
+#### 18.2.1 debug mode
+
+```bash
+make integration_test_web_safari_staging_debug
+```
+
+#### 18.2.2 profile mode
+
+```bash
+make integration_test_web_safari_staging_profile
+```
+
+#### 18.2.3 release mode
+
+```bash
+make integration_test_web_safari_staging_release
 ```
 
 ## 19. Run automation test on edge

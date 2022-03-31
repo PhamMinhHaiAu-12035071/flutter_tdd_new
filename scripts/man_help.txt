@@ -22,12 +22,20 @@ emulator_dev_release,Run code on emulator
 ,[environment: development]
 ,[mode: release]
 
-emulator-stg-debug,Chạy code trên thiết bị ảo
-,[môi trường: staging]
+emulator_stg_debug,Run code on emulator
+,[environment: staging]
 ,[mode: debug]
 
+emulator_stg_profile,Run code on emulator
+,[environment: staging]
+,[mode: profile]
+
+emulator_stg_release,Run code on emulator
+,[environment: staging]
+,[mode: release]
+
 emulator-prod-debug,Chạy code trên thiết bị ảo
-,[môi trường: production]
+,[environment: production]
 ,[mode: debug]
 
 web_server_dev_debug,Run code on chrome
@@ -42,11 +50,20 @@ web_server_dev_release,Run code on chrome
 ,[environment: development]
 ,[mode: release]
 
-web-server-stg,Chạy code trên trình duyệt dưới dạng web-server
-,[môi trường: staging]
+web_server_stg_debug,Run code on chrome
+,[environment: staging]
+,[mode: debug]
+
+web_server_stg_profile,Run code on chrome
+,[environment: staging]
+,[mode: profile]
+
+web_server_stg_release,Run code on chrome
+,[environment: staging]
+,[mode: release]
 
 web-server-prod,Chạy code trên trình duyệt dưới dạng web-server
-,[môi trường: production]
+,[environment: production]
 
 web_dev_debug,Run code on chrome
 ,[environment: development]
@@ -60,11 +77,20 @@ web_dev_release,Run code on chrome
 ,[environment: development]
 ,[mode: release]
 
-web-stg,Chạy code trên trình duyệt
-,[môi trường: staging]
+web_stg_debug,Run code on chrome
+,[environment: staging]
+,[mode: debug]
+
+web_stg_profile,Run code on chrome
+,[environment: staging]
+,[mode: profile]
+
+web_stg_release,Run code on chrome
+,[environment: staging]
+,[mode: release]
 
 web-prod,Chạy code trên trình duyệt
-,[môi trường: production]
+,[environment: production]
 
 test,Run all file unit-test
 
@@ -78,6 +104,14 @@ integration_test_device_dev_profile,Run automation test on emulator
 ,[environment: development]
 ,[mode: profile]
 
+integration_test_device_staging_debug,Run automation test on emulator
+,[environment: staging]
+,[mode: debug]
+
+integration_test_device_staging_profile,Run automation test on emulator
+,[environment: staging]
+,[mode: profile]
+
 integration_test_real_device_android_dev_debug,Run automation test on real device
 ,[environment: development]
 ,[mode: debug]
@@ -88,6 +122,18 @@ integration_test_real_device_android_dev_profile,Run automation test on real dev
 
 integration_test_real_device_android_dev_release,Run automation test on real device
 ,[environment: development]
+,[mode: release]
+
+integration_test_real_device_android_staging_debug,Run automation test on real device
+,[environment: staging]
+,[mode: debug]
+
+integration_test_real_device_android_staging_profile,Run automation test on real device
+,[environment: staging]
+,[mode: profile]
+
+integration_test_real_device_android_staging_release,Run automation test on real device
+,[environment: staging]
 ,[mode: release]
 
 integration_test_real_device_ios,Chạy automation test trên thiết bị ios thật
@@ -108,6 +154,18 @@ integration_test_web_chrome_dev_release,Run automation test on chrome
 ,[environment: development]
 ,[mode: release]
 
+integration_test_web_chrome_staging_debug,Run automation test on chrome
+,[environment: staging]
+,[mode: debug]
+
+integration_test_web_chrome_staging_profile,Run automation test on chrome
+,[environment: staging]
+,[mode: profile]
+
+integration_test_web_chrome_staging_release,Run automation test on chrome
+,[environment: staging]
+,[mode: release]
+
 integration_test_web_safari_dev_debug,Run automation test on safari
 ,[environment: development]
 ,[mode: debug]
@@ -120,6 +178,18 @@ integration_test_web_safari_dev_release,Run automation test on safari
 ,[environment: development]
 ,[mode: release]
 
+integration_test_web_safari_staging_debug,Run automation test on safari
+,[environment: staging]
+,[mode: debug]
+
+integration_test_web_safari_staging_profile,Run automation test on safari
+,[environment: staging]
+,[mode: profile]
+
+integration_test_web_safari_staging_release,Run automation test on safari
+,[environment: staging]
+,[mode: release]
+
 integration_test_web_firefox_dev_debug,Run automation test on firefox
 ,[environment: development]
 ,[mode: debug]
@@ -130,4 +200,16 @@ integration_test_web_firefox_dev_profile,Run automation test on firefox
 
 integration_test_web_firefox_dev_release,Run automation test on firefox
 ,[environment: development]
+,[mode: release]
+
+integration_test_web_firefox_staging_debug,Run automation test on firefox
+,[environment: staging]
+,[mode: debug]
+
+integration_test_web_firefox_staging_profile,Run automation test on firefox
+,[environment: staging]
+,[mode: profile]
+
+integration_test_web_firefox_staging_release,Run automation test on firefox
+,[environment: staging]
 ,[mode: release]

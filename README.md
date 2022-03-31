@@ -128,6 +128,7 @@ This is template project used TDD and BLoC patterns with multiple environments a
 * [22. Contributing](#22.-Contributing)
 * [23. Documentation](#23.-Documentation)
 * [24. Thanks](#24.-Thanks)
+* [25. Issues](#25.-Issues)
 
 ## 1. Feature
 
@@ -906,3 +907,6 @@ Pull requests are always welcome! Feel free to open a new GitHub issue for any c
 [Generate icon app](https://appicon.co/)
 [Run test android buildTypes](https://stackoverflow.com/questions/31180173/espresso-junit-4-imports-are-not-getting-added-to-android-studio-project-migra)
 
+## 25. Issues
+
+- [] [Flutter driver uninstall app fails when using applicationIdSuffix](https://github.com/flutter/flutter/issues/88690)

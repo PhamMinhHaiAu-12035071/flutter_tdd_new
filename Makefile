@@ -141,7 +141,7 @@ coverage:
 .PHONY: integration_test_device_dev_debug
 integration_test_device_dev_debug:
 	flutter drive \
-	--flavor=dev  \
+	--flavor=dev \
 	--debug \
 	--driver=test_driver/integration_test.dart \
 	--target=integration_test/gherkin_suite_test_develop.dart
@@ -149,7 +149,7 @@ integration_test_device_dev_debug:
 .PHONY: integration_test_device_dev_profile
 integration_test_device_dev_profile:
 	flutter drive \
-	--flavor=dev  \
+	--flavor=dev \
 	--profile \
 	--driver=test_driver/integration_test.dart \
 	--target=integration_test/gherkin_suite_test_develop.dart
@@ -157,7 +157,7 @@ integration_test_device_dev_profile:
 .PHONY: integration_test_device_staging_debug
 integration_test_device_staging_debug:
 	flutter drive \
-	--flavor=stg  \
+	--flavor=stg \
 	--debug \
 	--driver=test_driver/integration_test.dart \
 	--target=integration_test/gherkin_suite_test_staging.dart
@@ -165,7 +165,7 @@ integration_test_device_staging_debug:
 .PHONY: integration_test_device_staging_profile
 integration_test_device_staging_profile:
 	flutter drive \
-	--flavor=stg  \
+	--flavor=stg \
 	--profile \
 	--driver=test_driver/integration_test.dart \
 	--target=integration_test/gherkin_suite_test_staging.dart
@@ -173,7 +173,7 @@ integration_test_device_staging_profile:
 .PHONY: integration_test_device_production_debug
 integration_test_device_production_debug:
 	flutter drive \
-	--flavor=prod  \
+	--flavor=prod \
 	--debug \
 	--driver=test_driver/integration_test.dart \
 	--target=integration_test/gherkin_suite_test_production.dart
@@ -181,7 +181,7 @@ integration_test_device_production_debug:
 .PHONY: integration_test_device_production_profile
 integration_test_device_production_profile:
 	flutter drive \
-	--flavor=prod  \
+	--flavor=prod \
 	--profile \
 	--driver=test_driver/integration_test.dart \
 	--target=integration_test/gherkin_suite_test_production.dart

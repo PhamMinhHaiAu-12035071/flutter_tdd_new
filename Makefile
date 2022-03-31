@@ -106,9 +106,17 @@ integration_test_device_dev_profile:
 	--driver=test_driver/integration_test.dart \
 	--target=integration_test/gherkin_suite_test_develop.dart
 
-.PHONY: integration_test_real_device_android
-integration_test_real_device_android:
-	./scripts/run_android.sh
+.PHONY: integration_test_real_device_android_dev_debug
+integration_test_real_device_android_dev_debug:
+	./scripts/run_android.sh -e dev -f debug
+
+.PHONY: integration_test_real_device_android_dev_profile
+integration_test_real_device_android_dev_profile:
+	./scripts/run_android.sh -e dev -f profile
+
+.PHONY: integration_test_real_device_android_dev_release
+integration_test_real_device_android_dev_release:
+	./scripts/run_android.sh -e dev -f release
 
 .PHONY: integration_test_real_device_ios
 integration_test_real_device_ios:

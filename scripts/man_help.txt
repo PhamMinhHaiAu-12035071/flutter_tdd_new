@@ -78,7 +78,17 @@ integration_test_device_dev_profile,Run automation test on emulator
 ,[environment: development]
 ,[mode: profile]
 
-integration_test_real_device_android,Run automation test on real device
+integration_test_real_device_android_dev_debug,Run automation test on real device
+,[environment: development]
+,[mode: debug]
+
+integration_test_real_device_android_dev_profile,Run automation test on real device
+,[environment: development]
+,[mode: profile]
+
+integration_test_real_device_android_dev_release,Run automation test on real device
+,[environment: development]
+,[mode: release]
 
 integration_test_real_device_ios,Chạy automation test trên thiết bị ios thật
 ,Điều kiện: Thiết bị ios phải được kết nối với máy tính

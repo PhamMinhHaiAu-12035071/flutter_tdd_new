@@ -29,9 +29,19 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
-android {
+// define function get testBuildType based on build mode
+def obtainTestBuildType() {
+    def result = "debug";
 
-    testBuildType "profile"
+    if (project.hasProperty("testBuildType")) {
+        result = project.getProperties().get("testBuildType")
+    }
+    println "🥳 [obtainTestBuildType] $result";
+    result
+}
+
+android {
+    testBuildType obtainTestBuildType()
 
     // fix error could run app --release
     lintOptions {
@@ -112,3 +122,4 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
+

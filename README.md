@@ -389,8 +389,6 @@ make integration_test_device_dev_profile
 - **Bước 6**: Chạy testcase
 
     Mở Xcode -> **Product** -> **Test**
-   
-    https://user-images.githubusercontent.com/14148177/159928831-374eee28-73e3-41f9-ac22-ef4cf1945cf5.mov
 
 - **Bước 7**: Thiết lập tin cập cho app trên điện thoại
 
@@ -428,9 +426,21 @@ make integration_test_device_dev_profile
 
 ##### 14.1.1.1 debug mode
 
+```bash
+make integration_test_real_device_android_dev_debug
+```
+
 ##### 14.1.1.2 profile mode
 
+```bash
+make integration_test_real_device_android_dev_profile
+```
+
 ##### 14.1.1.3 release mode
+
+```bash
+make integration_test_real_device_android_dev_release
+```
 
 ## 15. Issues to keep in mind when running automation tests in the browser
 

@@ -19,7 +19,10 @@ This is template project used TDD and BLoC patterns with multiple environments a
       - [8.1.2.1 debug mode](#8.1.2.1-debug-mode)
       - [8.1.2.2 profile mode](#8.1.2.2-profile-mode)
       - [8.1.2.3 release mode](#8.1.2.3-release-mode)
-    * [Với môi trường production](#với-môi-trường-production)
+    * [8.1.3 production environment](#8.1.3-production-environment)
+      - [8.1.3.1 debug mode](#8.1.3.1-debug-mode)
+      - [8.1.3.2 profile mode](#8.1.3.2-profile-mode)
+      - [8.1.3.3 release mode](#8.1.3.3-release-mode)  
 * [9. Run web server](#9.-Run-web-server)
   - [9.1 development environment](#9.1-development-environment)
     * [9.1.1 debug mode](#9.1.1-debug-mode)
@@ -29,7 +32,10 @@ This is template project used TDD and BLoC patterns with multiple environments a
     * [9.2.1 debug mode](#9.2.1-debug-mode)
     * [9.2.2 profile mode](#9.2.2-profile-mode)
     * [9.2.3 release mode](#9.2.3 release mode)
-  - [Web server với môi trường production](#web-server-với-môi-trường-production)
+  - [9.3 production environment](#9.3-production-environment)
+    * [9.3.1 debug mode](#9.3.1-debug-mode)
+    * [9.3.2 profile mode](#9.3.2-profile-mode)
+    * [9.3.3 release mode](#9.3.3 release mode)
 * [10. Run web](#10.-Run-web)
   - [10.1 development environment](#10.1-development-environment)  
     * [10.1.1 debug mode](#10.1.1-debug-mode)
@@ -39,7 +45,10 @@ This is template project used TDD and BLoC patterns with multiple environments a
     * [10.2.1 debug mode](#10.2.1-debug-mode)
     * [10.2.2 profile mode](#10.2.2-profile-mode)
     * [10.2.3 release mode](#10.2.3 release mode)
-  - [Web với môi trường production](#web-với-môi-trường-production)
+  - [10.3 production environment](#10.3-production-environment)
+    * [10.3.1 debug mode](#10.3.1-debug-mode)
+    * [10.3.2 profile mode](#10.3.2-profile-mode)
+    * [10.3.3 release mode](#10.3.3 release mode)
 * [11. Run unit test](#11.-Run-unit-test)
 * [12. Run unit test and coverage](#12.-Run-unit-test-and-coverage)
 * [13. Run automation test on emulator](#13.-Run-automation-test-on-emulator)
@@ -54,6 +63,10 @@ This is template project used TDD and BLoC patterns with multiple environments a
       - [13.1.3.1 debug mode](#13.1.3.1-debug-mode)
       - [13.1.3.2 profile mode](#13.1.3.2-profile-mode)
       - [13.1.3.3 release mode](#13.1.3.3-release-mode)
+    * [13.1.4 production environment](#13.1.4-production-environment)
+      - [13.1.4.1 debug mode](#13.1.4.1-debug-mode)
+      - [13.1.4.2 profile mode](#13.1.4.2-profile-mode)
+      - [13.1.4.3 release mode](#13.1.4.3-release-mode)
 * [14. Run automation test on real device](#14.-Run-automation-test-on-real-device)
   - [Trên IOS thật với xcode](#trên-ios-thật-với-xcode)
   - [14.1 Android](#14.1-Android)
@@ -65,6 +78,10 @@ This is template project used TDD and BLoC patterns with multiple environments a
       - [14.1.2.1 debug mode](#14.1.2.1-debug-mode)
       - [14.1.2.2 profile mode](#14.1.2.2-profile-mode)
       - [14.1.2.3 release mode](#14.1.2.3-release-mode)
+    * [14.1.3 production environment](#14.1.3-production-environment)
+      - [14.1.3.1 debug mode](#14.1.3.1-debug-mode)
+      - [14.1.3.2 profile mode](#14.1.3.2-profile-mode)
+      - [14.1.3.3 release mode](#14.1.3.3-release-mode)
 * [15. Issues to keep in mind when running automation tests in the browser](#15.-Issues-to-keep-in-mind-when-running-automation-tests-in-the-browser)  
 * [16. Run automation test on chrome](#16.-Run-automation-test-on-chrome)
   - [16.1 development environment](#16.1-development-environment)
@@ -75,6 +92,10 @@ This is template project used TDD and BLoC patterns with multiple environments a
     * [16.2.1 debug mode](#16.2.1-debug-mode)
     * [16.2.2 profile mode](#16.2.2-profile-mode)
     * [16.2.3 release mode](#16.2.3-release-mode)
+  - [16.3 production environment](#16.3-production-environment)
+    * [16.3.1 debug mode](#16.3.1-debug-mode)
+    * [16.3.2 profile mode](#16.3.2-profile-mode)
+    * [16.3.3 release mode](#16.3.3-release-mode)
 * [17. Run automation test on firefox](#17.-Run-automation-test-on-firefox)
   - [17.1 development environment](#17.1-development-environment)
     * [17.1.1 debug mode](#17.1.1-debug-mode)
@@ -84,6 +105,10 @@ This is template project used TDD and BLoC patterns with multiple environments a
     * [17.2.1 debug mode](#17.2.1-debug-mode)
     * [17.2.2 profile mode](#17.2.2-profile-mode)
     * [17.2.3 release mode](#17.2.3-release-mode)
+  - [17.3 production environment](#17.3-production-environment)
+    * [17.3.1 debug mode](#17.3.1-debug-mode)
+    * [17.3.2 profile mode](#17.3.2-profile-mode)
+    * [17.3.3 release mode](#17.3.3-release-mode)
 * [18. Run automation test on safari](#18.-Run-automation-test-on-safari)
   - [18.1 development environment](#18.1-development-environment)
     * [18.1.1 debug mode](#18.1.1-debug-mode)
@@ -93,6 +118,10 @@ This is template project used TDD and BLoC patterns with multiple environments a
     * [18.2.1 debug mode](#18.2.1-debug-mode)
     * [18.2.2 profile mode](#18.2.2-profile-mode)
     * [18.2.3 release mode](#18.2.3-release-mode)
+  - [18.3 production environment](#18.3-production-environment)
+    * [18.3.1 debug mode](#18.3.1-debug-mode)
+    * [18.3.2 profile mode](#18.3.2-profile-mode)
+    * [18.3.3 release mode](#18.3.3-release-mode)
 * [19. Run automation test on edge](#19.-Run-automation-test-on-edge)
 * [20. Inspiration](#20.-Inspiration)
 * [21. Author](#21.-Author)
@@ -231,8 +260,25 @@ make emulator_stg_profile
 make emulator_stg_release
 ```
 
-#### Với môi trường production
+#### 8.1.3 production environment
 
+##### 8.1.3.1 debug mode
+
+```bash
+make emulator_prod_debug
+```
+
+##### 8.1.3.2 profile mode
+
+```bash
+make emulator_prod_profile
+```
+
+##### 8.1.3.3 release mode
+
+```bash
+make emulator_prod_release
+```
 
 ## 9. Run web server
 
@@ -278,10 +324,24 @@ make web_server_stg_profile
 make web_server_stg_release
 ```
 
-### Web server với môi trường production
+### 9.3 production environment
+
+#### 9.3.1 debug mode
 
 ```bash
-make web-server-prod
+make web_server_prod_debug
+```
+
+#### 9.3.2 profile mode
+
+```bash
+make web_server_prod_profile
+```
+
+#### 9.3.3 release mode
+
+```bash
+make web_server_prod_release
 ```
 
 ## 10. Run web
@@ -330,12 +390,24 @@ make web_stg_profile
 make web_stg_release
 ```
 
-### Web với môi trường production
+### 10.3 production environment
 
-- Link [web-renderers](https://docs.flutter.dev/development/tools/web-renderers)
+#### 10.3.1 debug mode
 
 ```bash
-make web-prod
+make web_prod_debug
+```
+
+#### 10.3.2 profile mode
+
+```bash
+make web_prod_profile
+```
+
+#### 10.3.3 release mode
+
+```bash
+make web_prod_release
 ```
 
 ## 11. Run unit test
@@ -437,6 +509,24 @@ make integration_test_device_staging_profile
 ```
 
 ##### 13.1.3.3 release mode
+
+- Not support
+
+#### 13.1.4 production environment
+
+##### 13.1.4.1 debug mode
+
+```bash
+make integration_test_device_production_debug
+```
+
+##### 13.1.4.2 profile mode
+
+```bash
+make integration_test_device_production_profile
+```
+
+##### 13.1.4.3 release mode
 
 - Not support
 
@@ -557,6 +647,26 @@ make integration_test_real_device_android_staging_profile
 make integration_test_real_device_android_staging_release
 ```
 
+#### 14.1.3 production environment
+
+##### 14.1.3.1 debug mode
+
+```bash
+make integration_test_real_device_android_production_debug
+```
+
+##### 14.1.3.2 profile mode
+
+```bash
+make integration_test_real_device_android_production_profile
+```
+
+##### 14.1.3.3 release mode
+
+```bash
+make integration_test_real_device_android_production_release
+```
+
 ## 15. Issues to keep in mind when running automation tests in the browser
 
 - When performing automation testing on the browser, it will automatically run the script to open the terminal start driver and the terminal will automatically shut down when the automation test is finished running. But there will be a problem that the terminal will display a popup asking you to confirm to turn it off.
@@ -615,6 +725,26 @@ make integration_test_web_chrome_staging_profile
 make integration_test_web_chrome_staging_release
 ```
 
+### 16.3 production environment
+
+#### 16.3.1 debug mode
+
+```bash
+make integration_test_web_chrome_production_debug
+```
+
+#### 16.3.2 profile mode
+
+```bash
+make integration_test_web_chrome_production_profile
+```
+
+#### 16.3.3 release mode
+
+```bash
+make integration_test_web_chrome_production_release
+```
+
 ## 17. Run automation test on firefox
 
 - **Requirements**: Install [firefox](https://www.mozilla.org/en-US/firefox/new/)
@@ -656,6 +786,26 @@ make integration_test_web_firefox_staging_profile
 
 ```bash
 make integration_test_web_firefox_staging_release
+```
+
+### 17.3 production environment
+
+#### 17.3.1 debug mode
+
+```bash
+make integration_test_web_firefox_production_debug
+```
+
+#### 17.3.2 profile mode
+
+```bash
+make integration_test_web_firefox_production_profile
+```
+
+#### 17.3.3 release mode
+
+```bash
+make integration_test_web_firefox_production_release
 ```
 
 ## 18. Run automation test on safari
@@ -702,6 +852,26 @@ make integration_test_web_safari_staging_profile
 
 ```bash
 make integration_test_web_safari_staging_release
+```
+
+### 18.3 production environment
+
+#### 18.3.1 debug mode
+
+```bash
+make integration_test_web_safari_production_debug
+```
+
+#### 18.3.2 profile mode
+
+```bash
+make integration_test_web_safari_production_profile
+```
+
+#### 18.3.3 release mode
+
+```bash
+make integration_test_web_safari_production_release
 ```
 
 ## 19. Run automation test on edge

@@ -34,9 +34,17 @@ emulator_stg_release,Run code on emulator
 ,[environment: staging]
 ,[mode: release]
 
-emulator-prod-debug,Chạy code trên thiết bị ảo
+emulator_prod_debug,Run code on emulator
 ,[environment: production]
 ,[mode: debug]
+
+emulator_prod_profile,Run code on emulator
+,[environment: production]
+,[mode: profile]
+
+emulator_prod_release,Run code on emulator
+,[environment: production]
+,[mode: release]
 
 web_server_dev_debug,Run code on chrome
 ,[environment: development]
@@ -62,8 +70,17 @@ web_server_stg_release,Run code on chrome
 ,[environment: staging]
 ,[mode: release]
 
-web-server-prod,Chạy code trên trình duyệt dưới dạng web-server
+web_server_prod_debug,Run code on chrome
 ,[environment: production]
+,[mode: debug]
+
+web_server_prod_profile,Run code on chrome
+,[environment: production]
+,[mode: profile]
+
+web_server_prod_release,Run code on chrome
+,[environment: production]
+,[mode: release]
 
 web_dev_debug,Run code on chrome
 ,[environment: development]
@@ -89,8 +106,17 @@ web_stg_release,Run code on chrome
 ,[environment: staging]
 ,[mode: release]
 
-web-prod,Chạy code trên trình duyệt
+web_prod_debug,Run code on chrome
 ,[environment: production]
+,[mode: debug]
+
+web_prod_profile,Run code on chrome
+,[environment: production]
+,[mode: profile]
+
+web_prod_release,Run code on chrome
+,[environment: production]
+,[mode: release]
 
 test,Run all file unit-test
 
@@ -110,6 +136,14 @@ integration_test_device_staging_debug,Run automation test on emulator
 
 integration_test_device_staging_profile,Run automation test on emulator
 ,[environment: staging]
+,[mode: profile]
+
+integration_test_device_production_debug,Run automation test on emulator
+,[environment: production]
+,[mode: debug]
+
+integration_test_device_production_profile,Run automation test on emulator
+,[environment: production]
 ,[mode: profile]
 
 integration_test_real_device_android_dev_debug,Run automation test on real device
@@ -134,6 +168,18 @@ integration_test_real_device_android_staging_profile,Run automation test on real
 
 integration_test_real_device_android_staging_release,Run automation test on real device
 ,[environment: staging]
+,[mode: release]
+
+integration_test_real_device_android_production_debug,Run automation test on real device
+,[environment: production]
+,[mode: debug]
+
+integration_test_real_device_android_production_profile,Run automation test on real device
+,[environment: production]
+,[mode: profile]
+
+integration_test_real_device_android_production_release,Run automation test on real device
+,[environment: production]
 ,[mode: release]
 
 integration_test_real_device_ios,Chạy automation test trên thiết bị ios thật
@@ -166,6 +212,18 @@ integration_test_web_chrome_staging_release,Run automation test on chrome
 ,[environment: staging]
 ,[mode: release]
 
+integration_test_web_chrome_production_debug,Run automation test on chrome
+,[environment: production]
+,[mode: debug]
+
+integration_test_web_chrome_production_profile,Run automation test on chrome
+,[environment: production]
+,[mode: profile]
+
+integration_test_web_chrome_production_release,Run automation test on chrome
+,[environment: production]
+,[mode: release]
+
 integration_test_web_safari_dev_debug,Run automation test on safari
 ,[environment: development]
 ,[mode: debug]
@@ -190,6 +248,18 @@ integration_test_web_safari_staging_release,Run automation test on safari
 ,[environment: staging]
 ,[mode: release]
 
+integration_test_web_safari_production_debug,Run automation test on safari
+,[environment: production]
+,[mode: debug]
+
+integration_test_web_safari_production_profile,Run automation test on safari
+,[environment: production]
+,[mode: profile]
+
+integration_test_web_safari_production_release,Run automation test on safari
+,[environment: production]
+,[mode: release]
+
 integration_test_web_firefox_dev_debug,Run automation test on firefox
 ,[environment: development]
 ,[mode: debug]
@@ -212,4 +282,16 @@ integration_test_web_firefox_staging_profile,Run automation test on firefox
 
 integration_test_web_firefox_staging_release,Run automation test on firefox
 ,[environment: staging]
+,[mode: release]
+
+integration_test_web_firefox_production_debug,Run automation test on firefox
+,[environment: production]
+,[mode: debug]
+
+integration_test_web_firefox_production_profile,Run automation test on firefox
+,[environment: production]
+,[mode: profile]
+
+integration_test_web_firefox_production_release,Run automation test on firefox
+,[environment: production]
 ,[mode: release]

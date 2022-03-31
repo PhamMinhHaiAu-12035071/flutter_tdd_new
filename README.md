@@ -142,7 +142,7 @@ make rebuild
 
 - [x] Remove node_modules
 - [x] Remove cache pub
-- [x] Remove các file generated
+- [x] Remove file generated
 
 ```bash
 make clean
@@ -166,7 +166,7 @@ make emulator_dev_debug
 
 - **Requirements**:
   - Android emulator must support instruction: **arm64-v8a**
-  - If you want to check android emulator to have support for**arm64-v8a** or not ? Please install third-party software **Device Info**
+  - If you want to check android emulator to have support for**arm64-v8a** or not ? Please install third-party software [Device Info](https://play.google.com/store/apps/details?id=com.alphabetlabs.deviceinfo&hl=en&gl=US)
 
 ```bash
 make emulator_dev_profile
@@ -176,7 +176,7 @@ make emulator_dev_profile
 
 - **Requirements**:
   - Android emulator must support instruction: **arm64-v8a**
-  - If you want to check android emulator to have support for**arm64-v8a** or not ? Please install third-party software **Device Info**
+  - If you want to check android emulator to have support for**arm64-v8a** or not ? Please install third-party software [Device Info](https://play.google.com/store/apps/details?id=com.alphabetlabs.deviceinfo&hl=en&gl=US)
 
 ```bash
 make emulator_dev_release
@@ -299,11 +299,11 @@ make coverage
 
 ### 13.1 Android
 
-#### 13.1.1 Install Android Studio
+#### 13.1.1 Install [Android Studio](https://developer.android.com/studio)
 
 - **Suggest**: should install [Genymotion](https://www.genymotion.com/) and [Virtualbox](https://www.macupdate.com/app/mac/24801/virtualbox) to run android emulator faster.
 
-- **Step 1**: Change view toolbar
+- **Step 1**: Change view **toolbar**
 
     Open Android Studio -> **View** -> **Appearance** -> **Toolbar**
 
@@ -419,7 +419,7 @@ make integration_test_device_dev_profile
     Open Android Studio from <project_dir>/android -> Choose **Build** -> **Rebuild Project**
 
     > Waiting build successfully
-  > 
+
 - **Step 5**: Run test with specific environment and mode.
 
 #### 14.1.1 development environment

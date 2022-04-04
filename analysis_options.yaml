@@ -1,13 +1,14 @@
 include: package:very_good_analysis/analysis_options.yaml
 
 analyzer:
-  exclude: [
+  exclude:
+    [
       lib/**.g.dart,
       lib/configs/di/injection.config.dart,
       integration_test/gherkin_suite_test_develop.g.dart,
       integration_test/gherkin_suite_test_staging.g.dart,
       integration_test/gherkin_suite_test_production.g.dart,
-  ]
+    ]
 
 linter:
   rules:

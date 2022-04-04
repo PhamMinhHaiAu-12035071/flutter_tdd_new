@@ -21,11 +21,64 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+def flutterAppName = localProperties.getProperty('flutter.appName')
+if(flutterAppName == null) {
+    flutterAppName = 'TDD Default'
+}
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
+/*
++~~~~~~+~~~~~~+~~~~~~~~~~~+
+|  fg  |  bg  |  color    |
++~~~~~~+~~~~~~+~~~~~~~~~~~+
+|  30  |  40  |  black    |
+|  31  |  41  |  red      |
+|  32  |  42  |  green    |
+|  33  |  43  |  yellow   |
+|  34  |  44  |  blue     |
+|  35  |  45  |  magenta  |
+|  36  |  46  |  cyan     |
+|  37  |  47  |  white    |
+|  39  |  49  |  default  |
++~~~~~~+~~~~~~+~~~~~~~~~~~+
+ */
+
+// define function get testBuildType based on build mode
+def obtainTestBuildType() {
+    def result = "debug";
+
+    if (project.hasProperty("testBuildType")) {
+        result = project.getProperties().get("testBuildType")
+    }
+    def style = "${(char)27}[32;"+"m"
+    println(style+"🥳 [obtainTestBuildType] $result")
+    result
+}
+
+def configReleaseWithTestBuildType() {
+    def result = true;
+
+    if (project.hasProperty("testBuildType")) {
+        def valueTestBuildType = project.getProperties().get("testBuildType");
+        if(valueTestBuildType == "release") {
+            result = false;
+        }
+    }
+    def style = "${(char)27}[32;"+"m"
+    println(style+"🥳 [configReleaseWithTestBuildType] $result")
+    result
+}
+
 android {
+    testBuildType obtainTestBuildType()
+
+    // fix error could run app --release
+    lintOptions {
+        checkReleaseBuilds false
+    }
+
     compileSdkVersion flutter.compileSdkVersion
 
     compileOptions {
@@ -45,22 +98,59 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+        }
+        profile {
+            minifyEnabled false
+            debuggable true
+        }
         release {
+            minifyEnabled configReleaseWithTestBuildType()
+            shrinkResources configReleaseWithTestBuildType()
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
+        }
+    }
+
+    // handle multiple environments
+
+    flavorDimensions "flavors"
+    productFlavors {
+        dev {
+            dimension "flavors"
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+            resValue "string", "app_name", flutterAppName
+        }
+        stg {
+            dimension "flavors"
+            applicationIdSuffix ".stg"
+            versionNameSuffix "-stg"
+            resValue "string", "app_name", flutterAppName
+        }
+        prod {
+            dimension "flavors"
+            resValue "string", "app_name", flutterAppName
         }
     }
 }
 
 flutter {
     source '../..'
+    target 'lib/main_dev.dart'
+    target 'lib/main_staging.dart'
+    target 'lib/main_production.dart'
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.13.2'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    testImplementation 'junit:junit:4.12'
 
     // https://developer.android.com/jetpack/androidx/releases/test/#1.2.0
-    androidTestImplementation 'androidx.test:runner:1.4.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
+

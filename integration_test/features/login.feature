@@ -29,29 +29,29 @@ Feature: Login Page
       | email                               | password                            |
       | "loginForm_emailInput_textField"    | "loginForm_passwordInput_textField" |
 
-  Scenario Outline: Login failed
-    Given I am on the login page
-    When I fill the <email> field with "eve.holt@reqres.in"
-    Then I should see "eve.holt@reqres.in"
-    And I expect the "Submit" button to be disabled
-    When I fill the <password> field with "123456"
-    And I expect the "Submit" button to be enabled
-    When I tap the "Submit" button
-    Then I should see "Missing password"
-
-    Examples:
-      | email                               | password                            |
-      | "loginForm_emailInput_textField"    | "loginForm_passwordInput_textField" |
-
-  Scenario Outline: Login successfully
-    Given I am on the login page
-    When I fill the <email> field with "eve.holt@reqres.in"
-    Then I should see "eve.holt@reqres.in"
-    And I expect the "Submit" button to be disabled
-    When I fill the <password> field with "cityslicka"
-    And I expect the "Submit" button to be enabled
-    When I tap the "Submit" button
-    Then I should see home page
-    Examples:
-      | email                               | password                            |
-      | "loginForm_emailInput_textField"    | "loginForm_passwordInput_textField" |
+#  Scenario Outline: Login failed
+#    Given I am on the login page
+#    When I fill the <email> field with "peter@klaven"
+#    Then I should see "peter@klaven"
+#    And I expect the "Submit" button to be disabled
+#    When I fill the <password> field with "123456"
+#    And I expect the "Submit" button to be enabled
+#    When I tap the "Submit" button
+#    Then I should see "user not found"
+#
+#    Examples:
+#      | email                               | password                            |
+#      | "loginForm_emailInput_textField"    | "loginForm_passwordInput_textField" |
+#
+#  Scenario Outline: Login successfully
+#    Given I am on the login page
+#    When I fill the <email> field with "eve.holt@reqres.in"
+#    Then I should see "eve.holt@reqres.in"
+#    And I expect the "Submit" button to be disabled
+#    When I fill the <password> field with "cityslicka"
+#    And I expect the "Submit" button to be enabled
+#    When I tap the "Submit" button
+#    Then I should see home page
+#    Examples:
+#      | email                               | password                            |
+#      | "loginForm_emailInput_textField"    | "loginForm_passwordInput_textField" |

@@ -8,6 +8,11 @@ pre-push:
 
 pre-commit:
   parallel: true
+  scripts:
+    "ignore_file.js":
+      runner: node
+    "check_skip_commit.js":
+      runner: node
   commands:
     markdown-link-check:
       glob: '*.md'
@@ -26,4 +31,12 @@ pre-commit:
 commit-msg:
   scripts:
     "commit_lint.js":
+      runner: node
+    "check_skip_commit.js":
+      runner: node
+
+
+prepare-commit-msg:
+  scripts:
+    "prevent_skip_commit.js":
       runner: node

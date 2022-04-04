@@ -1,62 +1,297 @@
-Câu lệnh,Mô tả
+Command,Description
 
-help,Hiển thị danh sách trợ giúp
+help,Show menu help
 
-install,Cài đặt
+playground,Run file ./lib/playground/example.dart check code
 
-rebuild,Xoá và tạo lại các file dart
+install, Install dependencies
 
-clean,Xoá tất cả cache
+rebuild,Remove and generate file
 
-web-server-dev,Chạy code trên trình duyệt dưới dạng web-server
-,[môi trường: development]
-,(phù hợp khi test trên máy yếu nhưng phải hot-reload thủ công)
+clean, Remove cache and uninstall
 
-web-dev,Chạy code trên trình duyệt
-,[môi trường: development]
-,(link tham khảo chi tiết https://docs.flutter.dev/development/tools/web-renderers)
+emulator_dev_debug,Run code on emulator
+,[environment: development]
+,[mode: debug]
 
-web-server-stg,Chạy code trên trình duyệt dưới dạng web-server
-,[môi trường: staging]
-,(phù hợp khi test trên máy yếu nhưng phải hot-reload thủ công)
+emulator_dev_profile,Run code on emulator
+,[environment: development]
+,[mode: profile]
 
-web-stg,Chạy code trên trình duyệt
-,[môi trường: staging]
-,(link tham khảo chi tiết https://docs.flutter.dev/development/tools/web-renderers)
+emulator_dev_release,Run code on emulator
+,[environment: development]
+,[mode: release]
 
-web-server-prod,Chạy code trên trình duyệt dưới dạng web-server
-,[môi trường: production]
-,(phù hợp khi test trên máy yếu nhưng phải hot-reload thủ công)
+emulator_stg_debug,Run code on emulator
+,[environment: staging]
+,[mode: debug]
 
-web-prod,Chạy code trên trình duyệt
-,[môi trường: production]
-,(link tham khảo chi tiết https://docs.flutter.dev/development/tools/web-renderers)
+emulator_stg_profile,Run code on emulator
+,[environment: staging]
+,[mode: profile]
 
+emulator_stg_release,Run code on emulator
+,[environment: staging]
+,[mode: release]
 
-test,Chạy tất cả file unit-test
+emulator_prod_debug,Run code on emulator
+,[environment: production]
+,[mode: debug]
 
-coverage,Kiểm tra số lượng test-case bao phủ
+emulator_prod_profile,Run code on emulator
+,[environment: production]
+,[mode: profile]
 
-integration_test_device,Chạy automation test trên thiết bị ảo
-,Điều kiện: Emulator phải được mở (android hoặc ios)
+emulator_prod_release,Run code on emulator
+,[environment: production]
+,[mode: release]
 
-integration_test_real_device_android,Chạy automation test trên thiết bị android thật
-,Điều kiện 1: Thiết bị android phải được kết nối với máy tính
-,Điều kiện 2: Java version recommended is 11 or higher
+web_server_dev_debug,Run code on chrome
+,[environment: development]
+,[mode: debug]
+
+web_server_dev_profile,Run code on chrome
+,[environment: development]
+,[mode: profile]
+
+web_server_dev_release,Run code on chrome
+,[environment: development]
+,[mode: release]
+
+web_server_stg_debug,Run code on chrome
+,[environment: staging]
+,[mode: debug]
+
+web_server_stg_profile,Run code on chrome
+,[environment: staging]
+,[mode: profile]
+
+web_server_stg_release,Run code on chrome
+,[environment: staging]
+,[mode: release]
+
+web_server_prod_debug,Run code on chrome
+,[environment: production]
+,[mode: debug]
+
+web_server_prod_profile,Run code on chrome
+,[environment: production]
+,[mode: profile]
+
+web_server_prod_release,Run code on chrome
+,[environment: production]
+,[mode: release]
+
+web_dev_debug,Run code on chrome
+,[environment: development]
+,[mode: debug]
+
+web_dev_profile,Run code on chrome
+,[environment: development]
+,[mode: profile]
+
+web_dev_release,Run code on chrome
+,[environment: development]
+,[mode: release]
+
+web_stg_debug,Run code on chrome
+,[environment: staging]
+,[mode: debug]
+
+web_stg_profile,Run code on chrome
+,[environment: staging]
+,[mode: profile]
+
+web_stg_release,Run code on chrome
+,[environment: staging]
+,[mode: release]
+
+web_prod_debug,Run code on chrome
+,[environment: production]
+,[mode: debug]
+
+web_prod_profile,Run code on chrome
+,[environment: production]
+,[mode: profile]
+
+web_prod_release,Run code on chrome
+,[environment: production]
+,[mode: release]
+
+test,Run all file unit-test
+
+coverage,Run all file unit-test and coverage
+
+integration_test_device_dev_debug,Run automation test on emulator
+,[environment: development]
+,[mode: debug]
+
+integration_test_device_dev_profile,Run automation test on emulator
+,[environment: development]
+,[mode: profile]
+
+integration_test_device_staging_debug,Run automation test on emulator
+,[environment: staging]
+,[mode: debug]
+
+integration_test_device_staging_profile,Run automation test on emulator
+,[environment: staging]
+,[mode: profile]
+
+integration_test_device_production_debug,Run automation test on emulator
+,[environment: production]
+,[mode: debug]
+
+integration_test_device_production_profile,Run automation test on emulator
+,[environment: production]
+,[mode: profile]
+
+integration_test_real_device_android_dev_debug,Run automation test on real device
+,[environment: development]
+,[mode: debug]
+
+integration_test_real_device_android_dev_profile,Run automation test on real device
+,[environment: development]
+,[mode: profile]
+
+integration_test_real_device_android_dev_release,Run automation test on real device
+,[environment: development]
+,[mode: release]
+
+integration_test_real_device_android_staging_debug,Run automation test on real device
+,[environment: staging]
+,[mode: debug]
+
+integration_test_real_device_android_staging_profile,Run automation test on real device
+,[environment: staging]
+,[mode: profile]
+
+integration_test_real_device_android_staging_release,Run automation test on real device
+,[environment: staging]
+,[mode: release]
+
+integration_test_real_device_android_production_debug,Run automation test on real device
+,[environment: production]
+,[mode: debug]
+
+integration_test_real_device_android_production_profile,Run automation test on real device
+,[environment: production]
+,[mode: profile]
+
+integration_test_real_device_android_production_release,Run automation test on real device
+,[environment: production]
+,[mode: release]
 
 integration_test_real_device_ios,Chạy automation test trên thiết bị ios thật
 ,Điều kiện: Thiết bị ios phải được kết nối với máy tính
 ,Sau khi xcode mở -> Chọn điện thoại -> Nhấn Product -> Test
 
-integration_test_report,Mở web hiển thị báo cáo automation-test
+integration_test_report,Report automation test
 
-integration_test_web_chrome,Chạy automation test trên trình duyệt Chrome
-,Điều kiện: phải cài đặt trình duyệt Chrome trên máy tính
+integration_test_web_chrome_dev_debug,Run automation test on chrome
+,[environment: development]
+,[mode: debug]
 
-integration_test_web_chrome_debug,Chạy automation test debug trên trình duyệt Chrome
+integration_test_web_chrome_dev_profile,Run automation test on chrome
+,[environment: development]
+,[mode: profile]
 
-integration_test_web_safari,Chạy automation test trên trình duyệt Safari
-,(chỉ hoạt động trên máy MacOS)
+integration_test_web_chrome_dev_release,Run automation test on chrome
+,[environment: development]
+,[mode: release]
 
-integration_test_web_firefox,Chạy automation test trên trình duyệt Firefox
-,Điều kiện: phải cài đặt trình duyệt Firefox trên máy tính
+integration_test_web_chrome_staging_debug,Run automation test on chrome
+,[environment: staging]
+,[mode: debug]
+
+integration_test_web_chrome_staging_profile,Run automation test on chrome
+,[environment: staging]
+,[mode: profile]
+
+integration_test_web_chrome_staging_release,Run automation test on chrome
+,[environment: staging]
+,[mode: release]
+
+integration_test_web_chrome_production_debug,Run automation test on chrome
+,[environment: production]
+,[mode: debug]
+
+integration_test_web_chrome_production_profile,Run automation test on chrome
+,[environment: production]
+,[mode: profile]
+
+integration_test_web_chrome_production_release,Run automation test on chrome
+,[environment: production]
+,[mode: release]
+
+integration_test_web_safari_dev_debug,Run automation test on safari
+,[environment: development]
+,[mode: debug]
+
+integration_test_web_safari_dev_profile,Run automation test on safari
+,[environment: development]
+,[mode: profile]
+
+integration_test_web_safari_dev_release,Run automation test on safari
+,[environment: development]
+,[mode: release]
+
+integration_test_web_safari_staging_debug,Run automation test on safari
+,[environment: staging]
+,[mode: debug]
+
+integration_test_web_safari_staging_profile,Run automation test on safari
+,[environment: staging]
+,[mode: profile]
+
+integration_test_web_safari_staging_release,Run automation test on safari
+,[environment: staging]
+,[mode: release]
+
+integration_test_web_safari_production_debug,Run automation test on safari
+,[environment: production]
+,[mode: debug]
+
+integration_test_web_safari_production_profile,Run automation test on safari
+,[environment: production]
+,[mode: profile]
+
+integration_test_web_safari_production_release,Run automation test on safari
+,[environment: production]
+,[mode: release]
+
+integration_test_web_firefox_dev_debug,Run automation test on firefox
+,[environment: development]
+,[mode: debug]
+
+integration_test_web_firefox_dev_profile,Run automation test on firefox
+,[environment: development]
+,[mode: profile]
+
+integration_test_web_firefox_dev_release,Run automation test on firefox
+,[environment: development]
+,[mode: release]
+
+integration_test_web_firefox_staging_debug,Run automation test on firefox
+,[environment: staging]
+,[mode: debug]
+
+integration_test_web_firefox_staging_profile,Run automation test on firefox
+,[environment: staging]
+,[mode: profile]
+
+integration_test_web_firefox_staging_release,Run automation test on firefox
+,[environment: staging]
+,[mode: release]
+
+integration_test_web_firefox_production_debug,Run automation test on firefox
+,[environment: production]
+,[mode: debug]
+
+integration_test_web_firefox_production_profile,Run automation test on firefox
+,[environment: production]
+,[mode: profile]
+
+integration_test_web_firefox_production_release,Run automation test on firefox
+,[environment: production]
+,[mode: release]

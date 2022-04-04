@@ -1,134 +1,136 @@
 # flutter_tdd_new
+
 This is template project used TDD and BLoC patterns with multiple environments and flavor
 
 # Mục lục
-  * [1. Feature](#1-feature)
-  * [2. Project structure](#2-project-structure)
-  * [3. Requirements](#3-requirements)
-  * [4. Help command](#4-help-command)
-  * [5. Install](#5-install)
-  * [6. Generate file command](#6-generate-file-command)
-  * [7. Uninstall](#7-uninstall)
-  * [8. Run code on Emulator](#8-run-code-on-emulator)
-    + [8.1 Android](#81-android)
-      - [8.1.1 development environment](#811-development-environment)
-        * [8.1.1.1 debug mode](#8111-debug-mode)
-        * [8.1.1.2 profile mode](#8112-profile-mode)
-        * [8.1.1.3 release mode](#8113-release-mode)
-      - [8.1.2 staging environment](#812-staging-environment)
-        * [8.1.2.1 debug mode](#8121-debug-mode)
-        * [8.1.2.2 profile mode](#8122-profile-mode)
-        * [8.1.2.3 release mode](#8123-release-mode)
-      - [8.1.3 production environment](#813-production-environment)
-        * [8.1.3.1 debug mode](#8131-debug-mode)
-        * [8.1.3.2 profile mode](#8132-profile-mode)
-        * [8.1.3.3 release mode](#8133-release-mode)
-  * [9. Run web server](#9-run-web-server)
-    + [9.1 development environment](#91-development-environment)
-      - [9.1.1 debug mode](#911-debug-mode)
-      - [9.1.2 profile mode](#912-profile-mode)
-      - [9.1.3 release mode](#913-release-mode)
-    + [9.2 staging environment](#92-staging-environment)
-      - [9.2.1 debug mode](#921-debug-mode)
-      - [9.2.2 profile mode](#922-profile-mode)
-      - [9.2.3 release mode](#923-release-mode)
-    + [9.3 production environment](#93-production-environment)
-      - [9.3.1 debug mode](#931-debug-mode)
-      - [9.3.2 profile mode](#932-profile-mode)
-      - [9.3.3 release mode](#933-release-mode)
-  * [10. Run web](#10-run-web)
-    + [10.1 development environment](#101-development-environment)
-      - [10.1.1 debug mode](#1011-debug-mode)
-      - [10.1.2 profile mode](#1012-profile-mode)
-      - [10.1.3 release mode](#1013-release-mode)
-    + [10.2 staging environment](#102-staging-environment)
-      - [10.2.1 debug mode](#1021-debug-mode)
-      - [10.2.2 profile mode](#1022-profile-mode)
-      - [10.2.3 release mode](#1023-release-mode)
-    + [10.3 production environment](#103-production-environment)
-      - [10.3.1 debug mode](#1031-debug-mode)
-      - [10.3.2 profile mode](#1032-profile-mode)
-      - [10.3.3 release mode](#1033-release-mode)
-  * [11. Run unit test](#11-run-unit-test)
-  * [12. Run unit test and coverage](#12-run-unit-test-and-coverage)
-  * [13. Run automation test on emulator](#13-run-automation-test-on-emulator)
-    + [Trên IOS với android studio](#tr-n-ios-v-i-android-studio)
-    + [13.1 Android](#131-android)
-      - [13.1.1 Install [Android Studio](https://developer.android.com/studio)](#1311-install--android-studio--https---developerandroidcom-studio-)
-      - [13.1.2 development environment](#1312-development-environment)
-        * [13.1.2.1 debug mode](#13121-debug-mode)
-        * [13.1.2.2 profile mode](#13122-profile-mode)
-        * [13.1.2.3 release mode](#13123-release-mode)
-      - [13.1.3 staging environment](#1313-staging-environment)
-        * [13.1.3.1 debug mode](#13131-debug-mode)
-        * [13.1.3.2 profile mode](#13132-profile-mode)
-        * [13.1.3.3 release mode](#13133-release-mode)
-      - [13.1.4 production environment](#1314-production-environment)
-        * [13.1.4.1 debug mode](#13141-debug-mode)
-        * [13.1.4.2 profile mode](#13142-profile-mode)
-        * [13.1.4.3 release mode](#13143-release-mode)
-  * [14. Run automation test on real device](#14-run-automation-test-on-real-device)
-    + [Trên IOS thật với xcode](#tr-n-ios-th-t-v-i-xcode)
-    + [14.1 Android](#141-android)
-      - [14.1.1 development environment](#1411-development-environment)
-        * [14.1.1.1 debug mode](#14111-debug-mode)
-        * [14.1.1.2 profile mode](#14112-profile-mode)
-        * [14.1.1.3 release mode](#14113-release-mode)
-      - [14.1.2 staging environment](#1412-staging-environment)
-        * [14.1.2.1 debug mode](#14121-debug-mode)
-        * [14.1.2.2 profile mode](#14122-profile-mode)
-        * [14.1.2.3 release mode](#14123-release-mode)
-      - [14.1.3 production environment](#1413-production-environment)
-        * [14.1.3.1 debug mode](#14131-debug-mode)
-        * [14.1.3.2 profile mode](#14132-profile-mode)
-        * [14.1.3.3 release mode](#14133-release-mode)
-  * [15. Issues to keep in mind when running automation tests in the browser](#15-issues-to-keep-in-mind-when-running-automation-tests-in-the-browser)
-  * [16. Run automation test on chrome](#16-run-automation-test-on-chrome)
-    + [16.1 development environment](#161-development-environment)
-      - [16.1.1 debug mode](#1611-debug-mode)
-      - [16.1.2 profile mode](#1612-profile-mode)
-      - [16.1.3 release mode](#1613-release-mode)
-    + [16.2 staging environment](#162-staging-environment)
-      - [16.2.1 debug mode](#1621-debug-mode)
-      - [16.2.2 profile mode](#1622-profile-mode)
-      - [16.2.3 release mode](#1623-release-mode)
-    + [16.3 production environment](#163-production-environment)
-      - [16.3.1 debug mode](#1631-debug-mode)
-      - [16.3.2 profile mode](#1632-profile-mode)
-      - [16.3.3 release mode](#1633-release-mode)
-  * [17. Run automation test on firefox](#17-run-automation-test-on-firefox)
-    + [17.1 development environment](#171-development-environment)
-      - [17.1.1 debug mode](#1711-debug-mode)
-      - [17.1.2 profile mode](#1712-profile-mode)
-      - [17.1.3 release mode](#1713-release-mode)
-    + [17.2 staging environment](#172-staging-environment)
-      - [17.2.1 debug mode](#1721-debug-mode)
-      - [17.2.2 profile mode](#1722-profile-mode)
-      - [17.2.3 release mode](#1723-release-mode)
-    + [17.3 production environment](#173-production-environment)
-      - [17.3.1 debug mode](#1731-debug-mode)
-      - [17.3.2 profile mode](#1732-profile-mode)
-      - [17.3.3 release mode](#1733-release-mode)
-  * [18. Run automation test on safari](#18-run-automation-test-on-safari)
-    + [18.1 development environment](#181-development-environment)
-      - [18.1.1 debug mode](#1811-debug-mode)
-      - [18.1.2 profile mode](#1812-profile-mode)
-      - [18.1.3 release mode](#1813-release-mode)
-    + [18.2 staging environment](#182-staging-environment)
-      - [18.2.1 debug mode](#1821-debug-mode)
-      - [18.2.2 profile mode](#1822-profile-mode)
-      - [18.2.3 release mode](#1823-release-mode)
-    + [18.3 production environment](#183-production-environment)
-      - [18.3.1 debug mode](#1831-debug-mode)
-      - [18.3.2 profile mode](#1832-profile-mode)
-      - [18.3.3 release mode](#1833-release-mode)
-  * [19. Run automation test on edge](#19-run-automation-test-on-edge)
-  * [20. Inspiration](#20-inspiration)
-  * [21. Author](#21-author)
-  * [22. Contributing](#22-contributing)
-  * [23. Documentation](#23-documentation)
-  * [24. Thanks](#24-thanks)
-  * [25. Issues](#25-issues)
+
+- [1. Feature](#1-feature)
+- [2. Project structure](#2-project-structure)
+- [3. Requirements](#3-requirements)
+- [4. Help command](#4-help-command)
+- [5. Install](#5-install)
+- [6. Generate file command](#6-generate-file-command)
+- [7. Uninstall](#7-uninstall)
+- [8. Run code on Emulator](#8-run-code-on-emulator)
+  - [8.1 Android](#81-android)
+    - [8.1.1 development environment](#811-development-environment)
+      - [8.1.1.1 debug mode](#8111-debug-mode)
+      - [8.1.1.2 profile mode](#8112-profile-mode)
+      - [8.1.1.3 release mode](#8113-release-mode)
+    - [8.1.2 staging environment](#812-staging-environment)
+      - [8.1.2.1 debug mode](#8121-debug-mode)
+      - [8.1.2.2 profile mode](#8122-profile-mode)
+      - [8.1.2.3 release mode](#8123-release-mode)
+    - [8.1.3 production environment](#813-production-environment)
+      - [8.1.3.1 debug mode](#8131-debug-mode)
+      - [8.1.3.2 profile mode](#8132-profile-mode)
+      - [8.1.3.3 release mode](#8133-release-mode)
+- [9. Run web server](#9-run-web-server)
+  - [9.1 development environment](#91-development-environment)
+    - [9.1.1 debug mode](#911-debug-mode)
+    - [9.1.2 profile mode](#912-profile-mode)
+    - [9.1.3 release mode](#913-release-mode)
+  - [9.2 staging environment](#92-staging-environment)
+    - [9.2.1 debug mode](#921-debug-mode)
+    - [9.2.2 profile mode](#922-profile-mode)
+    - [9.2.3 release mode](#923-release-mode)
+  - [9.3 production environment](#93-production-environment)
+    - [9.3.1 debug mode](#931-debug-mode)
+    - [9.3.2 profile mode](#932-profile-mode)
+    - [9.3.3 release mode](#933-release-mode)
+- [10. Run web](#10-run-web)
+  - [10.1 development environment](#101-development-environment)
+    - [10.1.1 debug mode](#1011-debug-mode)
+    - [10.1.2 profile mode](#1012-profile-mode)
+    - [10.1.3 release mode](#1013-release-mode)
+  - [10.2 staging environment](#102-staging-environment)
+    - [10.2.1 debug mode](#1021-debug-mode)
+    - [10.2.2 profile mode](#1022-profile-mode)
+    - [10.2.3 release mode](#1023-release-mode)
+  - [10.3 production environment](#103-production-environment)
+    - [10.3.1 debug mode](#1031-debug-mode)
+    - [10.3.2 profile mode](#1032-profile-mode)
+    - [10.3.3 release mode](#1033-release-mode)
+- [11. Run unit test](#11-run-unit-test)
+- [12. Run unit test and coverage](#12-run-unit-test-and-coverage)
+- [13. Run automation test on emulator](#13-run-automation-test-on-emulator)
+  - [Trên IOS với android studio](#tr-n-ios-v-i-android-studio)
+  - [13.1 Android](#131-android)
+    - [13.1.1 Install [Android Studio](https://developer.android.com/studio)](#1311-install--android-studio--https---developerandroidcom-studio-)
+    - [13.1.2 development environment](#1312-development-environment)
+      - [13.1.2.1 debug mode](#13121-debug-mode)
+      - [13.1.2.2 profile mode](#13122-profile-mode)
+      - [13.1.2.3 release mode](#13123-release-mode)
+    - [13.1.3 staging environment](#1313-staging-environment)
+      - [13.1.3.1 debug mode](#13131-debug-mode)
+      - [13.1.3.2 profile mode](#13132-profile-mode)
+      - [13.1.3.3 release mode](#13133-release-mode)
+    - [13.1.4 production environment](#1314-production-environment)
+      - [13.1.4.1 debug mode](#13141-debug-mode)
+      - [13.1.4.2 profile mode](#13142-profile-mode)
+      - [13.1.4.3 release mode](#13143-release-mode)
+- [14. Run automation test on real device](#14-run-automation-test-on-real-device)
+  - [Trên IOS thật với xcode](#tr-n-ios-th-t-v-i-xcode)
+  - [14.1 Android](#141-android)
+    - [14.1.1 development environment](#1411-development-environment)
+      - [14.1.1.1 debug mode](#14111-debug-mode)
+      - [14.1.1.2 profile mode](#14112-profile-mode)
+      - [14.1.1.3 release mode](#14113-release-mode)
+    - [14.1.2 staging environment](#1412-staging-environment)
+      - [14.1.2.1 debug mode](#14121-debug-mode)
+      - [14.1.2.2 profile mode](#14122-profile-mode)
+      - [14.1.2.3 release mode](#14123-release-mode)
+    - [14.1.3 production environment](#1413-production-environment)
+      - [14.1.3.1 debug mode](#14131-debug-mode)
+      - [14.1.3.2 profile mode](#14132-profile-mode)
+      - [14.1.3.3 release mode](#14133-release-mode)
+- [15. Issues to keep in mind when running automation tests in the browser](#15-issues-to-keep-in-mind-when-running-automation-tests-in-the-browser)
+- [16. Run automation test on chrome](#16-run-automation-test-on-chrome)
+  - [16.1 development environment](#161-development-environment)
+    - [16.1.1 debug mode](#1611-debug-mode)
+    - [16.1.2 profile mode](#1612-profile-mode)
+    - [16.1.3 release mode](#1613-release-mode)
+  - [16.2 staging environment](#162-staging-environment)
+    - [16.2.1 debug mode](#1621-debug-mode)
+    - [16.2.2 profile mode](#1622-profile-mode)
+    - [16.2.3 release mode](#1623-release-mode)
+  - [16.3 production environment](#163-production-environment)
+    - [16.3.1 debug mode](#1631-debug-mode)
+    - [16.3.2 profile mode](#1632-profile-mode)
+    - [16.3.3 release mode](#1633-release-mode)
+- [17. Run automation test on firefox](#17-run-automation-test-on-firefox)
+  - [17.1 development environment](#171-development-environment)
+    - [17.1.1 debug mode](#1711-debug-mode)
+    - [17.1.2 profile mode](#1712-profile-mode)
+    - [17.1.3 release mode](#1713-release-mode)
+  - [17.2 staging environment](#172-staging-environment)
+    - [17.2.1 debug mode](#1721-debug-mode)
+    - [17.2.2 profile mode](#1722-profile-mode)
+    - [17.2.3 release mode](#1723-release-mode)
+  - [17.3 production environment](#173-production-environment)
+    - [17.3.1 debug mode](#1731-debug-mode)
+    - [17.3.2 profile mode](#1732-profile-mode)
+    - [17.3.3 release mode](#1733-release-mode)
+- [18. Run automation test on safari](#18-run-automation-test-on-safari)
+  - [18.1 development environment](#181-development-environment)
+    - [18.1.1 debug mode](#1811-debug-mode)
+    - [18.1.2 profile mode](#1812-profile-mode)
+    - [18.1.3 release mode](#1813-release-mode)
+  - [18.2 staging environment](#182-staging-environment)
+    - [18.2.1 debug mode](#1821-debug-mode)
+    - [18.2.2 profile mode](#1822-profile-mode)
+    - [18.2.3 release mode](#1823-release-mode)
+  - [18.3 production environment](#183-production-environment)
+    - [18.3.1 debug mode](#1831-debug-mode)
+    - [18.3.2 profile mode](#1832-profile-mode)
+    - [18.3.3 release mode](#1833-release-mode)
+- [19. Run automation test on edge](#19-run-automation-test-on-edge)
+- [20. Inspiration](#20-inspiration)
+- [21. Author](#21-author)
+- [22. Contributing](#22-contributing)
+- [23. Documentation](#23-documentation)
+- [24. Thanks](#24-thanks)
+- [25. Issues](#25-issues)
 
 ## 1. Feature
 
@@ -138,13 +140,13 @@ This is template project used TDD and BLoC patterns with multiple environments a
 
 ## 2. Project structure
 
-    .    
+    .
     ├── integration_test                                 # The directory automation test
     ├── ios                                              # The directory native code ios
     ├── android                                          # The directory native code android
     ├── lib                                              # The directory project
     |   ├── configs                                      # The directory config and routes
-    |   ├── constants                                    
+    |   ├── constants
     |   ├── modules                                      # The directory contains all applications feature
     |   ├── shared                                       # The directory commons (widgets, third party...)
     |   ├── utilities                                    # The directory contains all functions useful
@@ -172,7 +174,7 @@ This is template project used TDD and BLoC patterns with multiple environments a
 make
 ```
 
-or 
+or
 
 ```bash
 make help
@@ -437,9 +439,9 @@ make coverage
 
 - **Bước 3**: Chạy lệnh test
 
-    ```bash
-    make integration_test_device
-    ```
+  ```bash
+  make integration_test_device
+  ```
 
     <img width="1156" alt="image" src="https://user-images.githubusercontent.com/14148177/159907860-58095911-91e6-4ae6-9fbf-758d8e10fef2.png">
 
@@ -451,19 +453,19 @@ make coverage
 
 - **Step 1**: Change view **toolbar**
 
-    Open Android Studio -> **View** -> **Appearance** -> **Toolbar**
+  Open Android Studio -> **View** -> **Appearance** -> **Toolbar**
 
 - **Step 2**: Install plugin **Genymotion**
 
-    Open Android Studio -> **Preferences** -> **Plugins** -> Gõ "Genymotion" -> **Install**
+  Open Android Studio -> **Preferences** -> **Plugins** -> Gõ "Genymotion" -> **Install**
 
 - **Step 3**: Set path app Genymotion
 
-    Open Android Studio -> **Preferences** -> Gõ "Genymotion" -> **Genymotion Plugin** -> Set path **/Applications/Genymotion.app**
+  Open Android Studio -> **Preferences** -> Gõ "Genymotion" -> **Genymotion Plugin** -> Set path **/Applications/Genymotion.app**
 
 - **Step 4**: Run Android emulator
 
-    Click icon 'Genymotion' -> Choose device -> **Start**
+  Click icon 'Genymotion' -> Choose device -> **Start**
 
 - **Step 5**: Waiting build successfully
 
@@ -482,7 +484,7 @@ make integration_test_device_dev_debug
 - **Requirements**:
   - Android emulator must support instruction: **arm64-v8a**
   - If you want to check android emulator to have support for**arm64-v8a** or not ? Please install third-party software [Device Info](https://play.google.com/store/apps/details?id=com.alphabetlabs.deviceinfo&hl=en&gl=US)
-  
+
 ```bash
 make integration_test_device_dev_profile
 ```
@@ -504,7 +506,7 @@ make integration_test_device_staging_debug
 - **Requirements**:
   - Android emulator must support instruction: **arm64-v8a**
   - If you want to check android emulator to have support for**arm64-v8a** or not ? Please install third-party software [Device Info](https://play.google.com/store/apps/details?id=com.alphabetlabs.deviceinfo&hl=en&gl=US)
-  
+
 ```bash
 make integration_test_device_staging_profile
 ```
@@ -537,18 +539,19 @@ make integration_test_device_production_profile
 
 - **Bước 1**: Mở Xcode
 
-    Tại thư mục dự án gõ lệnh:
+  Tại thư mục dự án gõ lệnh:
 
-    ```bash
-    cd ios/
-    ```
-    Mở xcode bằng command:
+  ```bash
+  cd ios/
+  ```
 
-    ```bash
-    xed .
-    ```
-    
-    https://user-images.githubusercontent.com/14148177/159926408-af240e8f-2c18-4dba-ba3e-067167a41599.mov
+  Mở xcode bằng command:
+
+  ```bash
+  xed .
+  ```
+
+  https://user-images.githubusercontent.com/14148177/159926408-af240e8f-2c18-4dba-ba3e-067167a41599.mov
 
 - **Bước 2**: Chờ xcode build thành công
 
@@ -560,51 +563,51 @@ make integration_test_device_production_profile
 
 - **Bước 4**: Đăng kí file signingConfig
 
-    Bạn cần phải có một tài khoản apple -> đăng nhập -> Chọn **Signing & Capabilities**
+  Bạn cần phải có một tài khoản apple -> đăng nhập -> Chọn **Signing & Capabilities**
 
     <img width="1168" alt="image" src="https://user-images.githubusercontent.com/14148177/159930207-a7181745-5431-4b20-ba1d-ee42b503181f.png">
 
 - **Bước 5**: Chạy lệnh để build lại file testcase
 
-    ```bash
-    make integration_test_real_device_ios
-    ```
-    
+  ```bash
+  make integration_test_real_device_ios
+  ```
+
     <img width="1131" alt="image" src="https://user-images.githubusercontent.com/14148177/159928269-b9e6ec8c-6957-4bc2-8954-6050137406e5.png">
 
 - **Bước 6**: Chạy testcase
 
-    Mở Xcode -> **Product** -> **Test**
+  Mở Xcode -> **Product** -> **Test**
 
 - **Bước 7**: Thiết lập tin cập cho app trên điện thoại
 
-    Trên điện thoại vào mục **Cài đặt** -> **Cài đặt chung** -> **Quản lý thiết bị** -> Chọn app -> Chọn **Trust**
+  Trên điện thoại vào mục **Cài đặt** -> **Cài đặt chung** -> **Quản lý thiết bị** -> Chọn app -> Chọn **Trust**
 
-    https://user-images.githubusercontent.com/14148177/159929580-fdde3787-fe02-402a-8b3d-160872529848.MP4
+  https://user-images.githubusercontent.com/14148177/159929580-fdde3787-fe02-402a-8b3d-160872529848.MP4
 
 ### 14.1 Android
 
 - **Step 1**: Pluggable USB Android
 
-    ![image](https://user-images.githubusercontent.com/14148177/159932365-240196aa-32e3-439e-acbc-b3bb78acd73a.png)
+  ![image](https://user-images.githubusercontent.com/14148177/159932365-240196aa-32e3-439e-acbc-b3bb78acd73a.png)
 
 - **Step 2**: Check java version should is **11**
 
-    ```bash
-    java --version
-    ```
-    
+  ```bash
+  java --version
+  ```
+
     <img width="1146" alt="image" src="https://user-images.githubusercontent.com/14148177/159934605-c46d4da3-4ce6-42af-92cf-e7d633d6b0bd.png">
 
 - **Step 3**: Check gradle mapping with java 11
 
-    Open Android Studio from <project_dir>/android -> Choose **File**  -> **Project Structure** -> **SDK Location** -> **Gradle settings** -> Java sdk
+  Open Android Studio from <project_dir>/android -> Choose **File** -> **Project Structure** -> **SDK Location** -> **Gradle settings** -> Java sdk
 
 - **Step 4**: Build android
 
-    Open Android Studio from <project_dir>/android -> Choose **Build** -> **Rebuild Project**
+  Open Android Studio from <project_dir>/android -> Choose **Build** -> **Rebuild Project**
 
-    > Waiting build successfully
+  > Waiting build successfully
 
 - **Step 5**: Run test with specific environment and mode.
 
@@ -769,6 +772,7 @@ make integration_test_web_firefox_dev_profile
 ```bash
 make integration_test_web_firefox_dev_release
 ```
+
 ### 17.2 staging environment
 
 #### 17.2.1 debug mode
@@ -811,11 +815,11 @@ make integration_test_web_firefox_production_release
 
 ## 18. Run automation test on safari
 
-- **Requirements**: 
-  
+- **Requirements**:
+
   - Install [safari](https://support.apple.com/downloads/safari)
   - Must have MacOS
-  
+
 ### 18.1 development environment
 
 #### 18.1.1 debug mode
@@ -835,6 +839,7 @@ make integration_test_web_safari_dev_profile
 ```bash
 make integration_test_web_safari_dev_release
 ```
+
 ### 18.2 staging environment
 
 #### 18.2.1 debug mode
@@ -877,8 +882,8 @@ make integration_test_web_safari_production_release
 
 ## 19. Run automation test on edge
 
-- **Requirements**: 
-  
+- **Requirements**:
+
   - Install [Edge](https://www.microsoft.com/en-us/edge)
   - Must have windows
 
@@ -895,7 +900,7 @@ Phạm Minh Hải Âu
 
 Pull requests are always welcome! Feel free to open a new GitHub issue for any changes that can be made.
 
-**Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://gist.github.com/MarcDiethelm/7303312)
+**Working on your first Pull Request?** You can learn how from this _free_ series [How to Contribute to an Open Source Project on GitHub](https://gist.github.com/MarcDiethelm/7303312)
 
 ## 23. Documentation
 

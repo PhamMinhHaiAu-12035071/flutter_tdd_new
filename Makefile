@@ -576,4 +576,3 @@ integration_test_web_firefox_production_release:
 		--target=integration_test/gherkin_suite_test_production.dart -d web-server --no-headless \
 	&& sleep 2 \
     && ./scripts/close_tab.sh
-
